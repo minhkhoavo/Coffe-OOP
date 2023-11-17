@@ -5,7 +5,7 @@ using System.Xml.Linq;
 
 namespace OOP_CoffeeApp
 {
-    partial class Form1
+    partial class Form1 
     {
         /// <summary>
         /// Required designer variable.
@@ -100,8 +100,7 @@ namespace OOP_CoffeeApp
             Controls.Add(flowLayoutPanel2);
             Controls.Add(flowLayoutPanel1);
             Name = "Form1";
-            Text = "Quản lý coffe";
-            Load += Form1_Load;
+            Text = "Quản lý coffee";
             ResumeLayout(false);
             PerformLayout();
 

@@ -1,4 +1,4 @@
-﻿namespace OOP_Coffee.Form.UserControlUI
+﻿namespace OOP_CoffeeApp.Form.UserControlUI
 {
     partial class Order
     {

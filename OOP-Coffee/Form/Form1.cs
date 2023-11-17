@@ -5,7 +5,7 @@ using WinFormsApp1.Model;
 
 namespace OOP_CoffeeApp
 {
-    public partial class Form1 : Form
+    public partial class Form1 : System.Windows.Forms.Form
     {
         public Form1()
         {
