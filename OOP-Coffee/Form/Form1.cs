@@ -11,6 +11,5 @@ namespace OOP_CoffeeApp
         {
             InitializeComponent();
         }
-
     }
 }
