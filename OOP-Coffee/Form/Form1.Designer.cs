@@ -1,6 +1,9 @@
 ﻿using System.Drawing;
+using static System.Net.Mime.MediaTypeNames;
+using System.Windows.Forms;
+using System.Xml.Linq;
 
-namespace OOP_Coffee
+namespace OOP_CoffeeApp
 {
     partial class Form1
     {
@@ -86,18 +89,21 @@ namespace OOP_Coffee
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1274, 678);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.total_lbl);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.flowLayoutPanel2);
-            this.Controls.Add(this.flowLayoutPanel1);
-            this.Name = "Form1";
-            this.Text = "Form1";
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleMode = AutoScaleMode.Font;
+            AutoScroll = true;
+            BackColor = SystemColors.Window;
+            ClientSize = new Size(1274, 678);
+            Controls.Add(button1);
+            Controls.Add(total_lbl);
+            Controls.Add(label1);
+            Controls.Add(flowLayoutPanel2);
+            Controls.Add(flowLayoutPanel1);
+            Name = "Form1";
+            Text = "Quản lý coffe";
+            Load += Form1_Load;
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 
