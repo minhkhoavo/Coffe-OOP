@@ -1,0 +1,9 @@
+D:\Workspace\OOP-Coffee\OOP-Coffee\obj\Debug\OOP-Coffee.csproj.AssemblyReference.cache
+D:\Workspace\OOP-Coffee\OOP-Coffee\obj\Debug\OOP_Coffee.Properties.Resources.resources
+D:\Workspace\OOP-Coffee\OOP-Coffee\obj\Debug\OOP-Coffee.csproj.GenerateResource.cache
+D:\Workspace\OOP-Coffee\OOP-Coffee\obj\Debug\OOP-Coffee.csproj.CoreCompileInputs.cache
+D:\Workspace\OOP-Coffee\OOP-Coffee\bin\Debug\OOP-Coffee.exe.config
+D:\Workspace\OOP-Coffee\OOP-Coffee\bin\Debug\OOP-Coffee.exe
+D:\Workspace\OOP-Coffee\OOP-Coffee\bin\Debug\OOP-Coffee.pdb
+D:\Workspace\OOP-Coffee\OOP-Coffee\obj\Debug\OOP-Coffee.exe
+D:\Workspace\OOP-Coffee\OOP-Coffee\obj\Debug\OOP-Coffee.pdb
