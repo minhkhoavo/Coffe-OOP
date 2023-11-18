@@ -57,7 +57,9 @@
     <Compile Include="Form\UserControlUI\Order.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Form\UserControlUI\Order.Designer.cs" />
+    <Compile Include="Form\UserControlUI\Order.Designer.cs">
+      <DependentUpon>Order.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form\UserControlUI\Product.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -71,9 +73,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form\UserControlUI\Order.resx">
-      <DependentUpon>Order.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\UserControlUI\Product.resx">
       <DependentUpon>Product.cs</DependentUpon>
