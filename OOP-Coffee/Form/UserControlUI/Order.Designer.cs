@@ -1,4 +1,4 @@
-﻿namespace OOP_CoffeeApp.Form.UserControlUI
+﻿namespace OOP_Coffee.Form.UserControlUI
 {
     partial class Order
     {
@@ -168,7 +168,6 @@
         }
 
         #endregion
-
         private System.Windows.Forms.PictureBox orderImg;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label orderPrice_lbl;
