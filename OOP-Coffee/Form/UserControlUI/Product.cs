@@ -40,6 +40,17 @@ namespace WinFormsApp1.Model
             proPrice_lbl.Text = "$" + price.ToString();
             proImg.Image = img;
         }
+
+        public Product(int id, string name, double price)
+        {
+            InitializeComponent();
+            Id = id;
+            Name = name;
+            Price = price;
+
+            proName_lbl.Text = name;
+            proPrice_lbl.Text = "$" + price.ToString();
+        }
         public event EventHandler<ProductClickedEventArgs> ProductClicked;
         private void Product_Click(object sender, EventArgs e)
         {
