@@ -30,10 +30,10 @@
         {
             this.orderImg = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.orderName_lbl = new System.Windows.Forms.Label();
-            this.orderPrice_lbl = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.orderTotal_lbl = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.orderPrice_lbl = new System.Windows.Forms.Label();
+            this.orderName_lbl = new System.Windows.Forms.Label();
             this.orderNote_lbl = new System.Windows.Forms.TextBox();
             this.orderDelete_btn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.orderImg)).BeginInit();
@@ -62,27 +62,15 @@
             this.panel1.Size = new System.Drawing.Size(360, 53);
             this.panel1.TabIndex = 0;
             // 
-            // orderName_lbl
+            // orderTotal_lbl
             // 
-            this.orderName_lbl.AutoSize = true;
-            this.orderName_lbl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.orderName_lbl.Location = new System.Drawing.Point(61, 3);
-            this.orderName_lbl.Name = "orderName_lbl";
-            this.orderName_lbl.Size = new System.Drawing.Size(129, 25);
-            this.orderName_lbl.TabIndex = 1;
-            this.orderName_lbl.Text = "Tên sản phẩm";
-            // 
-            // orderPrice_lbl
-            // 
-            this.orderPrice_lbl.AutoSize = true;
-            this.orderPrice_lbl.BackColor = System.Drawing.Color.Transparent;
-            this.orderPrice_lbl.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.orderPrice_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(187)))), ((int)(((byte)(194)))));
-            this.orderPrice_lbl.Location = new System.Drawing.Point(63, 25);
-            this.orderPrice_lbl.Name = "orderPrice_lbl";
-            this.orderPrice_lbl.Size = new System.Drawing.Size(37, 21);
-            this.orderPrice_lbl.TabIndex = 2;
-            this.orderPrice_lbl.Text = "$10";
+            this.orderTotal_lbl.AutoSize = true;
+            this.orderTotal_lbl.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.orderTotal_lbl.Location = new System.Drawing.Point(293, 11);
+            this.orderTotal_lbl.Name = "orderTotal_lbl";
+            this.orderTotal_lbl.Size = new System.Drawing.Size(48, 28);
+            this.orderTotal_lbl.TabIndex = 4;
+            this.orderTotal_lbl.Text = "$10";
             // 
             // numericUpDown1
             // 
@@ -109,16 +97,29 @@
             0,
             0,
             0});
+            this.numericUpDown1.Click += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
-            // orderTotal_lbl
+            // orderPrice_lbl
             // 
-            this.orderTotal_lbl.AutoSize = true;
-            this.orderTotal_lbl.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.orderTotal_lbl.Location = new System.Drawing.Point(293, 11);
-            this.orderTotal_lbl.Name = "orderTotal_lbl";
-            this.orderTotal_lbl.Size = new System.Drawing.Size(48, 28);
-            this.orderTotal_lbl.TabIndex = 4;
-            this.orderTotal_lbl.Text = "$10";
+            this.orderPrice_lbl.AutoSize = true;
+            this.orderPrice_lbl.BackColor = System.Drawing.Color.Transparent;
+            this.orderPrice_lbl.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.orderPrice_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(187)))), ((int)(((byte)(194)))));
+            this.orderPrice_lbl.Location = new System.Drawing.Point(63, 25);
+            this.orderPrice_lbl.Name = "orderPrice_lbl";
+            this.orderPrice_lbl.Size = new System.Drawing.Size(37, 21);
+            this.orderPrice_lbl.TabIndex = 2;
+            this.orderPrice_lbl.Text = "$10";
+            // 
+            // orderName_lbl
+            // 
+            this.orderName_lbl.AutoSize = true;
+            this.orderName_lbl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.orderName_lbl.Location = new System.Drawing.Point(61, 3);
+            this.orderName_lbl.Name = "orderName_lbl";
+            this.orderName_lbl.Size = new System.Drawing.Size(129, 25);
+            this.orderName_lbl.TabIndex = 1;
+            this.orderName_lbl.Text = "Tên sản phẩm";
             // 
             // orderNote_lbl
             // 
@@ -144,6 +145,7 @@
             this.orderDelete_btn.TabIndex = 2;
             this.orderDelete_btn.Text = "Xóa";
             this.orderDelete_btn.UseVisualStyleBackColor = false;
+            this.orderDelete_btn.Click += new System.EventHandler(this.orderDelete_btn_Click);
             // 
             // Order
             // 

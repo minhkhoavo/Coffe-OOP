@@ -42,9 +42,9 @@ namespace OOP_Coffee
     partial void InsertManager(Manager instance);
     partial void UpdateManager(Manager instance);
     partial void DeleteManager(Manager instance);
-    partial void InsertOrder(Order instance);
-    partial void UpdateOrder(Order instance);
-    partial void DeleteOrder(Order instance);
+    partial void InsertOrderDB(OrderDB instance);
+    partial void UpdateOrderDB(OrderDB instance);
+    partial void DeleteOrderDB(OrderDB instance);
     partial void InsertOrderItem(OrderItem instance);
     partial void UpdateOrderItem(OrderItem instance);
     partial void DeleteOrderItem(OrderItem instance);
@@ -112,11 +112,11 @@ namespace OOP_Coffee
 			}
 		}
 		
-		public System.Data.Linq.Table<Order> Orders
+		public System.Data.Linq.Table<OrderDB> OrderDBs
 		{
 			get
 			{
-				return this.GetTable<Order>();
+				return this.GetTable<OrderDB>();
 			}
 		}
 		
@@ -368,7 +368,7 @@ namespace OOP_Coffee
 		
 		private string _Password;
 		
-		private EntitySet<Order> _Orders;
+		private EntitySet<OrderDB> _Orders;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -388,7 +388,7 @@ namespace OOP_Coffee
 		
 		public Customer()
 		{
-			this._Orders = new EntitySet<Order>(new Action<Order>(this.attach_Orders), new Action<Order>(this.detach_Orders));
+			this._Orders = new EntitySet<OrderDB>(new Action<OrderDB>(this.attach_Orders), new Action<OrderDB>(this.detach_Orders));
 			OnCreated();
 		}
 		
@@ -493,7 +493,7 @@ namespace OOP_Coffee
 		}
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customer_Order", Storage="_Orders", ThisKey="CustomerID", OtherKey="CustomerID")]
-		public EntitySet<Order> Orders
+		public EntitySet<OrderDB> OrderDBs
 		{
 			get
 			{
@@ -525,13 +525,13 @@ namespace OOP_Coffee
 			}
 		}
 		
-		private void attach_Orders(Order entity)
+		private void attach_Orders(OrderDB entity)
 		{
 			this.SendPropertyChanging();
 			entity.Customer = this;
 		}
 		
-		private void detach_Orders(Order entity)
+		private void detach_Orders(OrderDB entity)
 		{
 			this.SendPropertyChanging();
 			entity.Customer = null;
@@ -887,7 +887,7 @@ namespace OOP_Coffee
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Orders")]
-	public partial class Order : INotifyPropertyChanging, INotifyPropertyChanged
+	public partial class OrderDB : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -914,7 +914,7 @@ namespace OOP_Coffee
     partial void OnOrderDateChanged();
     #endregion
 		
-		public Order()
+		public OrderDB()
 		{
 			this._OrderItems = new EntitySet<OrderItem>(new Action<OrderItem>(this.attach_OrderItems), new Action<OrderItem>(this.detach_OrderItems));
 			this._Customer = default(EntityRef<Customer>);
@@ -1015,12 +1015,12 @@ namespace OOP_Coffee
 					if ((previousValue != null))
 					{
 						this._Customer.Entity = null;
-						previousValue.Orders.Remove(this);
+						previousValue.OrderDBs.Remove(this);
 					}
 					this._Customer.Entity = value;
 					if ((value != null))
 					{
-						value.Orders.Add(this);
+						value.OrderDBs.Add(this);
 						this._CustomerID = value.CustomerID;
 					}
 					else
@@ -1055,13 +1055,13 @@ namespace OOP_Coffee
 		private void attach_OrderItems(OrderItem entity)
 		{
 			this.SendPropertyChanging();
-			entity.Order = this;
+			entity.OrderDB = this;
 		}
 		
 		private void detach_OrderItems(OrderItem entity)
 		{
 			this.SendPropertyChanging();
-			entity.Order = null;
+			entity.OrderDB = null;
 		}
 	}
 	
@@ -1081,7 +1081,7 @@ namespace OOP_Coffee
 		
 		private EntityRef<Item> _Item;
 		
-		private EntityRef<Order> _Order;
+		private EntityRef<OrderDB> _Order;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1100,7 +1100,7 @@ namespace OOP_Coffee
 		public OrderItem()
 		{
 			this._Item = default(EntityRef<Item>);
-			this._Order = default(EntityRef<Order>);
+			this._Order = default(EntityRef<OrderDB>);
 			OnCreated();
 		}
 		
@@ -1227,7 +1227,7 @@ namespace OOP_Coffee
 		}
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Order_OrderItem", Storage="_Order", ThisKey="OrderID", OtherKey="OrderID", IsForeignKey=true)]
-		public Order Order
+		public OrderDB OrderDB
 		{
 			get
 			{
@@ -1235,7 +1235,7 @@ namespace OOP_Coffee
 			}
 			set
 			{
-				Order previousValue = this._Order.Entity;
+				OrderDB previousValue = this._Order.Entity;
 				if (((previousValue != value) 
 							|| (this._Order.HasLoadedOrAssignedValue == false)))
 				{
@@ -1255,7 +1255,7 @@ namespace OOP_Coffee
 					{
 						this._OrderID = default(Nullable<int>);
 					}
-					this.SendPropertyChanged("Order");
+					this.SendPropertyChanged("OrderDB");
 				}
 			}
 		}

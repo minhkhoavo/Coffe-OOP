@@ -237,6 +237,9 @@
     <EmbeddedResource Include="Form\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form\UserControlUI\Order.resx">
+      <DependentUpon>Order.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\UserControlUI\Product.resx">
       <DependentUpon>Product.cs</DependentUpon>
     </EmbeddedResource>

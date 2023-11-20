@@ -11,16 +11,20 @@ using System.Linq;
 using DotNetEnv;
 using System.Collections.Generic;
 using WinFormsApp1;
+using OOP_Coffee.Form.UserControlUI;
+using System.Diagnostics;
 
 namespace OOP_CoffeeApp
 {
     public partial class Form1 : System.Windows.Forms.Form
     {
         private List<Order> orders = new List<Order>();
+        private List<Product> products;
         static double total = 0;
         public Form1()
         {
             InitializeComponent();
+            //this.products = products;
         }
         private void Form1_Load(object sender, System.EventArgs e)
         {
@@ -40,7 +44,7 @@ namespace OOP_CoffeeApp
                                    {
                                        Id = item.ItemID,
                                        Name = item.Name,
-                                       Price = item.Price ?? 0.0,
+                                       Price = Convert.ToDouble(item.Price),
                                        Img = item.ImageURL
                                    };
 
@@ -63,14 +67,13 @@ namespace OOP_CoffeeApp
             string productName = e.ProductName;
             double productPrice = e.ProductPrice;
             Image productImage = e.ProductImage;
-            // Hiển thị thông tin sản phẩm trong MessageBox
+
             string message = $"Tên Sản Phẩm: {productName} ID: {productId} \nGiá: {productPrice}";
             MessageBox.Show(message, "Thông Tin Sản Phẩm", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            /*
+            
             bool found = false;
             foreach (Order order in orders)
             {
-                //MessageBox.Show(order.Id.ToString());
                 if (order.Id == productId)
                 {
                     found = true;
@@ -84,16 +87,35 @@ namespace OOP_CoffeeApp
                 Order orderEl = new Order(productId, productName, productPrice, productImage);
                 orderEl.OrderDeleted += OrderForm_OrderDeleted;
                 orderEl.numericValueChange += NumericValueChangeAction;
-                SetControlBorderRadius(orderEl, 9);
+                //SetControlBorderRadius(orderEl, 9);
                 orders.Add(orderEl);
                 flowLayoutPanel2.Controls.Add(orderEl);
                 total += productPrice;
             }
 
             total_lbl.Text = "$" + total.ToString();
-            */
+            
         }
-
+        private void NumericValueChangeAction(object sender, NumericChangeValue e)
+        {
+            total += e.Value;
+            total_lbl.Text = "$" + total.ToString();
+        }
+        private void OrderForm_OrderDeleted(object sender, EventArgs e)
+        {
+            if (sender is Order orderForm)
+            {
+                total = total - orderForm.Price * orderForm.ProductQuantity();
+                total_lbl.Text = "$" + total.ToString();
+                flowLayoutPanel2.Controls.Remove(orderForm); 
+                orders.Remove(orderForm);
+                orderForm.Dispose(); // Giải phóng tài nguyên của orderForm (để tránh rò rỉ bộ nhớ)
+            }
+        }
+        private void Order_DeleteClicked(object sender, EventArgs e)
+        {
+            Order clickedOrder = (Order)sender;
+        }
 
         private void SetControlBorderRadius(Control control, int borderRadius)
         {
