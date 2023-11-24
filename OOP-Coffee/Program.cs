@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OOP_Coffee.Form;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,8 +17,8 @@ namespace OOP_CoffeeApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new fAdmin());
-            Application.Run(new Form1());
+            Application.Run(new fAdmin());
+            //Application.Run(new Form1());
         }
     }
 }

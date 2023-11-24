@@ -231,6 +231,9 @@
     <Compile Include="Form\UserControlUI\Product.Designer.cs">
       <DependentUpon>Product.cs</DependentUpon>
     </Compile>
+    <Compile Include="LinQDB.cs">
+      <DependentUpon>LinQDB.dbml</DependentUpon>
+    </Compile>
     <Compile Include="LinQDB.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

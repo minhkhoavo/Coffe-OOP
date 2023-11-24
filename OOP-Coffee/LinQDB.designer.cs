@@ -127,6 +127,14 @@ namespace OOP_Coffee
 				return this.GetTable<OrderItem>();
 			}
 		}
+		
+		public System.Data.Linq.Table<Dashboard> Dashboards
+		{
+			get
+			{
+				return this.GetTable<Dashboard>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Baristas")]
@@ -492,7 +500,7 @@ namespace OOP_Coffee
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customer_Order", Storage="_Orders", ThisKey="CustomerID", OtherKey="CustomerID")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customer_OrderDB", Storage="_Orders", ThisKey="CustomerID", OtherKey="CustomerID")]
 		public EntitySet<OrderDB> OrderDBs
 		{
 			get
@@ -985,7 +993,7 @@ namespace OOP_Coffee
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Order_OrderItem", Storage="_OrderItems", ThisKey="OrderID", OtherKey="OrderID")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OrderDB_OrderItem", Storage="_OrderItems", ThisKey="OrderID", OtherKey="OrderID")]
 		public EntitySet<OrderItem> OrderItems
 		{
 			get
@@ -998,7 +1006,7 @@ namespace OOP_Coffee
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customer_Order", Storage="_Customer", ThisKey="CustomerID", OtherKey="CustomerID", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customer_OrderDB", Storage="_Customer", ThisKey="CustomerID", OtherKey="CustomerID", IsForeignKey=true)]
 		public Customer Customer
 		{
 			get
@@ -1226,7 +1234,7 @@ namespace OOP_Coffee
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Order_OrderItem", Storage="_Order", ThisKey="OrderID", OtherKey="OrderID", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OrderDB_OrderItem", Storage="_Order", ThisKey="OrderID", OtherKey="OrderID", IsForeignKey=true)]
 		public OrderDB OrderDB
 		{
 			get
@@ -1277,6 +1285,105 @@ namespace OOP_Coffee
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Dashboard")]
+	public partial class Dashboard
+	{
+		
+		private int _id;
+		
+		private int _order_id;
+		
+		private System.DateTime _order_date;
+		
+		private decimal _total_price;
+		
+		private decimal _total_profit;
+		
+		public Dashboard()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this._id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_order_id", DbType="Int NOT NULL")]
+		public int order_id
+		{
+			get
+			{
+				return this._order_id;
+			}
+			set
+			{
+				if ((this._order_id != value))
+				{
+					this._order_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_order_date", DbType="Date NOT NULL")]
+		public System.DateTime order_date
+		{
+			get
+			{
+				return this._order_date;
+			}
+			set
+			{
+				if ((this._order_date != value))
+				{
+					this._order_date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_total_price", DbType="Decimal(10,2) NOT NULL")]
+		public decimal total_price
+		{
+			get
+			{
+				return this._total_price;
+			}
+			set
+			{
+				if ((this._total_price != value))
+				{
+					this._total_price = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_total_profit", DbType="Decimal(10,2) NOT NULL")]
+		public decimal total_profit
+		{
+			get
+			{
+				return this._total_profit;
+			}
+			set
+			{
+				if ((this._total_profit != value))
+				{
+					this._total_profit = value;
+				}
 			}
 		}
 	}
