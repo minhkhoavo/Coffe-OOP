@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="LinQDB">
+  <DataContextMoniker Name="/LinQDBDataContext" />
+  <nestedChildShapes>
+    <classShape Id="cfb6fa4b-f826-4888-a312-4ec8867f8756" absoluteBounds="0.5, 2.375, 2, 1.9631982421875">
+      <DataClassMoniker Name="/LinQDBDataContext/Barista" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0c934bdd-b07b-4e05-8e16-cb3813834855" absoluteBounds="0.51500000000000012, 2.835, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="04fbc4f1-5d89-4bbe-8f76-2aea3190c320" absoluteBounds="6, 0.5, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/LinQDBDataContext/Customer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fea432aa-cdfa-4710-9553-cc28ceb02a8e" absoluteBounds="6.015, 0.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1097dfc9-f1a5-4fc5-b09f-5bb1a5c75dc1" absoluteBounds="3.5, 0.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/LinQDBDataContext/Item" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a3261c57-cc45-4d37-8130-63a91a503fbe" absoluteBounds="3.5149999999999997, 1.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="eab91928-c84e-49df-814c-4aeb1e9a3139" absoluteBounds="0.5, 0.625, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/LinQDBDataContext/Manager" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a0851502-a30a-4f58-ba86-fab4d3b206bd" absoluteBounds="0.51500000000000012, 1.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 2.39589680989583); (2.875 : 2.77089680989583); (2.875 : 3.35659912109375); (2.5 : 3.35659912109375)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LinQDBDataContext/Manager/Manager_Barista" />
+      <nodes>
+        <classShapeMoniker Id="eab91928-c84e-49df-814c-4aeb1e9a3139" />
+        <classShapeMoniker Id="cfb6fa4b-f826-4888-a312-4ec8867f8756" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="3a7a6bd1-1cf0-4479-aa7a-705cc6a35676" absoluteBounds="5.75, 2.5, 2, 1.3862939453125">
+      <DataClassMoniker Name="/LinQDBDataContext/OrderDB" />
+      <nestedChildShapes>
+        <elementListCompartment Id="466d4abf-d51d-489a-a6be-7cb655a7a944" absoluteBounds="5.765, 2.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6.875 : 2.27089680989583); (6.875 : 2.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LinQDBDataContext/Customer/Customer_Order" />
+      <nodes>
+        <classShapeMoniker Id="04fbc4f1-5d89-4bbe-8f76-2aea3190c320" />
+        <classShapeMoniker Id="3a7a6bd1-1cf0-4479-aa7a-705cc6a35676" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="091ce7a6-1938-4659-ba7b-257e7fc2f574" absoluteBounds="3.5, 2.875, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/LinQDBDataContext/OrderItem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6697e932-2583-41ea-a890-c59a9b8d6dfb" absoluteBounds="3.5149999999999997, 3.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.5 : 2.32859537760417); (4.5 : 2.875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LinQDBDataContext/Item/Item_OrderItem" />
+      <nodes>
+        <classShapeMoniker Id="1097dfc9-f1a5-4fc5-b09f-5bb1a5c75dc1" />
+        <classShapeMoniker Id="091ce7a6-1938-4659-ba7b-257e7fc2f574" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 3.38064697265625); (5.5 : 3.38064697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LinQDBDataContext/OrderDB/Order_OrderItem" />
+      <nodes>
+        <classShapeMoniker Id="3a7a6bd1-1cf0-4479-aa7a-705cc6a35676" />
+        <classShapeMoniker Id="091ce7a6-1938-4659-ba7b-257e7fc2f574" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

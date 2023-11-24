@@ -18,7 +18,12 @@ namespace OOP_CoffeeApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+<<<<<<< HEAD
             Application.Run(new Iventory());
+=======
+            //Application.Run(new fAdmin());
+            Application.Run(new Form1());
+>>>>>>> 9940db46e7269c4fe6be5b1477aa2cf43660c77a
         }
     }
 }
