@@ -11,13 +11,13 @@ namespace OOP_Coffee
     public partial class ParistaFrm : System.Windows.Forms.Form
     {
 
-        dataDataContext db = new dataDataContext();
+        //dataDataContext db = new dataDataContext();
         public ParistaFrm()
         {
             InitializeComponent();
         }
         
-        private void ParistaFrm_Load(object sender, EventArgs e)
+        /*private void ParistaFrm_Load(object sender, EventArgs e)
         {
             var query = from order in db.Orders
                         join oitem in db.OrderItems on order.OrderID equals oitem.OrderID
@@ -47,8 +47,8 @@ namespace OOP_Coffee
 
 
         }
-
-        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+*/
+/*        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
         {
         }
 
@@ -60,6 +60,6 @@ namespace OOP_Coffee
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             Close();
-        }
+        }*/
     }
 }

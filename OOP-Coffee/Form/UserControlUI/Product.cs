@@ -70,24 +70,5 @@ namespace WinFormsApp1.Model
         {
             this.Cursor = Cursors.Default;
         }
-
-        private void proImg_Click(object sender, EventArgs e)
-        {
-
-        }
-
-<<<<<<< HEAD
-        private void Product_Load_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void proPrice_lbl_Click(object sender, EventArgs e)
-        {
-
-        }
-=======
-
->>>>>>> 9940db46e7269c4fe6be5b1477aa2cf43660c77a
     }
 }

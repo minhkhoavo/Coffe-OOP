@@ -8,7 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Data.Linq;
 using System.Linq;
-using DotNetEnv;
+//using DotNetEnv;
 using System.Collections.Generic;
 using WinFormsApp1;
 using OOP_Coffee.Form.UserControlUI;
@@ -31,13 +31,13 @@ namespace OOP_CoffeeApp
             try
             {
                 // Load .env file
-                DotNetEnv.Env.Load();
+                //DotNetEnv.Env.Load();
 
                 // Lấy giá trị từ môi trường
                 string dataSource = Environment.GetEnvironmentVariable("DB_DATASOURCE");
                 string initialCatalog = Environment.GetEnvironmentVariable("DB_INITIAL_CATALOG");
                 string connectionString = $"Data Source={dataSource};Initial Catalog={initialCatalog};Integrated Security=True";
-                using (LinQDBDataContext context = new LinQDBDataContext("Data Source=DESKTOP-C8B20IS;Initial Catalog=CoffeeDB;Integrated Security=True"))
+                /*using (LinQDBDataContext context = new LinQDBDataContext("Data Source=DESKTOP-C8B20IS;Initial Catalog=CoffeeDB;Integrated Security=True"))
                 {
                     var products = from item in context.Items
                                    select new
@@ -54,7 +54,7 @@ namespace OOP_CoffeeApp
                         flowLayoutPanel1.Controls.Add(productControl);
                         productControl.ProductClicked += ProductControl_ProductClicked;
                     }
-                }
+                }*/
             }
             catch (Exception ex)
             {

@@ -86,11 +86,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Customer.cs" />
-    <Compile Include="data.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>data.dbml</DependentUpon>
-    </Compile>
     <Compile Include="Form\EmployeeManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,10 +128,6 @@
     </Compile>
     <Compile Include="Form\Iventory.Designer.cs">
       <DependentUpon>Iventory.cs</DependentUpon>
-    <Compile Include="LinQDB.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LinQDB.dbml</DependentUpon>
     </Compile>
     <Compile Include="Manager.cs" />
     <Compile Include="Parista.cs" />
@@ -151,6 +142,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form\EmployeeManager.resx">
       <DependentUpon>EmployeeManager.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\fAdmin.resx">
       <DependentUpon>fAdmin.cs</DependentUpon>
     </EmbeddedResource>
@@ -159,6 +151,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\UserControlUI\ItemPaUC.resx">
       <DependentUpon>ItemPaUC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\UserControlUI\Order.resx">
       <DependentUpon>Order.cs</DependentUpon>
     </EmbeddedResource>
@@ -181,22 +174,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="CoffeeShopManagement.cd" />
-    <None Include="data.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>data.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="data.dbml.layout">
-      <DependentUpon>data.dbml</DependentUpon>
-    </None>
-    <None Include="LinQDB.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>LinQDB.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="LinQDB.dbml.layout">
-      <DependentUpon>LinQDB.dbml</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

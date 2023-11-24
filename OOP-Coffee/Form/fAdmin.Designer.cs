@@ -28,9 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
@@ -51,7 +48,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.totalOrder_lbl = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.quảnLýNhânViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,7 +57,6 @@
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -126,7 +121,7 @@
             this.monthBtn.Text = "This month";
             this.monthBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.monthBtn.UseVisualStyleBackColor = true;
-            this.monthBtn.Click += new System.EventHandler(this.monthBtn_Click);
+            //this.monthBtn.Click += new System.EventHandler(this.monthBtn_Click);
             // 
             // weekBtn
             // 
@@ -137,7 +132,7 @@
             this.weekBtn.Text = "Last 7 days";
             this.weekBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.weekBtn.UseVisualStyleBackColor = true;
-            this.weekBtn.Click += new System.EventHandler(this.weekBtn_Click);
+            //this.weekBtn.Click += new System.EventHandler(this.weekBtn_Click);
             // 
             // todayBtn
             // 
@@ -148,7 +143,7 @@
             this.todayBtn.Text = "Today";
             this.todayBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.todayBtn.UseVisualStyleBackColor = true;
-            this.todayBtn.Click += new System.EventHandler(this.todayBtn_Click);
+            //this.todayBtn.Click += new System.EventHandler(this.todayBtn_Click);
             // 
             // customBtn
             // 
@@ -169,7 +164,7 @@
             this.okBtn.Text = "OK";
             this.okBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.okBtn.UseVisualStyleBackColor = true;
-            this.okBtn.Click += new System.EventHandler(this.okBtn_Click);
+            //this.okBtn.Click += new System.EventHandler(this.okBtn_Click);
             // 
             // panel2
             // 
@@ -274,24 +269,6 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Tổng số đơn hàng";
             // 
-            // chart1
-            // 
-            chartArea3.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chart1.Legends.Add(legend3);
-            this.chart1.Location = new System.Drawing.Point(878, 269);
-            this.chart1.Name = "chart1";
-            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.chart1.Series.Add(series3);
-            this.chart1.Size = new System.Drawing.Size(326, 357);
-            this.chart1.TabIndex = 4;
-            this.chart1.Text = "chart1";
-            // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -333,7 +310,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1258, 711);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.chart1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
@@ -350,7 +326,6 @@
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -381,7 +356,6 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label totalRevenue_lbl;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem quảnLýNhânViênToolStripMenuItem;

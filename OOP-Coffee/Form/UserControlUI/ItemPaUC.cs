@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
 using System.IO;
-using System.Net.Http;
 
 namespace OOP_Coffee
 {

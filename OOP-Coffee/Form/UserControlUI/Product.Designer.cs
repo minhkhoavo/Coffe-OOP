@@ -46,20 +46,13 @@ namespace WinFormsApp1.Model
             // 
             // proImg
             // 
-            this.proImg.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.proImg.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.proImg.BackColor = System.Drawing.Color.Transparent;
-<<<<<<< HEAD
-            this.proImg.Location = new System.Drawing.Point(19, 4);
-            this.proImg.Margin = new System.Windows.Forms.Padding(2);
-            this.proImg.Name = "proImg";
-            this.proImg.Size = new System.Drawing.Size(76, 70);
-=======
             this.proImg.Location = new System.Drawing.Point(28, 7);
             this.proImg.Name = "proImg";
             this.proImg.Size = new System.Drawing.Size(118, 112);
->>>>>>> 9940db46e7269c4fe6be5b1477aa2cf43660c77a
             this.proImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.proImg.TabIndex = 0;
             this.proImg.TabStop = false;
@@ -67,22 +60,15 @@ namespace WinFormsApp1.Model
             // 
             // proName_lbl
             // 
-            this.proName_lbl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.proName_lbl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.proName_lbl.BackColor = System.Drawing.Color.Transparent;
             this.proName_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.proName_lbl.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-<<<<<<< HEAD
-            this.proName_lbl.Location = new System.Drawing.Point(9, 80);
-            this.proName_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.proName_lbl.Name = "proName_lbl";
-            this.proName_lbl.Size = new System.Drawing.Size(97, 18);
-=======
             this.proName_lbl.Location = new System.Drawing.Point(13, 123);
             this.proName_lbl.Name = "proName_lbl";
             this.proName_lbl.Size = new System.Drawing.Size(149, 32);
->>>>>>> 9940db46e7269c4fe6be5b1477aa2cf43660c77a
             this.proName_lbl.TabIndex = 1;
             this.proName_lbl.Text = "label1";
             this.proName_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -90,25 +76,11 @@ namespace WinFormsApp1.Model
             // 
             // proPrice_lbl
             // 
-            this.proPrice_lbl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.proPrice_lbl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.proPrice_lbl.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.proPrice_lbl.ForeColor = System.Drawing.SystemColors.HighlightText;
-<<<<<<< HEAD
-            this.proPrice_lbl.Location = new System.Drawing.Point(17, 99);
-            this.proPrice_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.proPrice_lbl.Name = "proPrice_lbl";
-            this.proPrice_lbl.Size = new System.Drawing.Size(77, 17);
-            this.proPrice_lbl.TabIndex = 2;
-            this.proPrice_lbl.Text = "10$";
-            this.proPrice_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.proPrice_lbl.Click += new System.EventHandler(this.proPrice_lbl_Click);
-            // 
-            // Product
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-=======
             this.proPrice_lbl.Location = new System.Drawing.Point(26, 152);
             this.proPrice_lbl.Name = "proPrice_lbl";
             this.proPrice_lbl.Size = new System.Drawing.Size(120, 31);
@@ -120,27 +92,18 @@ namespace WinFormsApp1.Model
             // Product
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
->>>>>>> 9940db46e7269c4fe6be5b1477aa2cf43660c77a
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(29)))), ((int)(((byte)(43)))));
             this.Controls.Add(this.proPrice_lbl);
             this.Controls.Add(this.proName_lbl);
             this.Controls.Add(this.proImg);
-<<<<<<< HEAD
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "Product";
-            this.Size = new System.Drawing.Size(115, 122);
-            this.Load += new System.EventHandler(this.Product_Load_1);
-=======
             this.Name = "Product";
             this.Size = new System.Drawing.Size(176, 192);
             this.Load += new System.EventHandler(this.Product_Load);
             this.Click += new System.EventHandler(this.Product_Click);
->>>>>>> 9940db46e7269c4fe6be5b1477aa2cf43660c77a
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.proImg)).EndInit();
             this.ResumeLayout(false);
-
         }
 
         #endregion
