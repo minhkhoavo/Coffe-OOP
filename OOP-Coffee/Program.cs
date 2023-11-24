@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CoffeeShop;
+using OOP_Coffee;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +18,7 @@ namespace OOP_CoffeeApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Iventory());
         }
     }
 }

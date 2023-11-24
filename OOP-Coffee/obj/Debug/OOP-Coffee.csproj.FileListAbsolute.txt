@@ -18,7 +18,6 @@ C:\C#\Coffe-OOP\OOP-Coffee\obj\Debug\OOP-Coffee.exe
 C:\C#\Coffe-OOP\OOP-Coffee\obj\Debug\OOP-Coffee.pdb
 C:\C#\Coffe-OOP\OOP-Coffee\obj\Debug\WinFormsApp1.Model.Product.resources
 C:\C#\Coffe-OOP\OOP-Coffee\obj\Debug\OOP_CoffeeApp.Form1.resources
-C:\C#\Coffe-OOP\OOP-Coffee\obj\Debug\OOP_CoffeeApp.Form.UserControlUI.Order.resources
 C:\C#\Coffe-OOP\OOP-Coffee\bin\Debug\OOP-Coffee.exe.config
 C:\C#\Coffe-OOP\OOP-Coffee\bin\Debug\OOP-Coffee.exe
 C:\C#\Coffe-OOP\OOP-Coffee\bin\Debug\OOP-Coffee.pdb
@@ -33,3 +32,7 @@ D:\Workspace\OOP Coffee\OOP-Coffee\obj\Debug\OOP-Coffee.pdb
 D:\Workspace\OOP Coffee\OOP-Coffee\bin\Debug\OOP-Coffee.exe.config
 D:\Workspace\OOP Coffee\OOP-Coffee\bin\Debug\OOP-Coffee.exe
 D:\Workspace\OOP Coffee\OOP-Coffee\bin\Debug\OOP-Coffee.pdb
+C:\C#\Coffe-OOP\OOP-Coffee\obj\Debug\OOP_Coffee.ParistaFrm.resources
+C:\C#\Coffe-OOP\OOP-Coffee\obj\Debug\OOP_Coffee.ItemPaUC.resources
+C:\C#\Coffe-OOP\OOP-Coffee\obj\Debug\OOP_Coffee.EmployeeManager.resources
+C:\C#\Coffe-OOP\OOP-Coffee\obj\Debug\OOP_Coffee.Iventory.resources
