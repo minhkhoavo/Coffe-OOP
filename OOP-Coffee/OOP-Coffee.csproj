@@ -122,7 +122,6 @@
     <Compile Include="Form\UserControlUI\Product.Designer.cs">
       <DependentUpon>Product.cs</DependentUpon>
     </Compile>
-<<<<<<< HEAD
     <Compile Include="Form\UserControlUI\ItemPaUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -134,12 +133,10 @@
     </Compile>
     <Compile Include="Form\Iventory.Designer.cs">
       <DependentUpon>Iventory.cs</DependentUpon>
-=======
     <Compile Include="LinQDB.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>LinQDB.dbml</DependentUpon>
->>>>>>> 9940db46e7269c4fe6be5b1477aa2cf43660c77a
     </Compile>
     <Compile Include="Manager.cs" />
     <Compile Include="Parista.cs" />
@@ -152,24 +149,18 @@
     <Compile Include="Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-<<<<<<< HEAD
     <EmbeddedResource Include="Form\EmployeeManager.resx">
       <DependentUpon>EmployeeManager.cs</DependentUpon>
-=======
     <EmbeddedResource Include="Form\fAdmin.resx">
       <DependentUpon>fAdmin.cs</DependentUpon>
->>>>>>> 9940db46e7269c4fe6be5b1477aa2cf43660c77a
     </EmbeddedResource>
     <EmbeddedResource Include="Form\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-<<<<<<< HEAD
     <EmbeddedResource Include="Form\UserControlUI\ItemPaUC.resx">
       <DependentUpon>ItemPaUC.cs</DependentUpon>
-=======
     <EmbeddedResource Include="Form\UserControlUI\Order.resx">
       <DependentUpon>Order.cs</DependentUpon>
->>>>>>> 9940db46e7269c4fe6be5b1477aa2cf43660c77a
     </EmbeddedResource>
     <EmbeddedResource Include="Form\UserControlUI\Product.resx">
       <DependentUpon>Product.cs</DependentUpon>
@@ -190,7 +181,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="CoffeeShopManagement.cd" />
-<<<<<<< HEAD
     <None Include="data.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>data.designer.cs</LastGenOutput>
@@ -199,7 +189,6 @@
     <None Include="data.dbml.layout">
       <DependentUpon>data.dbml</DependentUpon>
     </None>
-=======
     <None Include="LinQDB.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>LinQDB.designer.cs</LastGenOutput>
@@ -209,7 +198,6 @@
       <DependentUpon>LinQDB.dbml</DependentUpon>
     </None>
     <None Include="packages.config" />
->>>>>>> 9940db46e7269c4fe6be5b1477aa2cf43660c77a
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
