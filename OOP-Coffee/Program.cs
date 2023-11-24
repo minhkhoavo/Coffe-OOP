@@ -1,4 +1,5 @@
-﻿using OOP_Coffee.Form;
+﻿using CoffeeShop;
+using OOP_Coffee;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,8 +18,12 @@ namespace OOP_CoffeeApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new fAdmin());
-            //Application.Run(new Form1());
+<<<<<<< HEAD
+            Application.Run(new Iventory());
+=======
+            //Application.Run(new fAdmin());
+            Application.Run(new Form1());
+>>>>>>> 9940db46e7269c4fe6be5b1477aa2cf43660c77a
         }
     }
 }

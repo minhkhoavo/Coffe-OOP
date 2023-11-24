@@ -70,6 +70,8 @@
     </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
+<<<<<<< HEAD
+=======
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.3.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
@@ -190,6 +192,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Windows.Forms.DataVisualization" />
+>>>>>>> 9940db46e7269c4fe6be5b1477aa2cf43660c77a
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -206,6 +209,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Customer.cs" />
+    <Compile Include="data.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>data.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\EmployeeManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\EmployeeManager.Designer.cs">
+      <DependentUpon>EmployeeManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="Event.cs" />
     <Compile Include="Form\fAdmin.cs">
       <SubType>Form</SubType>
@@ -231,30 +245,63 @@
     <Compile Include="Form\UserControlUI\Product.Designer.cs">
       <DependentUpon>Product.cs</DependentUpon>
     </Compile>
-    <Compile Include="LinQDB.cs">
-      <DependentUpon>LinQDB.dbml</DependentUpon>
+<<<<<<< HEAD
+    <Compile Include="Form\UserControlUI\ItemPaUC.cs">
+      <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Form\UserControlUI\ItemPaUC.Designer.cs">
+      <DependentUpon>ItemPaUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Iventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Iventory.Designer.cs">
+      <DependentUpon>Iventory.cs</DependentUpon>
+=======
     <Compile Include="LinQDB.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>LinQDB.dbml</DependentUpon>
+>>>>>>> 9940db46e7269c4fe6be5b1477aa2cf43660c77a
     </Compile>
     <Compile Include="Manager.cs" />
     <Compile Include="Parista.cs" />
+    <Compile Include="Form\ParistaFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\ParistaFrm.Designer.cs">
+      <DependentUpon>ParistaFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+<<<<<<< HEAD
+    <EmbeddedResource Include="Form\EmployeeManager.resx">
+      <DependentUpon>EmployeeManager.cs</DependentUpon>
+=======
     <EmbeddedResource Include="Form\fAdmin.resx">
       <DependentUpon>fAdmin.cs</DependentUpon>
+>>>>>>> 9940db46e7269c4fe6be5b1477aa2cf43660c77a
     </EmbeddedResource>
     <EmbeddedResource Include="Form\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
+    <EmbeddedResource Include="Form\UserControlUI\ItemPaUC.resx">
+      <DependentUpon>ItemPaUC.cs</DependentUpon>
+=======
     <EmbeddedResource Include="Form\UserControlUI\Order.resx">
       <DependentUpon>Order.cs</DependentUpon>
+>>>>>>> 9940db46e7269c4fe6be5b1477aa2cf43660c77a
     </EmbeddedResource>
     <EmbeddedResource Include="Form\UserControlUI\Product.resx">
       <DependentUpon>Product.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Iventory.resx">
+      <DependentUpon>Iventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\ParistaFrm.resx">
+      <DependentUpon>ParistaFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -266,6 +313,16 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="CoffeeShopManagement.cd" />
+<<<<<<< HEAD
+    <None Include="data.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>data.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="data.dbml.layout">
+      <DependentUpon>data.dbml</DependentUpon>
+    </None>
+=======
     <None Include="LinQDB.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>LinQDB.designer.cs</LastGenOutput>
@@ -275,6 +332,7 @@
       <DependentUpon>LinQDB.dbml</DependentUpon>
     </None>
     <None Include="packages.config" />
+>>>>>>> 9940db46e7269c4fe6be5b1477aa2cf43660c77a
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

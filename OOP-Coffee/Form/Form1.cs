@@ -126,5 +126,10 @@ namespace OOP_CoffeeApp
             path.AddArc(new Rectangle(0, control.Height - borderRadius * 2, borderRadius * 2, borderRadius * 2), 90, 90);
             control.Region = new Region(path);
         }
+
+        private void button1_Click(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }

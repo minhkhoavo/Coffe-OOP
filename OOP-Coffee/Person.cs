@@ -13,7 +13,6 @@ namespace CoffeeShop
         private string gender;
         private string phone;
         private string address;
-        private string email;
         private System.DateTime birthDate;
     
 
@@ -21,7 +20,6 @@ namespace CoffeeShop
         public string Phone { get => phone; set => phone = value; }
         public string Gender { get => gender; set => gender = value; }
         public string Address { get => address; set => address = value; }
-        public string Email { get => email; set => email = value; }
         public DateTime BirthDate { get => birthDate; set => birthDate = value; }
 
         public Person()
@@ -30,7 +28,6 @@ namespace CoffeeShop
             Phone = "not yet defined";
             Gender = "not yet defined";
             Address = "not yet defined";
-            Email = "not yet defined";
             BirthDate = new DateTime(1900, 1, 1);
         }
         public Person(string name):this()
@@ -49,11 +46,7 @@ namespace CoffeeShop
         {
             Address = address;
         }
-        public Person(string name, string phone, string gender, string address, string email):this(name, gender,phone, address)
-        {
-            Email = email;
-        }
-        public Person(string name, string gender, string phone, string address, string email, DateTime birthDate):this(name, gender, phone, address, email)
+        public Person(string name, string gender, string phone, string address, string email, DateTime birthDate):this(name, gender, phone, address)
         {
             BirthDate = birthDate;
         }
@@ -63,7 +56,7 @@ namespace CoffeeShop
             string day = string.Format("{0:dd/MM/yyyy}", BirthDate);
             string kq = ($" Name: {Name},\n Phone: {Phone},\n" +
                 $" Gender: {Gender},\n Address: {Address},\n" +
-                $" Email: {Email},\n BirthDate: {day}");
+                $"\n BirthDate: {day}");
             MessageBox.Show(kq , "Thong bao");
         }
     }
