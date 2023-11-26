@@ -5,9 +5,9 @@ using System.Text;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace CoffeeShop
+namespace OOP_CoffeeApp
 {
-    public class Person
+    public abstract class Person
     {
         private string name;
         private string gender;

@@ -1,5 +1,4 @@
-﻿using CoffeeShop;
-using OOP_Coffee;
+﻿using OOP_Coffee;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

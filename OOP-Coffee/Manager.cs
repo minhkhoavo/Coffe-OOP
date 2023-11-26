@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CoffeeShop
+namespace OOP_CoffeeApp
 {
     public class Manager : Person
     {
@@ -41,6 +41,28 @@ namespace CoffeeShop
                 })
                 .ToList();
             return result;
+        }
+
+        static public bool checkLogin(string username, string password)
+        {
+            LinQDBDataContext db = new LinQDBDataContext();
+            var user = db.Managers.FirstOrDefault(u => u.ManagerID.ToString() == username);
+
+            if (user != null)
+            {
+                if (user.Password == password)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
         }
     }
     public class SalesResult

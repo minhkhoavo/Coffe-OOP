@@ -20,5 +20,30 @@
         <elementListCompartment Id="13aa9faa-7115-4e3e-875b-ccd3570e6360" absoluteBounds="4.765, 0.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
+    <classShape Id="127795e8-3472-4320-857a-5138daa44a3d" absoluteBounds="4.75, 3.125, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/LinQDBDataContext/Customer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d8d5074e-f7ee-4a8f-bfa1-dd0861330161" absoluteBounds="4.765, 3.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fdee5aef-25e7-403c-b301-d6faea950dae" absoluteBounds="5, 2.75, 2, 1.9631982421875">
+      <DataClassMoniker Name="/LinQDBDataContext/Barista" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b1b9b040-8c1b-440e-802a-6b3aa0a66d9b" absoluteBounds="5.015, 3.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ea67824c-1220-4bd0-b149-1eeab3f38bbb" absoluteBounds="4.375, 3.125, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/LinQDBDataContext/Manager" />
+      <nestedChildShapes>
+        <elementListCompartment Id="61c9a510-0cb7-4ce0-b624-18330fef7136" absoluteBounds="4.39, 3.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.375 : 4.89589680989583); (5.375 : 5.14589680989583); (6 : 5.14589680989583); (6 : 4.7131982421875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LinQDBDataContext/Manager/Manager_Barista" />
+      <nodes>
+        <classShapeMoniker Id="ea67824c-1220-4bd0-b149-1eeab3f38bbb" />
+        <classShapeMoniker Id="fdee5aef-25e7-403c-b301-d6faea950dae" />
+      </nodes>
+    </associationConnector>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

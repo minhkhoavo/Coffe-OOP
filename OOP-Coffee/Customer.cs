@@ -1,9 +1,10 @@
-﻿using System;
+﻿using OOP_Coffee;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CoffeeShop
+namespace OOP_CoffeeApp
 {
     public class Customer : Person
     {
@@ -31,6 +32,28 @@ namespace CoffeeShop
         public void Feedback()
         {
             throw new System.NotImplementedException();
+        }
+
+        static public bool checkLogin(string username, string password)
+        {
+            LinQDBDataContext db = new LinQDBDataContext();
+            var user = db.Customers.FirstOrDefault(u => u.CustomerID.ToString() == username);
+
+            if (user != null)
+            {
+                if (user.Password == password)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

@@ -106,6 +106,12 @@
     <Compile Include="Form\fFeedback.Designer.cs">
       <DependentUpon>fFeedback.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form\fLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\fLogin.Designer.cs">
+      <DependentUpon>fLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\fFeedback.resx">
       <DependentUpon>fFeedback.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\fLogin.resx">
+      <DependentUpon>fLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
