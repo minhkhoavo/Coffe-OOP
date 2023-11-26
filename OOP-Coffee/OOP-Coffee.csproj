@@ -100,6 +100,12 @@
     <Compile Include="Form\fAdmin.Designer.cs">
       <DependentUpon>fAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form\fFeedback.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\fFeedback.Designer.cs">
+      <DependentUpon>fFeedback.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\fAdmin.resx">
       <DependentUpon>fAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\fFeedback.resx">
+      <DependentUpon>fFeedback.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
