@@ -1,4 +1,4 @@
-﻿namespace OOP_Coffee.Form
+﻿namespace OOP_CoffeeApp
 {
     partial class fAdmin
     {
@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
@@ -52,6 +55,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.quảnLýNhânViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quảnLýKhoHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -59,6 +63,7 @@
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -111,6 +116,7 @@
             this.fileBtn.Text = "Export to File";
             this.fileBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.fileBtn.UseVisualStyleBackColor = true;
+            this.fileBtn.Click += new System.EventHandler(this.fileBtn_Click);
             // 
             // monthBtn
             // 
@@ -121,7 +127,7 @@
             this.monthBtn.Text = "This month";
             this.monthBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.monthBtn.UseVisualStyleBackColor = true;
-            //this.monthBtn.Click += new System.EventHandler(this.monthBtn_Click);
+            this.monthBtn.Click += new System.EventHandler(this.monthBtn_Click);
             // 
             // weekBtn
             // 
@@ -132,7 +138,7 @@
             this.weekBtn.Text = "Last 7 days";
             this.weekBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.weekBtn.UseVisualStyleBackColor = true;
-            //this.weekBtn.Click += new System.EventHandler(this.weekBtn_Click);
+            this.weekBtn.Click += new System.EventHandler(this.weekBtn_Click);
             // 
             // todayBtn
             // 
@@ -143,7 +149,7 @@
             this.todayBtn.Text = "Today";
             this.todayBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.todayBtn.UseVisualStyleBackColor = true;
-            //this.todayBtn.Click += new System.EventHandler(this.todayBtn_Click);
+            this.todayBtn.Click += new System.EventHandler(this.todayBtn_Click);
             // 
             // customBtn
             // 
@@ -164,7 +170,7 @@
             this.okBtn.Text = "OK";
             this.okBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.okBtn.UseVisualStyleBackColor = true;
-            //this.okBtn.Click += new System.EventHandler(this.okBtn_Click);
+            this.okBtn.Click += new System.EventHandler(this.okBtn_Click);
             // 
             // panel2
             // 
@@ -222,7 +228,7 @@
             this.totalRevenue_lbl.AutoSize = true;
             this.totalRevenue_lbl.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
             this.totalRevenue_lbl.ForeColor = System.Drawing.Color.Black;
-            this.totalRevenue_lbl.Location = new System.Drawing.Point(172, 51);
+            this.totalRevenue_lbl.Location = new System.Drawing.Point(162, 51);
             this.totalRevenue_lbl.Name = "totalRevenue_lbl";
             this.totalRevenue_lbl.Size = new System.Drawing.Size(120, 41);
             this.totalRevenue_lbl.TabIndex = 1;
@@ -304,11 +310,29 @@
             this.quảnLýKhoHàngToolStripMenuItem.Size = new System.Drawing.Size(169, 29);
             this.quảnLýKhoHàngToolStripMenuItem.Text = "Quản lý kho hàng";
             // 
+            // chart1
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(814, 267);
+            this.chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Legend = "Legend1";
+            series1.Name = "Sales";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(409, 413);
+            this.chart1.TabIndex = 7;
+            this.chart1.Text = "chart1";
+            // 
             // fAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1258, 711);
+            this.Controls.Add(this.chart1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -329,6 +353,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -360,5 +385,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem quảnLýNhânViênToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quảnLýKhoHàngToolStripMenuItem;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }
 }
