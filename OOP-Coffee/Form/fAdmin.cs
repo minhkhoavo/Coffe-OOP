@@ -11,6 +11,7 @@ using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using OOP_Coffee;
 
 namespace OOP_CoffeeApp
 {
@@ -42,8 +43,8 @@ namespace OOP_CoffeeApp
         private void monthBtn_Click(object sender, EventArgs e)
         {
 
-            DateTime startDate = new DateTime(2023, 10, 1);
-            //DateTime startDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
+            //DateTime startDate = new DateTime(2023, 11, 1);
+            DateTime startDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
             DateTime endDate = startDate.AddMonths(1).AddDays(-1);
             viewData(startDate, endDate);
         }
@@ -52,6 +53,17 @@ namespace OOP_CoffeeApp
         {
             DateTime startDate = dateTimePicker1.Value.Date;
             DateTime endDate = dateTimePicker2.Value.Date;
+            if (endDate < startDate)
+            {
+                MessageBox.Show("Ngày kết thúc không được nhỏ hơn ngày bắt đầu. Vui lòng chọn lại.");
+                return; 
+            }
+
+            if (endDate > DateTime.Today)
+            {
+                MessageBox.Show("Ngày kết thúc không được lớn hơn ngày hiện tại. Vui lòng chọn lại.");
+                return; 
+            }
             viewData(startDate, endDate);
         }
 
@@ -68,15 +80,13 @@ namespace OOP_CoffeeApp
                 totalRevenue += item.total_price;
                 totalProfit += item.total_profit;
             }
+
+            chart1.Series["Sales"].Points.Clear();
             foreach (var sale in salesByProduct)
             {
                 string productName = Repositories.getProductNameById(sale.ProductID);
 
-
-                // Thêm điểm dữ liệu vào Series
                 chart1.Series["Sales"].Points.AddXY(sale.TotalQuantity.ToString(), sale.TotalQuantity);
-
-                // Thêm chú thích (Legend) bên ngoài cho từng điểm dữ liệu
                 int pointIndex = chart1.Series["Sales"].Points.Count - 1;
                 chart1.Series["Sales"].Points[pointIndex].LegendText = productName;
             }
@@ -85,6 +95,8 @@ namespace OOP_CoffeeApp
             totalRevenue_lbl.Text = totalRevenue.ToString();
             totalProfit_lbl.Text = totalProfit.ToString();
             dataGridView1.DataSource = result;
+            dataGridView1.Columns["id"].Visible = false;
+            dataGridView1.Columns["order_id"].Visible = false;
         }
 
         private void ExportToTxt(string filePath, DataGridView dataGridView)
@@ -135,6 +147,18 @@ namespace OOP_CoffeeApp
                 ExportToTxt(saveFileDialog.FileName, dataGridView1);
                 MessageBox.Show("Exported successfully!");
             }
+        }
+
+        private void quảnLýNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EmployeeManager employeeManagementForm = new EmployeeManager();
+            employeeManagementForm.ShowDialog();
+        }
+
+        private void quảnLýKhoHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Iventory inventoryForm = new Iventory();
+            inventoryForm.ShowDialog();
         }
     }
 }

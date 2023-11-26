@@ -38,7 +38,6 @@ namespace CoffeeShop
                 {
                     ProductID = g.Key ?? 0,
                     TotalQuantity = g.Sum(s => s.quantity) ?? 0
-                    // Assign other properties if needed
                 })
                 .ToList();
             return result;

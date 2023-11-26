@@ -17,7 +17,6 @@ namespace OOP_CoffeeApp
                 .Where(item => item.ItemID == id)
                 .Select(item => item.Name)
                 .FirstOrDefault();
-            MessageBox.Show(productName);
             return productName ?? "Unknown";
         }
     }
