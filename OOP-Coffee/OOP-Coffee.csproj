@@ -86,6 +86,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Customer.cs" />
+    <Compile Include="Form\AddItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\AddItem.Designer.cs">
+      <DependentUpon>AddItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form\EmployeeManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,9 +123,7 @@
     <Compile Include="Form\UserControlUI\Product.Designer.cs">
       <DependentUpon>Product.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form\UserControlUI\ItemPaUC.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Form\UserControlUI\ItemPaUC.cs" />
     <Compile Include="Form\UserControlUI\ItemPaUC.Designer.cs">
       <DependentUpon>ItemPaUC.cs</DependentUpon>
     </Compile>
@@ -140,6 +144,14 @@
     <Compile Include="Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="table.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>table.dbml</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form\AddItem.resx">
+      <DependentUpon>AddItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\EmployeeManager.resx">
       <DependentUpon>EmployeeManager.cs</DependentUpon>
     </EmbeddedResource>
@@ -184,6 +196,14 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="table.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>table.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="table.dbml.layout">
+      <DependentUpon>table.dbml</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

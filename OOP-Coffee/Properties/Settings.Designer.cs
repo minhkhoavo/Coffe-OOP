@@ -22,7 +22,9 @@ namespace OOP_Coffee.Properties {
                 return defaultInstance;
             }
         }
-        
+
+        public static string CoffeeOOpConnectionString { get; internal set; }
+
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]

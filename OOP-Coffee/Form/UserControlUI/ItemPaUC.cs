@@ -12,50 +12,67 @@ using System.IO;
 
 namespace OOP_Coffee
 {
+    public class DataItemPaUC : EventArgs
+    {
+        public string OrderItemID { get; set; }
+
+        public DataItemPaUC(string orderItemID)
+        {
+            OrderItemID = orderItemID;
+        }
+    }
     public partial class ItemPaUC : UserControl
     {
+        private string OrderID;
+        private string OrderItemID;
+        private string itemName;
+        private string sl;
+        private string time;
+        private string note;
+        private string linkImag;
+        private string cusName;
+        private string phone;
+        private string baristaID;
+
+
+        public event EventHandler<DataItemPaUC> YesButtonClick;
+        public event EventHandler<DataItemPaUC> NoButtonClick;
         public ItemPaUC()
         {
             InitializeComponent();
         }
-        public ItemPaUC(string id,string itemName, string sl, string time, string status, string linkImag,
-                    string cusName,string phone)
+        public ItemPaUC(string OrderID,string OrderItemID,string itemName, string sl, string time, string note, string linkImag,
+                    string cusName,string phone,string baristaID)
         {
             InitializeComponent();
-            //item
-            lblID.Text = id;
+
+            this.OrderID = OrderID;
+            this.OrderItemID = OrderItemID;
+            this.itemName = itemName;
+            this.sl = sl;
+            this.time = time;
+            this.note = note;
+            this.linkImag = linkImag;
+            this.cusName = cusName;
+            this.phone = phone;
+            this.baristaID = baristaID;
+
+            hienThi();
+        }
+        public void hienThi()
+        {
+            lblID.Text = OrderID + "-" + OrderItemID;
             lblItem.Text = itemName;
             lblSL.Text = sl;
             lblTime.Text = time;
-            lblStatus.Text = status;
+            lblNote.Text = note;
 
             lblCusName.Text = cusName;
             lblPhone.Text = phone;
+            lblBaristaID.Text = baristaID;
 
-
-            //try
-            //{
-            //    // Tạo WebClient để tải hình ảnh từ URL
-            //    using (WebClient webClient = new WebClient())
-            //    {
-            //        // Tải dữ liệu từ URL
-            //        byte[] data = webClient.DownloadData(linkImag);
-
-            //        // Tạo MemoryStream từ dữ liệu tải về
-            //        using (System.IO.MemoryStream mem = new System.IO.MemoryStream(data))
-            //        {
-            //            // Sử dụng thuộc tính Image để hiển thị hình ảnh trong PictureBox
-            //            picItem.Image = System.Drawing.Image.FromStream(mem);
-            //        }
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    // Xử lý lỗi (nếu có)
-            //    MessageBox.Show($"Error: {ex.Message}");
-            //}
+            //chua gan image
         }
-
 
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -67,10 +84,10 @@ namespace OOP_Coffee
         {
 
         }
-
+        //button NO
         private void button2_Click(object sender, EventArgs e)
         {
-
+            NoButtonClick?.Invoke(this, new DataItemPaUC(OrderItemID));
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -82,13 +99,19 @@ namespace OOP_Coffee
         {
 
         }
-
+        
+        //button Yes
         private void button1_Click(object sender, EventArgs e)
+        {
+            YesButtonClick?.Invoke(this, new DataItemPaUC(OrderItemID));
+        }
+
+        private void ItemPaUC_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void ItemPaUC_Load(object sender, EventArgs e)
+        private void lblTime_Click(object sender, EventArgs e)
         {
 
         }

@@ -31,7 +31,7 @@
             this.lblI = new System.Windows.Forms.Label();
             this.lblItem = new System.Windows.Forms.Label();
             this.picItem = new System.Windows.Forms.PictureBox();
-            this.lblStatus = new System.Windows.Forms.Label();
+            this.lblNote = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lbaa = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -42,6 +42,8 @@
             this.lblPhone = new System.Windows.Forms.Label();
             this.lblSL = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblBaristaID = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picItem)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,16 +80,16 @@
             this.picItem.TabStop = false;
             this.picItem.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // lblStatus
+            // lblNote
             // 
-            this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(110, 32);
-            this.lblStatus.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(52, 14);
-            this.lblStatus.TabIndex = 2;
-            this.lblStatus.Text = "status__";
-            this.lblStatus.Click += new System.EventHandler(this.label2_Click);
+            this.lblNote.AutoSize = true;
+            this.lblNote.Location = new System.Drawing.Point(110, 32);
+            this.lblNote.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblNote.Name = "lblNote";
+            this.lblNote.Size = new System.Drawing.Size(54, 14);
+            this.lblNote.TabIndex = 2;
+            this.lblNote.Text = "Note___";
+            this.lblNote.Click += new System.EventHandler(this.label2_Click);
             // 
             // label4
             // 
@@ -95,14 +97,14 @@
             this.label4.Location = new System.Drawing.Point(54, 32);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(40, 14);
+            this.label4.Size = new System.Drawing.Size(33, 14);
             this.label4.TabIndex = 1;
-            this.label4.Text = "Status";
+            this.label4.Text = "Note";
             // 
             // lbaa
             // 
             this.lbaa.AutoSize = true;
-            this.lbaa.Location = new System.Drawing.Point(142, 97);
+            this.lbaa.Location = new System.Drawing.Point(144, 106);
             this.lbaa.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbaa.Name = "lbaa";
             this.lbaa.Size = new System.Drawing.Size(39, 14);
@@ -141,6 +143,7 @@
             this.lblTime.Size = new System.Drawing.Size(31, 14);
             this.lblTime.TabIndex = 6;
             this.lblTime.Text = "time";
+            this.lblTime.Click += new System.EventHandler(this.lblTime_Click);
             // 
             // lblID
             // 
@@ -154,7 +157,7 @@
             // lblCusName
             // 
             this.lblCusName.AutoSize = true;
-            this.lblCusName.Location = new System.Drawing.Point(187, 97);
+            this.lblCusName.Location = new System.Drawing.Point(188, 106);
             this.lblCusName.Name = "lblCusName";
             this.lblCusName.Size = new System.Drawing.Size(24, 14);
             this.lblCusName.TabIndex = 7;
@@ -189,21 +192,42 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "SL:";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(142, 83);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(62, 14);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "BaristaID:";
+            // 
+            // lblBaristaID
+            // 
+            this.lblBaristaID.AutoSize = true;
+            this.lblBaristaID.Location = new System.Drawing.Point(217, 83);
+            this.lblBaristaID.Name = "lblBaristaID";
+            this.lblBaristaID.Size = new System.Drawing.Size(18, 14);
+            this.lblBaristaID.TabIndex = 6;
+            this.lblBaristaID.Text = "id";
+            this.lblBaristaID.Click += new System.EventHandler(this.lblTime_Click);
+            // 
             // ItemPaUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Aquamarine;
             this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblSL);
             this.Controls.Add(this.lblPhone);
             this.Controls.Add(this.lblCusName);
+            this.Controls.Add(this.lblBaristaID);
             this.Controls.Add(this.lblTime);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.picItem);
-            this.Controls.Add(this.lblStatus);
+            this.Controls.Add(this.lblNote);
             this.Controls.Add(this.lbaa);
             this.Controls.Add(this.lblItem);
             this.Controls.Add(this.label4);
@@ -224,7 +248,7 @@
         private System.Windows.Forms.Label lblI;
         private System.Windows.Forms.Label lblItem;
         private System.Windows.Forms.PictureBox picItem;
-        private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.Label lblNote;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lbaa;
         private System.Windows.Forms.Button button1;
@@ -235,5 +259,7 @@
         private System.Windows.Forms.Label lblPhone;
         private System.Windows.Forms.Label lblSL;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblBaristaID;
     }
 }

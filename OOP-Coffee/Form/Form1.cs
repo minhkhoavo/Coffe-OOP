@@ -18,7 +18,7 @@ namespace OOP_CoffeeApp
 {
     public partial class Form1 : System.Windows.Forms.Form
     {
-        private List<Order> orders = new List<Order>();
+        //private List<Order> orders = new List<Order>();
         private List<Product> products;
         static double total = 0;
         public Form1()
@@ -72,25 +72,25 @@ namespace OOP_CoffeeApp
             MessageBox.Show(message, "Thông Tin Sản Phẩm", MessageBoxButtons.OK, MessageBoxIcon.Information);
             
             bool found = false;
-            foreach (Order order in orders)
-            {
-                if (order.Id == productId)
-                {
-                    found = true;
-                    order.IncrementNumericUpDown();
-                    break;
-                }
-            }
+            //foreach (Order order in orders)
+            //{
+            //    if (order.Id == productId)
+            //    {
+            //        found = true;
+            //        order.IncrementNumericUpDown();
+            //        break;
+            //    }
+            //}
 
             if (!found)
             {
-                Order orderEl = new Order(productId, productName, productPrice, productImage);
-                orderEl.OrderDeleted += OrderForm_OrderDeleted;
-                orderEl.numericValueChange += NumericValueChangeAction;
-                //SetControlBorderRadius(orderEl, 9);
-                orders.Add(orderEl);
-                flowLayoutPanel2.Controls.Add(orderEl);
-                total += productPrice;
+                //Order orderEl = new Order(productId, productName, productPrice, productImage);
+                //orderEl.OrderDeleted += OrderForm_OrderDeleted;
+                //orderEl.numericValueChange += NumericValueChangeAction;
+                ////SetControlBorderRadius(orderEl, 9);
+                //orders.Add(orderEl);
+                //flowLayoutPanel2.Controls.Add(orderEl);
+                //total += productPrice;
             }
 
             total_lbl.Text = "$" + total.ToString();
@@ -103,18 +103,18 @@ namespace OOP_CoffeeApp
         }
         private void OrderForm_OrderDeleted(object sender, EventArgs e)
         {
-            if (sender is Order orderForm)
-            {
-                total = total - orderForm.Price * orderForm.ProductQuantity();
-                total_lbl.Text = "$" + total.ToString();
-                flowLayoutPanel2.Controls.Remove(orderForm); 
-                orders.Remove(orderForm);
-                orderForm.Dispose(); // Giải phóng tài nguyên của orderForm (để tránh rò rỉ bộ nhớ)
-            }
+            //if (sender is Order orderForm)
+            //{
+            //    total = total - orderForm.Price * orderForm.ProductQuantity();
+            //    total_lbl.Text = "$" + total.ToString();
+            //    flowLayoutPanel2.Controls.Remove(orderForm); 
+            //    orders.Remove(orderForm);
+            //    orderForm.Dispose(); // Giải phóng tài nguyên của orderForm (để tránh rò rỉ bộ nhớ)
+            //}
         }
         private void Order_DeleteClicked(object sender, EventArgs e)
         {
-            Order clickedOrder = (Order)sender;
+            //Order clickedOrder = (Order)sender;
         }
 
         private void SetControlBorderRadius(Control control, int borderRadius)
