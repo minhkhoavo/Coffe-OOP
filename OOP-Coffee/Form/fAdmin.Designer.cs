@@ -1,4 +1,4 @@
-﻿namespace OOP_Coffee.Form
+﻿namespace OOP_CoffeeApp
 {
     partial class fAdmin
     {
@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend10 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
@@ -36,7 +39,6 @@
             this.monthBtn = new System.Windows.Forms.Button();
             this.weekBtn = new System.Windows.Forms.Button();
             this.todayBtn = new System.Windows.Forms.Button();
-            this.customBtn = new System.Windows.Forms.Button();
             this.okBtn = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -52,6 +54,10 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.quảnLýNhânViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quảnLýKhoHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.revenue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.profit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -59,6 +65,7 @@
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -92,7 +99,6 @@
             this.panel1.Controls.Add(this.monthBtn);
             this.panel1.Controls.Add(this.weekBtn);
             this.panel1.Controls.Add(this.todayBtn);
-            this.panel1.Controls.Add(this.customBtn);
             this.panel1.Controls.Add(this.okBtn);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.dateTimePicker2);
@@ -111,6 +117,7 @@
             this.fileBtn.Text = "Export to File";
             this.fileBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.fileBtn.UseVisualStyleBackColor = true;
+            this.fileBtn.Click += new System.EventHandler(this.fileBtn_Click);
             // 
             // monthBtn
             // 
@@ -121,7 +128,7 @@
             this.monthBtn.Text = "This month";
             this.monthBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.monthBtn.UseVisualStyleBackColor = true;
-            //this.monthBtn.Click += new System.EventHandler(this.monthBtn_Click);
+            this.monthBtn.Click += new System.EventHandler(this.monthBtn_Click);
             // 
             // weekBtn
             // 
@@ -132,7 +139,7 @@
             this.weekBtn.Text = "Last 7 days";
             this.weekBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.weekBtn.UseVisualStyleBackColor = true;
-            //this.weekBtn.Click += new System.EventHandler(this.weekBtn_Click);
+            this.weekBtn.Click += new System.EventHandler(this.weekBtn_Click);
             // 
             // todayBtn
             // 
@@ -143,17 +150,7 @@
             this.todayBtn.Text = "Today";
             this.todayBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.todayBtn.UseVisualStyleBackColor = true;
-            //this.todayBtn.Click += new System.EventHandler(this.todayBtn_Click);
-            // 
-            // customBtn
-            // 
-            this.customBtn.Location = new System.Drawing.Point(483, 7);
-            this.customBtn.Name = "customBtn";
-            this.customBtn.Size = new System.Drawing.Size(75, 41);
-            this.customBtn.TabIndex = 2;
-            this.customBtn.Text = "Custom";
-            this.customBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.customBtn.UseVisualStyleBackColor = true;
+            this.todayBtn.Click += new System.EventHandler(this.todayBtn_Click);
             // 
             // okBtn
             // 
@@ -164,7 +161,7 @@
             this.okBtn.Text = "OK";
             this.okBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.okBtn.UseVisualStyleBackColor = true;
-            //this.okBtn.Click += new System.EventHandler(this.okBtn_Click);
+            this.okBtn.Click += new System.EventHandler(this.okBtn_Click);
             // 
             // panel2
             // 
@@ -222,7 +219,7 @@
             this.totalRevenue_lbl.AutoSize = true;
             this.totalRevenue_lbl.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
             this.totalRevenue_lbl.ForeColor = System.Drawing.Color.Black;
-            this.totalRevenue_lbl.Location = new System.Drawing.Point(172, 51);
+            this.totalRevenue_lbl.Location = new System.Drawing.Point(162, 51);
             this.totalRevenue_lbl.Name = "totalRevenue_lbl";
             this.totalRevenue_lbl.Size = new System.Drawing.Size(120, 41);
             this.totalRevenue_lbl.TabIndex = 1;
@@ -271,9 +268,17 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Date,
+            this.revenue,
+            this.profit});
             this.dataGridView1.Location = new System.Drawing.Point(15, 267);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
             this.dataGridView1.Size = new System.Drawing.Size(772, 413);
@@ -297,18 +302,62 @@
             this.quảnLýNhânViênToolStripMenuItem.Name = "quảnLýNhânViênToolStripMenuItem";
             this.quảnLýNhânViênToolStripMenuItem.Size = new System.Drawing.Size(170, 29);
             this.quảnLýNhânViênToolStripMenuItem.Text = "Quản lý nhân viên";
+            this.quảnLýNhânViênToolStripMenuItem.Click += new System.EventHandler(this.quảnLýNhânViênToolStripMenuItem_Click);
             // 
             // quảnLýKhoHàngToolStripMenuItem
             // 
             this.quảnLýKhoHàngToolStripMenuItem.Name = "quảnLýKhoHàngToolStripMenuItem";
             this.quảnLýKhoHàngToolStripMenuItem.Size = new System.Drawing.Size(169, 29);
             this.quảnLýKhoHàngToolStripMenuItem.Text = "Quản lý kho hàng";
+            this.quảnLýKhoHàngToolStripMenuItem.Click += new System.EventHandler(this.quảnLýKhoHàngToolStripMenuItem_Click);
+            // 
+            // chart1
+            // 
+            chartArea10.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea10);
+            legend10.Name = "Legend1";
+            this.chart1.Legends.Add(legend10);
+            this.chart1.Location = new System.Drawing.Point(814, 267);
+            this.chart1.Name = "chart1";
+            series10.ChartArea = "ChartArea1";
+            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series10.Legend = "Legend1";
+            series10.Name = "Sales";
+            this.chart1.Series.Add(series10);
+            this.chart1.Size = new System.Drawing.Size(409, 413);
+            this.chart1.TabIndex = 7;
+            this.chart1.Text = "chart1";
+            // 
+            // Date
+            // 
+            this.Date.DataPropertyName = "order_date";
+            this.Date.HeaderText = "Date";
+            this.Date.MinimumWidth = 8;
+            this.Date.Name = "Date";
+            this.Date.Width = 150;
+            // 
+            // revenue
+            // 
+            this.revenue.DataPropertyName = "total_price";
+            this.revenue.HeaderText = "Doanh thu";
+            this.revenue.MinimumWidth = 8;
+            this.revenue.Name = "revenue";
+            this.revenue.Width = 150;
+            // 
+            // profit
+            // 
+            this.profit.DataPropertyName = "total_profit";
+            this.profit.HeaderText = "Lợi nhuận";
+            this.profit.MinimumWidth = 8;
+            this.profit.Name = "profit";
+            this.profit.Width = 150;
             // 
             // fAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1258, 711);
+            this.Controls.Add(this.chart1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -329,6 +378,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -340,7 +390,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button customBtn;
         private System.Windows.Forms.Button okBtn;
         private System.Windows.Forms.Button fileBtn;
         private System.Windows.Forms.Button monthBtn;
@@ -360,5 +409,9 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem quảnLýNhânViênToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quảnLýKhoHàngToolStripMenuItem;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn revenue;
+        private System.Windows.Forms.DataGridViewTextBoxColumn profit;
     }
 }

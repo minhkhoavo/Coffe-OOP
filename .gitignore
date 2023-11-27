@@ -4,6 +4,7 @@
 **/bin/Debug
 **/obj/Debug
 # Ignore all .exe and .dbmdl files
+*.dbmdl
 *.exe
 *.pdb
 ## Ignore Visual Studio temporary files, build results, and
