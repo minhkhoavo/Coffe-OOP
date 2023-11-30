@@ -57,7 +57,6 @@ namespace OOP_CoffeeApp
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(372, 398);
             this.flowLayoutPanel2.TabIndex = 1;
-
             // 
             // label1
             // 
@@ -68,7 +67,6 @@ namespace OOP_CoffeeApp
             this.label1.Size = new System.Drawing.Size(65, 32);
             this.label1.TabIndex = 2;
             this.label1.Text = "Total";
-
             // 
             // total_lbl
             // 
@@ -91,6 +89,7 @@ namespace OOP_CoffeeApp
             this.button1.TabIndex = 4;
             this.button1.Text = "Payment orders";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
