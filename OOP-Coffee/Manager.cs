@@ -18,26 +18,26 @@ namespace OOP_CoffeeApp
             throw new System.NotImplementedException();
         }
 
-        static public List<Dashboard> getSalesData(DateTime startDate, DateTime endDate)
+        static public List<DashboardDB> getSalesData(DateTime startDate, DateTime endDate)
         {
-            LinQDBDataContext db = new LinQDBDataContext();
-            var query = from data in db.Dashboards
-                        where data.order_date >= startDate && data.order_date <= endDate
+            CoffeeDataModelDataContext db = new CoffeeDataModelDataContext();
+            var query = from data in db.DashboardDBs
+                        where data.OrderDate >= startDate && data.OrderDate <= endDate
                         select data;
-            List<Dashboard> result = query.ToList();
+            List<DashboardDB> result = query.ToList();
             return result;
         }
 
         static public List<SalesResult> getSalesByProduct(DateTime startDate, DateTime endDate)
         {
-            LinQDBDataContext db = new LinQDBDataContext();
-            var result = db.salesSummaries
+            CoffeeDataModelDataContext db = new CoffeeDataModelDataContext();
+            var result = db.SalesSummaryDBs
                 .Where(s => s.date >= startDate && s.date <= endDate)
-                .GroupBy(s => s.productID)
+                .GroupBy(s => s.ItemID)
                 .Select(g => new SalesResult
                 {
-                    ProductID = g.Key ?? 0,
-                    TotalQuantity = g.Sum(s => s.quantity) ?? 0
+                    ProductID = g.Key ,
+                    TotalQuantity = g.Sum(s => s.quantity)
                 })
                 .ToList();
             return result;
@@ -45,8 +45,8 @@ namespace OOP_CoffeeApp
 
         static public bool checkLogin(string username, string password)
         {
-            LinQDBDataContext db = new LinQDBDataContext();
-            var user = db.Managers.FirstOrDefault(u => u.ManagerID.ToString() == username);
+            CoffeeDataModelDataContext db = new CoffeeDataModelDataContext();
+            var user = db.ManagerDBs.FirstOrDefault(u => u.ManagerID.ToString() == username);
 
             if (user != null)
             {

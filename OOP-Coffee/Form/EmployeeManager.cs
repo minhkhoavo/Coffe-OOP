@@ -8,15 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using CoffeeShop;
+//using CoffeeShop;
 using System.Data.Linq;
 
 namespace OOP_Coffee
 {
     public partial class EmployeeManager : System.Windows.Forms.Form
     {
-
-        tableDataContext db = new tableDataContext("Data Source=DESKTOP-0C6LJMU;Initial Catalog=CoffeeOOp;Integrated Security=True");
+        CoffeeDataModelDataContext db = new CoffeeDataModelDataContext();
         public EmployeeManager()
         {
             InitializeComponent();
@@ -50,7 +49,7 @@ namespace OOP_Coffee
             //lay thong tin
             if (radBarista.Checked)
             {
-                Barista barista = new Barista();
+                BaristaDB barista = new BaristaDB();
                 barista.Name = txtName.Text;
                 barista.Password = txtPass.Text;
                 barista.Phone = txtPhone.Text;
@@ -59,13 +58,13 @@ namespace OOP_Coffee
                     barista.Gender = "Nam";
                 else barista.Gender = "Nu";
                 barista.Address = txtAddress.Text;
-                barista.ManagerId = (int?)cboManager.SelectedValue;
+                //barista.ManagerID = (int?)cboManager.SelectedValue;
 
-                db.Baristas.InsertOnSubmit(barista);
+                db.BaristaDBs.InsertOnSubmit(barista);
             }
             else
             {
-                Manager manager = new Manager();
+                ManagerDB manager = new ManagerDB();
                 manager.Name = txtName.Text;
                 manager.Password = txtPass.Text;
                 manager.Phone = txtPhone.Text;
@@ -75,7 +74,7 @@ namespace OOP_Coffee
                 else manager.Gender = "Nu";
                 manager.Address = txtAddress.Text;
 
-                db.Managers.InsertOnSubmit(manager);
+                db.ManagerDBs.InsertOnSubmit(manager);
             }
  
             //luu thong tin
@@ -90,17 +89,17 @@ namespace OOP_Coffee
         {
             if (radManager.Checked)
             {
-                var list = db.Managers.ToList();
+                var list = db.ManagerDBs.ToList();
                 dgvManager.DataSource = list;
                 cboManager.SelectedIndex = -1;
                 cboManager.Enabled = false;
             }
             else
             {
-                var list = db.Baristas.ToList();
+                var list = db.BaristaDBs.ToList();
                 dgvManager.DataSource = list;
 
-                cboManager.DataSource = db.Managers.ToList();
+                cboManager.DataSource = db.ManagerDBs.ToList();
                 cboManager.DisplayMember = "Name";
                 cboManager.ValueMember = "ManagerID";
                 cboManager.Enabled = true;
@@ -121,13 +120,13 @@ namespace OOP_Coffee
         {
             if (radBarista.Checked)
             {
-                Barista barista = db.Baristas.Where(s => s.BaristaID.ToString() == txtID.Text).Single();
-                db.Baristas.DeleteOnSubmit(barista);
+                BaristaDB barista = db.BaristaDBs.Where(s => s.BaristaID.ToString() == txtID.Text).Single();
+                db.BaristaDBs.DeleteOnSubmit(barista);
             }
             else
             {
-                Manager manager = db.Managers.Where(s => s.ManagerID.ToString() == txtID.Text).Single();
-                db.Managers.DeleteOnSubmit(manager);
+                ManagerDB manager = db.ManagerDBs.Where(s => s.ManagerID.ToString() == txtID.Text).Single();
+                db.ManagerDBs.DeleteOnSubmit(manager);
             }
             db.SubmitChanges();
             EmployeeManager_Load(sender, e);
@@ -212,7 +211,7 @@ namespace OOP_Coffee
         {
             if (radBarista.Checked)
             {
-                Barista barista = db.Baristas.Where(b => b.BaristaID.ToString() == txtID.Text).Single();
+                BaristaDB barista = db.BaristaDBs.Where(b => b.BaristaID.ToString() == txtID.Text).Single();
                 barista.Name = txtName.Text;
                 barista.Password = txtPass.Text;
                 barista.Phone = txtPhone.Text;
@@ -221,11 +220,11 @@ namespace OOP_Coffee
                     barista.Gender = "Nam";
                 else barista.Gender = "Nu";
                 barista.Address = txtAddress.Text;
-                barista.ManagerId = (int?)cboManager.SelectedValue;
+                //barista.ManagerID = int.Parse(cboManager.SelectedValue);
             }
             else
             {
-                Manager manager = db.Managers.Where(m => m.ManagerID.ToString() == txtID.Text).Single();
+                ManagerDB manager = db.ManagerDBs.Where(m => m.ManagerID.ToString() == txtID.Text).Single();
                 manager.Name = txtName.Text;
                 manager.Password = txtPass.Text;
                 manager.Phone = txtPhone.Text;
@@ -251,12 +250,12 @@ namespace OOP_Coffee
             cboSort.SelectedIndex = -1;
             if (radBarista.Checked)
             {
-                var list = db.Baristas.Where(b => b.Name.Contains(txtTim.Text)).ToList();
+                var list = db.BaristaDBs.Where(b => b.Name.Contains(txtTim.Text)).ToList();
                 dgvManager.DataSource = list;
             }
             else
             {
-                var list = db.Managers.Where(m => m.Name.Contains(txtTim.Text)).ToList();
+                var list = db.ManagerDBs.Where(m => m.Name.Contains(txtTim.Text)).ToList();
                 dgvManager.DataSource = list;
             }
 
@@ -271,23 +270,23 @@ namespace OOP_Coffee
             {
                 case 0:
                     if (radBarista.Checked)
-                        dgvManager.DataSource = db.Baristas.OrderBy(item => item.BaristaID);
+                        dgvManager.DataSource = db.BaristaDBs.OrderBy(item => item.BaristaID);
                     else
-                        dgvManager.DataSource = db.Managers.OrderBy(item => item.ManagerID);
+                        dgvManager.DataSource = db.ManagerDBs.OrderBy(item => item.ManagerID);
                     break;
                 case 1:
                     if (radBarista.Checked)
                     {
-                        dgvManager.DataSource = db.Baristas.OrderBy(item => item.Name);
+                        dgvManager.DataSource = db.BaristaDBs.OrderBy(item => item.Name);
 
                     }else
-                        dgvManager.DataSource = db.Managers.OrderBy(item => item.Name);
+                        dgvManager.DataSource = db.ManagerDBs.OrderBy(item => item.Name);
                     break;
                 case 2:
                     if(radBarista.Checked)
-                        dgvManager.DataSource = db.Baristas.OrderBy(item => item.Birthdate);
+                        dgvManager.DataSource = db.BaristaDBs.OrderBy(item => item.Birthdate);
                     else
-                        dgvManager.DataSource = db.Managers.OrderBy(item => item.Birthdate);
+                        dgvManager.DataSource = db.ManagerDBs.OrderBy(item => item.Birthdate);
                     break;
                 default:
                     break;

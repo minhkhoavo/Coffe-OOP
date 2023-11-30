@@ -13,7 +13,7 @@ namespace OOP_Coffee
 {
     public partial class Iventory : System.Windows.Forms.Form
     {
-        tableDataContext db = new tableDataContext("Data Source=DESKTOP-0C6LJMU;Initial Catalog=CoffeeOOp;Integrated Security=True");
+        CoffeeDataModelDataContext db = new CoffeeDataModelDataContext("Data Source=DESKTOP-0C6LJMU;Initial Catalog=CoffeeOOp;Integrated Security=True");
         public Iventory()
         {
             InitializeComponent();
@@ -21,28 +21,28 @@ namespace OOP_Coffee
 
         private void Iventory_Load(object sender, EventArgs e)
         {
-            dgv.DataSource = db.Inventories.ToList();
+            dgv.DataSource = db.InventoryDBs.ToList();
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            Inventory inventory = new Inventory();
+            InventoryDB inventory = new InventoryDB();
             inventory.Ten = txtTen.Text;
             inventory.SoLuong = int.Parse(txtSoLuong.Text);
             inventory.DonVi = txtDV.Text;
-            inventory.GiaNhap = double.Parse(txtGia.Text);
+            inventory.GiaNhap = decimal.Parse(txtGia.Text);
             inventory.NgayNhap = dtpNgayNhap.Value.Date;
             inventory.GhiChu = txtGhiChu.Text;
 
-            db.Inventories.InsertOnSubmit(inventory);
+            db.InventoryDBs.InsertOnSubmit(inventory);
             db.SubmitChanges();
             Iventory_Load(this, e);
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            var item = db.Inventories.Where(s => s.ID.ToString() == txtID.Text).Single();
-            db.Inventories.DeleteOnSubmit(item);
+            var item = db.InventoryDBs.Where(s => s.ID.ToString() == txtID.Text).Single();
+            db.InventoryDBs.DeleteOnSubmit(item);
             db.SubmitChanges();
             Iventory_Load(sender, e);
         }
@@ -73,11 +73,11 @@ namespace OOP_Coffee
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            Inventory inventory = db.Inventories.Where(s=> s.ID.ToString() ==txtID.Text).Single();
+            InventoryDB inventory = db.InventoryDBs.Where(s=> s.ID.ToString() ==txtID.Text).Single();
             inventory.Ten = txtTen.Text;
             inventory.SoLuong = int.Parse(txtSoLuong.Text);
             inventory.DonVi = txtDV.Text;
-            inventory.GiaNhap = double.Parse(txtGia.Text);
+            inventory.GiaNhap = decimal.Parse(txtGia.Text);
             inventory.NgayNhap = dtpNgayNhap.Value.Date;
             inventory.GhiChu = txtGhiChu.Text;
 
@@ -88,7 +88,7 @@ namespace OOP_Coffee
         private void txtTim_TextChanged(object sender, EventArgs e)
         {
             cboSort.SelectedIndex = -1;
-            dgv.DataSource = db.Inventories.Where(s => s.Ten.Contains(txtTim.Text)).ToList();
+            dgv.DataSource = db.InventoryDBs.Where(s => s.Ten.Contains(txtTim.Text)).ToList();
         }
 
         private void cboSort_SelectedIndexChanged(object sender, EventArgs e)
@@ -101,16 +101,16 @@ namespace OOP_Coffee
                     Iventory_Load(sender, e);
                     break;
                 case 1:
-                    dgv.DataSource = db.Inventories.OrderBy(s => s.Ten).ToList();
+                    dgv.DataSource = db.InventoryDBs.OrderBy(s => s.Ten).ToList();
                     break;
                 case 2:
-                    dgv.DataSource = db.Inventories.OrderBy(s => s.GiaNhap).ToList();
+                    dgv.DataSource = db.InventoryDBs.OrderBy(s => s.GiaNhap).ToList();
                     break;
                 case 3:
-                    dgv.DataSource = db.Inventories.OrderBy(s => s.SoLuong).ToList();
+                    dgv.DataSource = db.InventoryDBs.OrderBy(s => s.SoLuong).ToList();
                     break;
                 case 4:
-                    dgv.DataSource = db.Inventories.OrderBy(s => s.NgayNhap).ToList();
+                    dgv.DataSource = db.InventoryDBs.OrderBy(s => s.NgayNhap).ToList();
                     break;
             }
         }

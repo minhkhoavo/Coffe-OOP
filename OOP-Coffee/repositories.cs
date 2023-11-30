@@ -12,10 +12,10 @@ namespace OOP_CoffeeApp
     {
         static public string getProductNameById(int id)
         {
-            LinQDBDataContext db = new LinQDBDataContext();
-            var productName = db.Items
-                .Where(item => item.ItemID == id)
-                .Select(item => item.Name)
+            CoffeeDataModelDataContext db = new CoffeeDataModelDataContext();
+            var productName = db.ItemDBs
+                .Where(item => item.ItemId == id)
+                .Select(item => item.ItemName)
                 .FirstOrDefault();
             return productName ?? "Unknown";
         }

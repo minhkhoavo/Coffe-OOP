@@ -37,7 +37,7 @@ namespace OOP_CoffeeApp
                 string dataSource = Environment.GetEnvironmentVariable("DB_DATASOURCE");
                 string initialCatalog = Environment.GetEnvironmentVariable("DB_INITIAL_CATALOG");
                 string connectionString = $"Data Source={dataSource};Initial Catalog={initialCatalog};Integrated Security=True";
-                /*using (LinQDBDataContext context = new LinQDBDataContext("Data Source=DESKTOP-C8B20IS;Initial Catalog=CoffeeDB;Integrated Security=True"))
+                /*using (CoffeeDataModelDataContext context = new CoffeeDataModelDataContext("Data Source=DESKTOP-C8B20IS;Initial Catalog=CoffeeDB;Integrated Security=True"))
                 {
                     var products = from item in context.Items
                                    select new

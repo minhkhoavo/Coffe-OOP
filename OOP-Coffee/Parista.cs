@@ -22,8 +22,8 @@ namespace OOP_CoffeeApp
 
         static public bool checkLogin(string username, string password)
         {
-            LinQDBDataContext db = new LinQDBDataContext();
-            var user = db.Baristas.FirstOrDefault(u => u.BaristaID.ToString() == username);
+            CoffeeDataModelDataContext db = new CoffeeDataModelDataContext();
+            var user = db.BaristaDBs.FirstOrDefault(u => u.BaristaID.ToString() == username);
 
             if (user != null)
             {

@@ -12,7 +12,7 @@ namespace OOP_Coffee
     public partial class ParistaFrm : System.Windows.Forms.Form
     {
 
-        tableDataContext db = new tableDataContext("Data Source=DESKTOP-0C6LJMU;Initial Catalog=CoffeeOOp;Integrated Security=True");
+        CoffeeDataModelDataContext db = new CoffeeDataModelDataContext("Data Source=DESKTOP-0C6LJMU;Initial Catalog=CoffeeOOp;Integrated Security=True");
         public ParistaFrm()
         {
             InitializeComponent();
@@ -26,30 +26,31 @@ namespace OOP_Coffee
 
         private void ParistaFrm_Load(object sender, EventArgs e)
         {
-            var query = from order in db.Orders
-                        join oitem in db.OrderItems on order.OrderID equals oitem.OrderID
-                        join item in db.Items on oitem.ItemID equals item.ItemID
-                        join cus in db.Customers on order.CustomerID equals cus.CustomerID
+            var query = from order in db.OrderDBs
+                        join oitem in db.OrderItemDBs on order.OrderID equals oitem.OrderID
+                        join item in db.ItemDBs on oitem.ItemId equals item.ItemId
+                        join cus in db.CustomerDBs on order.CustomerID equals cus.CustomerID
                         where oitem.Status == "0"
                         select new
                         {
                             orderID = order.OrderID,
                             orderItemID = oitem.OrderItemID,
-                            itemName = item.Name,
+                            itemName = item.ItemName,
                             quantity = oitem.Quantity,
                             date = order.OrderDate,
                             note = oitem.Note,
-                            itemImg = item.Imag,
+                            itemImg = item.ItemImage,
 
                             customer = cus.Name,
                             phone = cus.Phone,
-                            baristaID = order.BaristaID                                                      
+                            //baristaID = order.BaristaID                                                      
                         };
             foreach (var gr in query)
             {
-                ItemPaUC item = new ItemPaUC(gr.orderID.ToString(),gr.orderItemID.ToString(),gr.itemName,gr.quantity.ToString(),gr.date.ToString(),gr.note, gr.itemImg,
-                                                gr.customer, gr.phone, gr.baristaID.ToString());
-
+                /*                ItemPaUC item = new ItemPaUC(gr.orderID.ToString(),gr.orderItemID.ToString(),gr.itemName,gr.quantity.ToString(),gr.date.ToString(),gr.note, gr.itemImg,
+                                                                gr.customer, gr.phone, gr.baristaID.ToString());*/
+                ItemPaUC item = new ItemPaUC(gr.orderID.ToString(), gr.orderItemID.ToString(), gr.itemName, gr.quantity.ToString(), gr.date.ToString(), gr.note, gr.itemImg,
+                                                gr.customer, gr.phone, "1");
                 //su kien nhan yes
                 item.YesButtonClick += ButtonYes_ItemPaUC;
                 item.YesButtonClick += DeleteUserControl_ItemPaUC;                
@@ -63,12 +64,12 @@ namespace OOP_Coffee
 
         private void ButtonYes_ItemPaUC(object sender, DataItemPaUC e)
         {
-            OrderItem orderItem = db.OrderItems.Where(s => s.OrderItemID == int.Parse(e.OrderItemID)).Single();
+            OrderItemDB orderItem = db.OrderItemDBs.Where(s => s.OrderItemID == int.Parse(e.OrderItemID)).Single();
             orderItem.Status = "1";
 
             //trừ số lượng có trong iventory
-            var thanhphan = from a in db.Congthucs
-                            where orderItem.ItemID == a.id_san_pham
+            var thanhphan = from a in db.CongThucDBs
+                            where orderItem.ItemId == a.id_san_pham
                             select new
                             {
                                 nguyenlieuID = a.id_nguyen_lieu,
@@ -77,7 +78,7 @@ namespace OOP_Coffee
             foreach (var tp in thanhphan)
             {
                 int.TryParse(tp.nguyenlieuID.ToString(), out int id);
-                var iventory = db.Inventories.Where(s => s.ID == id).Single();
+                var iventory = db.InventoryDBs.Where(s => s.ID == id).Single();
                 iventory.SoLuong -= tp.soluong * orderItem.Quantity;
             }
 
@@ -86,7 +87,7 @@ namespace OOP_Coffee
         }
         private void ButtonNo_ItemPaUC(object sender, DataItemPaUC e)
         {
-            OrderItem orderItem = db.OrderItems.Where(s => s.OrderItemID == int.Parse(e.OrderItemID)).Single();
+            OrderItemDB orderItem = db.OrderItemDBs.Where(s => s.OrderItemID == int.Parse(e.OrderItemID)).Single();
             orderItem.Status = "-1";
 
             db.SubmitChanges();

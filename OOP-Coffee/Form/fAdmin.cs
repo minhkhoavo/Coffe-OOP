@@ -71,13 +71,13 @@ namespace OOP_CoffeeApp
             decimal totalRevenue = 0;
             decimal totalProfit = 0;
 
-            List<Dashboard> result = Manager.getSalesData(startDate, endDate);
+            List<DashboardDB> result = Manager.getSalesData(startDate, endDate);
             List<SalesResult> salesByProduct = Manager.getSalesByProduct(startDate, endDate);
             
             foreach (var item in result)
             {
-                totalRevenue += item.total_price;
-                totalProfit += item.total_profit;
+                totalRevenue += item.totalRevenue;
+                totalProfit += item.totalRevenue;
             }
 
             chart1.Series["Sales"].Points.Clear();
