@@ -14,11 +14,13 @@ namespace OOP_Coffee.Form.UserControlUI
     public partial class Order : UserControl
     {
         public static decimal totalPriceOrder;
-        private string nameOrder;
+        private string nameOrder; // tên sản phẩm
         private decimal price;
         private int id;
         private int quantity;
         private string note;
+        private int orderID;
+        private int orderItemID;
         public decimal Price { get => price; set => price = value; }
         public string NameOrder { get => nameOrder; set => nameOrder = value; }
         public Image Img
@@ -29,6 +31,8 @@ namespace OOP_Coffee.Form.UserControlUI
         public int Id { get => id; set => id = value; }
         public int Quantity { get => quantity; set => quantity = value; }
         public string Note { get => note; set => note = value; }
+        public int OrderID { get => orderID; set => orderID = value; }
+        public int OrderItemID { get => orderItemID; set => orderItemID = value; }
 
         public Order()
         {

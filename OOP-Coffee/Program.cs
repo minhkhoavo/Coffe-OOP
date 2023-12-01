@@ -21,7 +21,7 @@ namespace OOP_CoffeeApp
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Iventory());
             //Application.Run(new fAdmin());
-            Application.Run(new Form1());
+            //Application.Run(new Form1(1));
             //Application.Run(new fFeedback());
             //Application.Run(new fLogin());
             fLogin fLogin = new fLogin();

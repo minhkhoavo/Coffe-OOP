@@ -21,7 +21,7 @@ namespace OOP_CoffeeApp
             {
                 foreach (var order in orders)
                 {
-                    OrderPayment orderPayment = new OrderPayment(order.Img, order.Id, order.NameOrder, order.Quantity, order.Price * order.Quantity, "Note", "Chờ xử lý");
+                    OrderPayment orderPayment = new OrderPayment(order.Img, order.Id, order.OrderItemID ,order.NameOrder, order.Quantity, order.Price * order.Quantity, "Note", "Chờ xử lý");
                     flowLayoutPanel1.Controls.Add(orderPayment);
                 }
             }

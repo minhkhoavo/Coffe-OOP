@@ -20,10 +20,12 @@ namespace OOP_CoffeeApp
     {
         private List<Order> orders = new List<Order>();
         static decimal total = 0;
-        public Form1()
+        private int customerId;
+        public Form1(int customerId)
         {
             InitializeComponent();
             //this.products = products;
+            this.customerId = customerId;
         }
         private void Form1_Load(object sender, System.EventArgs e)
         {
@@ -125,6 +127,41 @@ namespace OOP_CoffeeApp
 
         private void button1_Click(object sender, EventArgs e)
         {
+            DialogResult result = MessageBox.Show($"Bạn có chắc chắn muốn thanh toán số tiền {total.ToString("0.00")}$ cho đơn hàng này không?", "Xác nhận thanh toán", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result != DialogResult.Yes)
+            {
+                return;
+            }
+
+            OrderDB newOrder = new OrderDB {
+                CustomerID = customerId,
+                OrderDate = DateTime.Now, 
+                RatingStar = null, 
+                Comment = null 
+            };
+            CoffeeDataModelDataContext db = new CoffeeDataModelDataContext();
+            db.OrderDBs.InsertOnSubmit(newOrder);
+            db.SubmitChanges();
+            int newOrderID = newOrder.OrderID;
+
+            foreach (var item in orders)
+            {
+                OrderItemDB newOrderItem = new OrderItemDB
+                {
+                    OrderID = newOrderID, 
+                    ItemId = item.Id,
+                    BaristaID = 1,
+                    Price = item.Price, 
+                    Quantity = item.Quantity, 
+                    Note = item.Note, 
+                    Status = "Pending" 
+                };
+                db.OrderItemDBs.InsertOnSubmit(newOrderItem);
+                db.SubmitChanges();
+                item.OrderItemID = newOrderItem.OrderItemID;
+            }
+
             fFeedback fFeedbackForm = new fFeedback(orders);
             fFeedbackForm.ShowDialog();
         }
