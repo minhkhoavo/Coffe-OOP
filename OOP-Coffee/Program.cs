@@ -28,7 +28,7 @@ namespace OOP_CoffeeApp
 
             if (fLogin.ShowDialog() == DialogResult.OK)
             {
-                Application.Run(new ParistaFrm());
+                Application.Run(new fAdmin());
             }
             else
             {

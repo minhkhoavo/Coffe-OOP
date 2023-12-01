@@ -38,10 +38,10 @@
         <elementListCompartment Id="5bba0342-a2b6-4a80-99ef-c64b40a16882" absoluteBounds="6.015, 3.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="eb861248-7267-4a96-be31-e150eb803e3f" absoluteBounds="2.5, 0.5, 2, 2.1554996744791666">
+    <classShape Id="eb861248-7267-4a96-be31-e150eb803e3f" absoluteBounds="0.625, 0.5, 2, 2.1554996744791666">
       <DataClassMoniker Name="/CoffeeDataModelDataContext/ManagerDB" />
       <nestedChildShapes>
-        <elementListCompartment Id="8dee017b-34cd-4fd0-92d8-4ad0376733a5" absoluteBounds="2.515, 0.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="8dee017b-34cd-4fd0-92d8-4ad0376733a5" absoluteBounds="0.64000000000000012, 0.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <classShape Id="b77d0632-09a1-443f-807b-666eb650d52b" absoluteBounds="2.625, 4.625, 2, 1.7708968098958331">
