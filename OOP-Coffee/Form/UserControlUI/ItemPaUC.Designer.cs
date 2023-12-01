@@ -64,10 +64,9 @@
             this.lblItem.Location = new System.Drawing.Point(97, 6);
             this.lblItem.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblItem.Name = "lblItem";
-            this.lblItem.Size = new System.Drawing.Size(45, 17);
+            this.lblItem.Size = new System.Drawing.Size(57, 17);
             this.lblItem.TabIndex = 2;
-            this.lblItem.Text = "label2";
-            this.lblItem.Click += new System.EventHandler(this.label2_Click);
+            this.lblItem.Text = "tenItem";
             // 
             // picItem
             // 
@@ -78,7 +77,6 @@
             this.picItem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picItem.TabIndex = 3;
             this.picItem.TabStop = false;
-            this.picItem.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // lblNote
             // 
@@ -86,10 +84,9 @@
             this.lblNote.Location = new System.Drawing.Point(110, 32);
             this.lblNote.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNote.Name = "lblNote";
-            this.lblNote.Size = new System.Drawing.Size(54, 14);
+            this.lblNote.Size = new System.Drawing.Size(38, 14);
             this.lblNote.TabIndex = 2;
-            this.lblNote.Text = "Note___";
-            this.lblNote.Click += new System.EventHandler(this.label2_Click);
+            this.lblNote.Text = "note_";
             // 
             // label4
             // 
@@ -110,7 +107,6 @@
             this.lbaa.Size = new System.Drawing.Size(39, 14);
             this.lbaa.TabIndex = 2;
             this.lbaa.Text = "CUS :";
-            this.lbaa.Click += new System.EventHandler(this.label2_Click);
             // 
             // button1
             // 
@@ -143,7 +139,6 @@
             this.lblTime.Size = new System.Drawing.Size(31, 14);
             this.lblTime.TabIndex = 6;
             this.lblTime.Text = "time";
-            this.lblTime.Click += new System.EventHandler(this.lblTime_Click);
             // 
             // lblID
             // 
@@ -209,7 +204,6 @@
             this.lblBaristaID.Size = new System.Drawing.Size(18, 14);
             this.lblBaristaID.TabIndex = 6;
             this.lblBaristaID.Text = "id";
-            this.lblBaristaID.Click += new System.EventHandler(this.lblTime_Click);
             // 
             // ItemPaUC
             // 
@@ -236,7 +230,6 @@
             this.Font = new System.Drawing.Font("Mongolian Baiti", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "ItemPaUC";
             this.Size = new System.Drawing.Size(301, 198);
-            this.Load += new System.EventHandler(this.ItemPaUC_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picItem)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

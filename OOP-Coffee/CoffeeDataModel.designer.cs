@@ -22,7 +22,7 @@ namespace OOP_Coffee
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="TestDB")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="Coffee-DB")]
 	public partial class CoffeeDataModelDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -63,7 +63,7 @@ namespace OOP_Coffee
     #endregion
 		
 		public CoffeeDataModelDataContext() : 
-				base(global::OOP_Coffee.Properties.Settings.Default.TestDBConnectionString, mappingSource)
+				base(global::OOP_Coffee.Properties.Settings.Default.Coffee_DBConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -1665,6 +1665,8 @@ namespace OOP_Coffee
 		
 		private int _ItemId;
 		
+		private int _BaristaID;
+		
 		private decimal _Price;
 		
 		private int _Quantity;
@@ -1683,6 +1685,8 @@ namespace OOP_Coffee
     partial void OnOrderIDChanged();
     partial void OnItemIdChanging(int value);
     partial void OnItemIdChanged();
+    partial void OnBaristaIDChanging(int value);
+    partial void OnBaristaIDChanged();
     partial void OnPriceChanging(decimal value);
     partial void OnPriceChanged();
     partial void OnQuantityChanging(int value);
@@ -1754,6 +1758,26 @@ namespace OOP_Coffee
 					this._ItemId = value;
 					this.SendPropertyChanged("ItemId");
 					this.OnItemIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BaristaID", DbType="Int NOT NULL")]
+		public int BaristaID
+		{
+			get
+			{
+				return this._BaristaID;
+			}
+			set
+			{
+				if ((this._BaristaID != value))
+				{
+					this.OnBaristaIDChanging(value);
+					this.SendPropertyChanging();
+					this._BaristaID = value;
+					this.SendPropertyChanged("BaristaID");
+					this.OnBaristaIDChanged();
 				}
 			}
 		}

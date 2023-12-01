@@ -75,7 +75,6 @@
             this.dgvManager.Name = "dgvManager";
             this.dgvManager.Size = new System.Drawing.Size(656, 229);
             this.dgvManager.TabIndex = 0;
-            this.dgvManager.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvManager_CellContentClick);
             this.dgvManager.SelectionChanged += new System.EventHandler(this.dgvManager_SelectionChanged);
             // 
             // label1
@@ -113,7 +112,6 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // dtpBirth
             // 
@@ -133,7 +131,6 @@
             this.cboManager.Name = "cboManager";
             this.cboManager.Size = new System.Drawing.Size(200, 21);
             this.cboManager.TabIndex = 7;
-            this.cboManager.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // radNu
             // 
@@ -366,7 +363,6 @@
             this.radManager.TabIndex = 7;
             this.radManager.Text = "Manager";
             this.radManager.UseVisualStyleBackColor = true;
-            this.radManager.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
             // 
             // radBarista
             // 

@@ -12,7 +12,7 @@ namespace OOP_Coffee
     public partial class ParistaFrm : System.Windows.Forms.Form
     {
 
-        CoffeeDataModelDataContext db = new CoffeeDataModelDataContext("Data Source=DESKTOP-0C6LJMU;Initial Catalog=CoffeeOOp;Integrated Security=True");
+        CoffeeDataModelDataContext db = new CoffeeDataModelDataContext();
         public ParistaFrm()
         {
             InitializeComponent();
@@ -26,7 +26,7 @@ namespace OOP_Coffee
 
         private void ParistaFrm_Load(object sender, EventArgs e)
         {
-            var query = from order in db.OrderDBs
+            var query = (from order in db.OrderDBs
                         join oitem in db.OrderItemDBs on order.OrderID equals oitem.OrderID
                         join item in db.ItemDBs on oitem.ItemId equals item.ItemId
                         join cus in db.CustomerDBs on order.CustomerID equals cus.CustomerID
@@ -43,14 +43,15 @@ namespace OOP_Coffee
 
                             customer = cus.Name,
                             phone = cus.Phone,
-                            //baristaID = order.BaristaID                                                      
-                        };
+                            baristaID = oitem.BaristaID                                                     
+                        }).ToList()
+                        ;
             foreach (var gr in query)
             {
                 /*                ItemPaUC item = new ItemPaUC(gr.orderID.ToString(),gr.orderItemID.ToString(),gr.itemName,gr.quantity.ToString(),gr.date.ToString(),gr.note, gr.itemImg,
                                                                 gr.customer, gr.phone, gr.baristaID.ToString());*/
-                ItemPaUC item = new ItemPaUC(gr.orderID.ToString(), gr.orderItemID.ToString(), gr.itemName, gr.quantity.ToString(), gr.date.ToString(), gr.note, gr.itemImg,
-                                                gr.customer, gr.phone, "1");
+                ItemPaUC item = new ItemPaUC(gr.orderID, gr.orderItemID, gr.itemName, gr.quantity, gr.date, gr.note, gr.itemImg,
+                                                gr.customer, gr.phone, gr.baristaID);
                 //su kien nhan yes
                 item.YesButtonClick += ButtonYes_ItemPaUC;
                 item.YesButtonClick += DeleteUserControl_ItemPaUC;                
@@ -64,7 +65,7 @@ namespace OOP_Coffee
 
         private void ButtonYes_ItemPaUC(object sender, DataItemPaUC e)
         {
-            OrderItemDB orderItem = db.OrderItemDBs.Where(s => s.OrderItemID == int.Parse(e.OrderItemID)).Single();
+            OrderItemDB orderItem = db.OrderItemDBs.Where(s => s.OrderItemID == e.OrderItemID).Single();
             orderItem.Status = "1";
 
             //trừ số lượng có trong iventory
@@ -77,21 +78,20 @@ namespace OOP_Coffee
                             };
             foreach (var tp in thanhphan)
             {
-                int.TryParse(tp.nguyenlieuID.ToString(), out int id);
-                var iventory = db.InventoryDBs.Where(s => s.ID == id).Single();
+                var iventory = db.InventoryDBs.Where(s => s.ID == tp.nguyenlieuID).Single();
                 iventory.SoLuong -= tp.soluong * orderItem.Quantity;
             }
 
             db.SubmitChanges();
-            MessageBox.Show("Đã hoàn thành xong", "Thông báo");
+            MessageBox.Show("Đã hoàn thành xong", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         private void ButtonNo_ItemPaUC(object sender, DataItemPaUC e)
         {
-            OrderItemDB orderItem = db.OrderItemDBs.Where(s => s.OrderItemID == int.Parse(e.OrderItemID)).Single();
+            OrderItemDB orderItem = db.OrderItemDBs.Where(s => s.OrderItemID == e.OrderItemID).Single();
             orderItem.Status = "-1";
 
             db.SubmitChanges();
-            MessageBox.Show("Đã hủy", "Thông báo");
+            MessageBox.Show("Đã hủy", "Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Information);
         }
         private void DeleteUserControl_ItemPaUC(object sender, EventArgs e)
         {

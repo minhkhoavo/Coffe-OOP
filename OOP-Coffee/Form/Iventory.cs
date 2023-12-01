@@ -13,7 +13,7 @@ namespace OOP_Coffee
 {
     public partial class Iventory : System.Windows.Forms.Form
     {
-        CoffeeDataModelDataContext db = new CoffeeDataModelDataContext("Data Source=DESKTOP-0C6LJMU;Initial Catalog=CoffeeOOp;Integrated Security=True");
+        CoffeeDataModelDataContext db = new CoffeeDataModelDataContext();
         public Iventory()
         {
             InitializeComponent();
@@ -57,16 +57,14 @@ namespace OOP_Coffee
             if (dgv.SelectedRows.Count > 0)
             {               
                 var row = dgv.SelectedRows[0];
-                txtID.Text = row.Cells["ID"].Value.ToString();
-                txtTen.Text = row.Cells["Ten"].Value.ToString();
-                txtSoLuong.Text = row.Cells["SoLuong"].Value.ToString();
-                if(row.Cells["DonVi"].Value != null)
-                   txtDV.Text = row.Cells["DonVi"].Value.ToString();
+                txtID.Text = row.Cells["ID"].Value?.ToString();
+                txtTen.Text = row.Cells["Ten"].Value?.ToString();
+                txtSoLuong.Text = row.Cells["SoLuong"].Value?.ToString();
+                txtDV.Text = row.Cells["DonVi"].Value?.ToString();
 
-                txtGia.Text = row.Cells["GiaNhap"].Value.ToString();
+                txtGia.Text = row.Cells["GiaNhap"].Value?.ToString();
                 dtpNgayNhap.Value = Convert.ToDateTime(row.Cells["NgayNhap"].Value);
-                if (row.Cells["GhiChu"].Value != null)
-                    txtGhiChu.Text = row.Cells["GhiChu"].Value.ToString();              
+                txtGhiChu.Text = row.Cells["GhiChu"].Value?.ToString();              
             }
 
         }
