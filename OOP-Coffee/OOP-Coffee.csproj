@@ -98,6 +98,12 @@
     <Compile Include="Form\AddItem.Designer.cs">
       <DependentUpon>AddItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form\Congthuc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Congthuc.Designer.cs">
+      <DependentUpon>Congthuc.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form\EmployeeManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,8 +175,16 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="repositories.cs" />
+    <Compile Include="_Coffee_DBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_Coffee_DBDataSet.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form\AddItem.resx">
       <DependentUpon>AddItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Congthuc.resx">
+      <DependentUpon>Congthuc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\EmployeeManager.resx">
       <DependentUpon>EmployeeManager.cs</DependentUpon>
@@ -233,6 +247,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="_Coffee_DBDataSet.xsc">
+      <DependentUpon>_Coffee_DBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="_Coffee_DBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_Coffee_DBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_Coffee_DBDataSet.xss">
+      <DependentUpon>_Coffee_DBDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

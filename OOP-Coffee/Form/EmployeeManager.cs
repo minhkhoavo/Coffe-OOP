@@ -29,21 +29,6 @@ namespace OOP_Coffee
             //    Close();
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void radioButton3_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dgvManager_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void btnThem_Click(object sender, EventArgs e)
         {
             //lay thong tin
@@ -58,7 +43,7 @@ namespace OOP_Coffee
                     barista.Gender = "Nam";
                 else barista.Gender = "Nu";
                 barista.Address = txtAddress.Text;
-                //barista.ManagerID = (int?)cboManager.SelectedValue;
+                barista.ManagerID = (int)cboManager.SelectedValue;
 
                 db.BaristaDBs.InsertOnSubmit(barista);
             }
@@ -89,17 +74,15 @@ namespace OOP_Coffee
         {
             if (radManager.Checked)
             {
-                var list = db.ManagerDBs.ToList();
-                dgvManager.DataSource = list;
+                dgvManager.DataSource = db.ManagerDBs.ToList();
                 cboManager.SelectedIndex = -1;
                 cboManager.Enabled = false;
             }
             else
             {
-                var list = db.BaristaDBs.ToList();
-                dgvManager.DataSource = list;
+                dgvManager.DataSource = db.BaristaDBs.ToList();
 
-                cboManager.DataSource = db.ManagerDBs.ToList();
+                cboManager.DataSource = db.ManagerDBs;
                 cboManager.DisplayMember = "Name";
                 cboManager.ValueMember = "ManagerID";
                 cboManager.Enabled = true;
@@ -109,11 +92,6 @@ namespace OOP_Coffee
         private void radBarista_CheckedChanged(object sender, EventArgs e)
         {
             EmployeeManager_Load(this, e);
-        }
-
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -138,75 +116,22 @@ namespace OOP_Coffee
         {
             if (dgvManager.SelectedRows.Count > 0)
             {
-                txtID.Text = dgvManager.SelectedRows[0].Cells[0].Value.ToString();
-                txtName.Text = dgvManager.SelectedRows[0].Cells[1].Value.ToString();
-                txtPass.Text = dgvManager.SelectedRows[0].Cells[2].Value.ToString();
-                txtPhone.Text = dgvManager.SelectedRows[0].Cells[3].Value.ToString();
+                txtID.Text = dgvManager.SelectedRows[0].Cells[0].Value?.ToString();
+                txtName.Text = dgvManager.SelectedRows[0].Cells["Name"].Value?.ToString();
+                txtPass.Text = dgvManager.SelectedRows[0].Cells["Password"].Value?.ToString();
+                txtPhone.Text = dgvManager.SelectedRows[0].Cells["Phone"].Value?.ToString();
+                radNu.Checked = (dgvManager.SelectedRows[0].Cells["Gender"].Value?.ToString() ?? "Nam") == "Nu";
+                dtpBirth.Value = Convert.ToDateTime(dgvManager.SelectedRows[0].Cells["Birthdate"].Value);
+                txtAddress.Text = dgvManager.SelectedRows[0].Cells["Address"].Value?.ToString() ?? "";
 
-                dtpBirth.Value = Convert.ToDateTime(dgvManager.SelectedRows[0].Cells[4].Value);
 
-                if (dgvManager.SelectedRows[0].Cells["Gender"].Value != null)
-                {
-                    string gender = dgvManager.SelectedRows[0].Cells["Gender"].Value.ToString();
-                    if (gender == "Nu")
-                        radNu.Checked = true;
-                }
-
-                if (dgvManager.SelectedRows[0].Cells["Address"].Value != null)
-                    txtAddress.Text = dgvManager.SelectedRows[0].Cells["Address"].Value.ToString();
-                else txtAddress.Text = "";
                 //neu la barista thi co dong nay
-                if(radBarista.Checked)
+                if (radBarista.Checked)
                    cboManager.SelectedValue = dgvManager.SelectedRows[0].Cells["ManagerID"].Value;
             }
 
         }
-        private void dgvSelectManager()
-        {
-            if (dgvManager.SelectedRows.Count > 0)
-            {
-                txtID.Text = dgvManager.SelectedRows[0].Cells[0].Value.ToString();
-                txtName.Text = dgvManager.SelectedRows[0].Cells[1].Value.ToString();
-                txtPass.Text = dgvManager.SelectedRows[0].Cells[2].Value.ToString();
-                txtPhone.Text = dgvManager.SelectedRows[0].Cells[3].Value.ToString();
 
-                dtpBirth.Value = Convert.ToDateTime(dgvManager.SelectedRows[0].Cells[4].Value);
-                if (dgvManager.SelectedRows[0].Cells[6].Value != null)
-                {
-                    string gender = dgvManager.SelectedRows[0].Cells[6].Value.ToString();
-                    if (gender == "Nu")
-                        radNu.Checked = true;
-
-                }
-                if (dgvManager.SelectedRows[0].Cells[7].Value != null)
-                    txtAddress.Text = dgvManager.SelectedRows[0].Cells[7].Value.ToString();
-
-                cboManager.SelectedValue = dgvManager.SelectedRows[0].Cells[5].Value;
-            }
-        }
-        private void dgvSelectBarista()
-        {
-            if (dgvManager.SelectedRows.Count > 0)
-            {
-                txtID.Text = dgvManager.SelectedRows[0].Cells[0].Value.ToString();
-                txtName.Text = dgvManager.SelectedRows[0].Cells[1].Value.ToString();
-                txtPass.Text = dgvManager.SelectedRows[0].Cells[2].Value.ToString();
-                txtPhone.Text = dgvManager.SelectedRows[0].Cells[3].Value.ToString();
-
-                dtpBirth.Value = Convert.ToDateTime(dgvManager.SelectedRows[0].Cells[4].Value);
-                if (dgvManager.SelectedRows[0].Cells[6].Value != null)
-                {
-                    string gender = dgvManager.SelectedRows[0].Cells[6].Value.ToString();
-                    if (gender == "Nu")
-                        radNu.Checked = true;
-
-                }
-                if (dgvManager.SelectedRows[0].Cells[7].Value != null)
-                    txtAddress.Text = dgvManager.SelectedRows[0].Cells[7].Value.ToString();
-
-                cboManager.SelectedValue = dgvManager.SelectedRows[0].Cells[5].Value;
-            }
-        }
         private void btnSua_Click(object sender, EventArgs e)
         {
             if (radBarista.Checked)
@@ -220,7 +145,7 @@ namespace OOP_Coffee
                     barista.Gender = "Nam";
                 else barista.Gender = "Nu";
                 barista.Address = txtAddress.Text;
-                //barista.ManagerID = int.Parse(cboManager.SelectedValue);
+                barista.ManagerID = (int)cboManager.SelectedValue;
             }
             else
             {
@@ -240,10 +165,6 @@ namespace OOP_Coffee
             MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void btnTim_Click(object sender, EventArgs e)
-        {
-            
-        }
 
         private void txtTim_TextChanged(object sender, EventArgs e)
         {
@@ -270,20 +191,24 @@ namespace OOP_Coffee
             {
                 case 0:
                     if (radBarista.Checked)
-                        dgvManager.DataSource = db.BaristaDBs.OrderBy(item => item.BaristaID);
+                    {
+                        dgvManager.DataSource = db.BaristaDBs.OrderBy(item => item.BaristaID).ToList();
+                    }
                     else
-                        dgvManager.DataSource = db.ManagerDBs.OrderBy(item => item.ManagerID);
+                    {
+                        dgvManager.DataSource = db.BaristaDBs.OrderBy(item => item.ManagerID).ToList();
+                    }
                     break;
                 case 1:
                     if (radBarista.Checked)
                     {
-                        dgvManager.DataSource = db.BaristaDBs.OrderBy(item => item.Name);
-
-                    }else
-                        dgvManager.DataSource = db.ManagerDBs.OrderBy(item => item.Name);
+                        dgvManager.DataSource = db.BaristaDBs.OrderBy(item => item.Name).ToList();
+                    }
+                    else
+                        dgvManager.DataSource = db.ManagerDBs.OrderBy(item => item.Name).ToList();
                     break;
                 case 2:
-                    if(radBarista.Checked)
+                    if (radBarista.Checked)
                         dgvManager.DataSource = db.BaristaDBs.OrderBy(item => item.Birthdate);
                     else
                         dgvManager.DataSource = db.ManagerDBs.OrderBy(item => item.Birthdate);

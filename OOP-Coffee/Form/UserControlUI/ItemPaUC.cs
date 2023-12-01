@@ -14,25 +14,25 @@ namespace OOP_Coffee
 {
     public class DataItemPaUC : EventArgs
     {
-        public string OrderItemID { get; set; }
+        public int OrderItemID { get; set; }
 
-        public DataItemPaUC(string orderItemID)
+        public DataItemPaUC(int orderItemID)
         {
             OrderItemID = orderItemID;
         }
     }
     public partial class ItemPaUC : UserControl
     {
-        private string OrderID;
-        private string OrderItemID;
+        private int OrderID;
+        private int OrderItemID;
         private string itemName;
-        private string sl;
-        private string time;
+        private int sl;
+        private DateTime time;
         private string note;
         private string linkImag;
         private string cusName;
         private string phone;
-        private string baristaID;
+        private int baristaID;
 
 
         public event EventHandler<DataItemPaUC> YesButtonClick;
@@ -41,8 +41,10 @@ namespace OOP_Coffee
         {
             InitializeComponent();
         }
-        public ItemPaUC(string OrderID,string OrderItemID,string itemName, string sl, string time, string note, string linkImag,
-                    string cusName,string phone,string baristaID)
+        /*                ItemPaUC item = new ItemPaUC(gr.orderID.ToString(),gr.orderItemID.ToString(),gr.itemName,gr.quantity.ToString(),gr.date.ToString(),gr.note, gr.itemImg,
+                                                gr.customer, gr.phone, gr.baristaID.ToString());*/
+        public ItemPaUC(int OrderID,int OrderItemID,string itemName,int sl, DateTime time, string note, string linkImag,
+                    string cusName,string phone,int baristaID)
         {
             InitializeComponent();
 
@@ -61,59 +63,29 @@ namespace OOP_Coffee
         }
         public void hienThi()
         {
-            lblID.Text = OrderID + "-" + OrderItemID;
+            lblID.Text = OrderItemID.ToString() +" - "+ OrderID.ToString();
             lblItem.Text = itemName;
-            lblSL.Text = sl;
-            lblTime.Text = time;
+            lblSL.Text = sl.ToString();
+            lblTime.Text = time.ToString();
             lblNote.Text = note;
 
             lblCusName.Text = cusName;
             lblPhone.Text = phone;
-            lblBaristaID.Text = baristaID;
+            lblBaristaID.Text = baristaID.ToString();
 
             //chua gan image
         }
 
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
         //button NO
         private void button2_Click(object sender, EventArgs e)
         {
             NoButtonClick?.Invoke(this, new DataItemPaUC(OrderItemID));
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
         
         //button Yes
         private void button1_Click(object sender, EventArgs e)
         {
             YesButtonClick?.Invoke(this, new DataItemPaUC(OrderItemID));
-        }
-
-        private void ItemPaUC_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblTime_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
