@@ -141,6 +141,12 @@
     <Compile Include="Form\UserControlUI\Order.Designer.cs">
       <DependentUpon>Order.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form\UserControlUI\OrderPayment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Form\UserControlUI\OrderPayment.Designer.cs">
+      <DependentUpon>OrderPayment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form\UserControlUI\Product.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -200,6 +206,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\UserControlUI\Order.resx">
       <DependentUpon>Order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\UserControlUI\OrderPayment.resx">
+      <DependentUpon>OrderPayment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\UserControlUI\Product.resx">
       <DependentUpon>Product.cs</DependentUpon>

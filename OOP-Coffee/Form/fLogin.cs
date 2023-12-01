@@ -30,7 +30,9 @@ namespace OOP_CoffeeApp
                 {
                     if (Customer.checkLogin(username, password))
                     {
-                        MessageBox.Show("Success login");;
+                        MessageBox.Show("Success login");
+                        Form1 customerForm = new Form1(int.Parse(username));
+                        customerForm.ShowDialog();  
                         this.DialogResult = DialogResult.OK;
                         this.Close();
                     }

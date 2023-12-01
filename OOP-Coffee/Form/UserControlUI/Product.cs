@@ -18,8 +18,8 @@ namespace WinFormsApp1.Model
         }
         private int id;
         private string name;
-        private double price;
-        public double Price { get => price; set => price = value; }
+        private decimal price;
+        public decimal Price { get => price; set => price = value; }
         public string Name { get => name; set => name = value; }
 
         public Image Img
@@ -28,7 +28,7 @@ namespace WinFormsApp1.Model
             set { proImg.Image = value; }
         }
         public int Id { get => id; set => id = value; }
-        public Product(int id, string name, double price, Image img)
+        public Product(int id, string name, decimal price, Image img)
         {
             InitializeComponent();
             Id = id;
@@ -37,11 +37,11 @@ namespace WinFormsApp1.Model
             Img = img;
 
             proName_lbl.Text = name;
-            proPrice_lbl.Text = "$" + price.ToString();
+            proPrice_lbl.Text = "$" + price.ToString("0.00");
             proImg.Image = img;
         }
 
-        public Product(int id, string name, double price)
+        public Product(int id, string name, decimal price)
         {
             InitializeComponent();
             Id = id;
@@ -49,7 +49,7 @@ namespace WinFormsApp1.Model
             Price = price;
 
             proName_lbl.Text = name;
-            proPrice_lbl.Text = "$" + price.ToString();
+            proPrice_lbl.Text = "$" + price.ToString("0.00");
         }
         public event EventHandler<ProductClickedEventArgs> ProductClicked;
         private void Product_Click(object sender, EventArgs e)

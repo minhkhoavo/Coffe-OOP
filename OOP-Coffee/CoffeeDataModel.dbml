@@ -72,13 +72,14 @@
       <Column Name="Address" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.OrderDB" Member="OrderDBs">
-    <Type Name="OrderDB">
-      <Column Name="OrderID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="CustomerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="OrderDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="RatingStar" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Comment" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+
+  <Table Name="dbo.SalesSummaryDB" Member="SalesSummaryDBs">
+    <Type Name="SalesSummaryDB">
+      <Column Name="salesID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="ItemID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="price" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.OrderItemDB" Member="OrderItemDBs">
@@ -93,13 +94,13 @@
       <Column Name="Status" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbo.SalesSummaryDB" Member="SalesSummaryDBs">
-    <Type Name="SalesSummaryDB">
-      <Column Name="salesID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="ItemID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="price" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+  <Table Name="dbo.OrderDB" Member="OrderDBs">
+    <Type Name="OrderDB">
+      <Column Name="OrderID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CustomerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OrderDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="RatingStar" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Comment" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

@@ -95,7 +95,7 @@ namespace OOP_CoffeeApp
             totalProfit_lbl.Text = totalProfit.ToString();
             dataGridView1.DataSource = result;
             dataGridView1.Columns["id"].Visible = false;
-            dataGridView1.Columns["order_id"].Visible = false;
+            //dataGridView1.Columns["order_id"].Visible = false;
         }
 
         private void ExportToTxt(string filePath, DataGridView dataGridView)

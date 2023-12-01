@@ -12,10 +12,10 @@ namespace WinFormsApp1
     {
         public int Id { get; }
         public string ProductName { get; }
-        public double ProductPrice { get; }
+        public decimal ProductPrice { get; }
         public Image ProductImage { get; }
 
-        public ProductClickedEventArgs(int id, string name, double price, Image img)
+        public ProductClickedEventArgs(int id, string name, decimal price, Image img)
         {
             Id = id;
             ProductName = name;
@@ -26,9 +26,9 @@ namespace WinFormsApp1
 
     public class NumericChangeValue : EventArgs
     {
-        public double Value { get; }
+        public decimal Value { get; }
 
-        public NumericChangeValue(double value)
+        public NumericChangeValue(decimal value)
         {
             Value = value;
         }
