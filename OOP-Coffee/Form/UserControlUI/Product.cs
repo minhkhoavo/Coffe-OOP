@@ -37,7 +37,7 @@ namespace WinFormsApp1.Model
             Img = img;
 
             proName_lbl.Text = name;
-            proPrice_lbl.Text = "$" + price.ToString("0.00");
+            proPrice_lbl.Text = price.ToString("0.00") + "$";
             proImg.Image = img;
         }
 
@@ -49,7 +49,7 @@ namespace WinFormsApp1.Model
             Price = price;
 
             proName_lbl.Text = name;
-            proPrice_lbl.Text = "$" + price.ToString("0.00");
+            proPrice_lbl.Text = price.ToString("0.00") + "$";
         }
         public event EventHandler<ProductClickedEventArgs> ProductClicked;
         private void Product_Click(object sender, EventArgs e)

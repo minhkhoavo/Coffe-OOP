@@ -58,7 +58,7 @@ namespace OOP_Coffee.Form.UserControlUI
             this.quantity_lbl.AutoSize = true;
             this.quantity_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
             this.quantity_lbl.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.quantity_lbl.Location = new System.Drawing.Point(218, 14);
+            this.quantity_lbl.Location = new System.Drawing.Point(204, 14);
             this.quantity_lbl.Name = "quantity_lbl";
             this.quantity_lbl.Size = new System.Drawing.Size(25, 26);
             this.quantity_lbl.TabIndex = 5;
@@ -69,7 +69,7 @@ namespace OOP_Coffee.Form.UserControlUI
             this.orderTotal_lbl.AutoSize = true;
             this.orderTotal_lbl.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.orderTotal_lbl.ForeColor = System.Drawing.Color.White;
-            this.orderTotal_lbl.Location = new System.Drawing.Point(284, 11);
+            this.orderTotal_lbl.Location = new System.Drawing.Point(269, 11);
             this.orderTotal_lbl.Name = "orderTotal_lbl";
             this.orderTotal_lbl.Size = new System.Drawing.Size(48, 28);
             this.orderTotal_lbl.TabIndex = 4;
@@ -120,12 +120,12 @@ namespace OOP_Coffee.Form.UserControlUI
             this.status_lbl.AutoSize = true;
             this.status_lbl.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.status_lbl.ForeColor = System.Drawing.Color.Yellow;
-            this.status_lbl.Location = new System.Drawing.Point(359, 23);
-            this.status_lbl.MaximumSize = new System.Drawing.Size(90, 0);
+            this.status_lbl.Location = new System.Drawing.Point(358, 17);
+            this.status_lbl.MaximumSize = new System.Drawing.Size(100, 65);
             this.status_lbl.Name = "status_lbl";
-            this.status_lbl.Size = new System.Drawing.Size(79, 56);
+            this.status_lbl.Size = new System.Drawing.Size(92, 56);
             this.status_lbl.TabIndex = 4;
-            this.status_lbl.Text = "Chờ xử lý";
+            this.status_lbl.Text = "Đang xử lý";
             this.status_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // OrderPayment

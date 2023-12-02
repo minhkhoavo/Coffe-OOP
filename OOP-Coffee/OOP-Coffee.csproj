@@ -182,9 +182,18 @@
     <Compile Include="Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+<<<<<<< HEAD
     <Compile Include="repositories.cs" />
     <EmbeddedResource Include="Form\CongThuc.resx">
       <DependentUpon>CongThuc.cs</DependentUpon>
+=======
+    <Compile Include="Repositories.cs" />
+    <EmbeddedResource Include="Form\AddItem.resx">
+      <DependentUpon>AddItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Congthuc.resx">
+      <DependentUpon>Congthuc.cs</DependentUpon>
+>>>>>>> 1192529aede0846230d0d126600f7a81675cd99b
     </EmbeddedResource>
     <EmbeddedResource Include="Form\EmployeeManager.resx">
       <DependentUpon>EmployeeManager.cs</DependentUpon>

@@ -92,5 +92,10 @@ namespace OOP_Coffee.Form.UserControlUI
         {
             OrderDeleted?.Invoke(this, EventArgs.Empty);
         }
+
+        private void orderNote_lbl_TextChanged(object sender, EventArgs e)
+        {
+            Note = orderNote_lbl.Text;
+        }
     }
 }

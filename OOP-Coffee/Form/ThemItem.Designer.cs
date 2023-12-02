@@ -43,6 +43,8 @@
             this.daf = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+
+
             this.btnThem = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
@@ -53,6 +55,8 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+
+     //       ((System.ComponentModel.ISupportInitialize)(this.itemDBBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -292,6 +296,7 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -301,6 +306,7 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
+
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnChonAnh;
         private System.Windows.Forms.TextBox txtCost;

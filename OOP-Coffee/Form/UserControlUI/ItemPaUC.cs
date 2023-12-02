@@ -56,6 +56,7 @@ namespace OOP_Coffee
             lblPhone.Text = phone;
             lblBaristaID.Text = baristaID.ToString();
 
+
             string path = Path.Combine(pathPro(), linkImag);
             picItem.Image = Image.FromFile(path);
 

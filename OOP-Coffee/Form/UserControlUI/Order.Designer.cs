@@ -132,6 +132,7 @@
             this.orderNote_lbl.Name = "orderNote_lbl";
             this.orderNote_lbl.Size = new System.Drawing.Size(260, 31);
             this.orderNote_lbl.TabIndex = 1;
+            this.orderNote_lbl.TextChanged += new System.EventHandler(this.orderNote_lbl_TextChanged);
             // 
             // orderDelete_btn
             // 

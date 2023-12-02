@@ -19,7 +19,7 @@ namespace OOP_CoffeeApp
     public partial class Form1 : System.Windows.Forms.Form
     {
         private List<Order> orders = new List<Order>();
-        static decimal total = 0;
+        public static decimal total = 0;
         private int customerId;
         public Form1(int customerId)
         {
@@ -161,9 +161,11 @@ namespace OOP_CoffeeApp
                 db.SubmitChanges();
                 item.OrderItemID = newOrderItem.OrderItemID;
             }
-
-            fFeedback fFeedbackForm = new fFeedback(orders);
-            fFeedbackForm.ShowDialog();
+            this.Close();
+            ParistaFrm paristaFrm = new ParistaFrm();
+            paristaFrm.Show();
+            fFeedback fFeedbackForm = new fFeedback(orders, newOrderID);
+            fFeedbackForm.Show();
         }
     }
 }
