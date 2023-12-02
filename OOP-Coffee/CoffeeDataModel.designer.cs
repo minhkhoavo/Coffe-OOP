@@ -42,24 +42,24 @@ namespace OOP_Coffee
     partial void InsertDashboardDB(DashboardDB instance);
     partial void UpdateDashboardDB(DashboardDB instance);
     partial void DeleteDashboardDB(DashboardDB instance);
-    partial void InsertInventoryDB(InventoryDB instance);
-    partial void UpdateInventoryDB(InventoryDB instance);
-    partial void DeleteInventoryDB(InventoryDB instance);
     partial void InsertItemDB(ItemDB instance);
     partial void UpdateItemDB(ItemDB instance);
     partial void DeleteItemDB(ItemDB instance);
     partial void InsertManagerDB(ManagerDB instance);
     partial void UpdateManagerDB(ManagerDB instance);
     partial void DeleteManagerDB(ManagerDB instance);
-    partial void InsertSalesSummaryDB(SalesSummaryDB instance);
-    partial void UpdateSalesSummaryDB(SalesSummaryDB instance);
-    partial void DeleteSalesSummaryDB(SalesSummaryDB instance);
-    partial void InsertOrderItemDB(OrderItemDB instance);
-    partial void UpdateOrderItemDB(OrderItemDB instance);
-    partial void DeleteOrderItemDB(OrderItemDB instance);
     partial void InsertOrderDB(OrderDB instance);
     partial void UpdateOrderDB(OrderDB instance);
     partial void DeleteOrderDB(OrderDB instance);
+    partial void InsertOrderItemDB(OrderItemDB instance);
+    partial void UpdateOrderItemDB(OrderItemDB instance);
+    partial void DeleteOrderItemDB(OrderItemDB instance);
+    partial void InsertSalesSummaryDB(SalesSummaryDB instance);
+    partial void UpdateSalesSummaryDB(SalesSummaryDB instance);
+    partial void DeleteSalesSummaryDB(SalesSummaryDB instance);
+    partial void InsertInventoryDB(InventoryDB instance);
+    partial void UpdateInventoryDB(InventoryDB instance);
+    partial void DeleteInventoryDB(InventoryDB instance);
     #endregion
 		
 		public CoffeeDataModelDataContext() : 
@@ -124,14 +124,6 @@ namespace OOP_Coffee
 			}
 		}
 		
-		public System.Data.Linq.Table<InventoryDB> InventoryDBs
-		{
-			get
-			{
-				return this.GetTable<InventoryDB>();
-			}
-		}
-		
 		public System.Data.Linq.Table<ItemDB> ItemDBs
 		{
 			get
@@ -148,11 +140,11 @@ namespace OOP_Coffee
 			}
 		}
 		
-		public System.Data.Linq.Table<SalesSummaryDB> SalesSummaryDBs
+		public System.Data.Linq.Table<OrderDB> OrderDBs
 		{
 			get
 			{
-				return this.GetTable<SalesSummaryDB>();
+				return this.GetTable<OrderDB>();
 			}
 		}
 		
@@ -164,11 +156,19 @@ namespace OOP_Coffee
 			}
 		}
 		
-		public System.Data.Linq.Table<OrderDB> OrderDBs
+		public System.Data.Linq.Table<SalesSummaryDB> SalesSummaryDBs
 		{
 			get
 			{
-				return this.GetTable<OrderDB>();
+				return this.GetTable<SalesSummaryDB>();
+			}
+		}
+		
+		public System.Data.Linq.Table<InventoryDB> InventoryDBs
+		{
+			get
+			{
+				return this.GetTable<InventoryDB>();
 			}
 		}
 	}
@@ -901,236 +901,6 @@ namespace OOP_Coffee
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.InventoryDB")]
-	public partial class InventoryDB : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID;
-		
-		private string _Ten;
-		
-		private int _SoLuong;
-		
-		private string _DonVi;
-		
-		private decimal _GiaNhap;
-		
-		private int _SoLuongNhap;
-		
-		private System.DateTime _NgayNhap;
-		
-		private string _GhiChu;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDChanging(int value);
-    partial void OnIDChanged();
-    partial void OnTenChanging(string value);
-    partial void OnTenChanged();
-    partial void OnSoLuongChanging(int value);
-    partial void OnSoLuongChanged();
-    partial void OnDonViChanging(string value);
-    partial void OnDonViChanged();
-    partial void OnGiaNhapChanging(decimal value);
-    partial void OnGiaNhapChanged();
-    partial void OnSoLuongNhapChanging(int value);
-    partial void OnSoLuongNhapChanged();
-    partial void OnNgayNhapChanging(System.DateTime value);
-    partial void OnNgayNhapChanged();
-    partial void OnGhiChuChanging(string value);
-    partial void OnGhiChuChanged();
-    #endregion
-		
-		public InventoryDB()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this.OnIDChanging(value);
-					this.SendPropertyChanging();
-					this._ID = value;
-					this.SendPropertyChanged("ID");
-					this.OnIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ten", DbType="NVarChar(125) NOT NULL", CanBeNull=false)]
-		public string Ten
-		{
-			get
-			{
-				return this._Ten;
-			}
-			set
-			{
-				if ((this._Ten != value))
-				{
-					this.OnTenChanging(value);
-					this.SendPropertyChanging();
-					this._Ten = value;
-					this.SendPropertyChanged("Ten");
-					this.OnTenChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoLuong", DbType="Int NOT NULL")]
-		public int SoLuong
-		{
-			get
-			{
-				return this._SoLuong;
-			}
-			set
-			{
-				if ((this._SoLuong != value))
-				{
-					this.OnSoLuongChanging(value);
-					this.SendPropertyChanging();
-					this._SoLuong = value;
-					this.SendPropertyChanged("SoLuong");
-					this.OnSoLuongChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DonVi", DbType="NVarChar(10) NOT NULL", CanBeNull=false)]
-		public string DonVi
-		{
-			get
-			{
-				return this._DonVi;
-			}
-			set
-			{
-				if ((this._DonVi != value))
-				{
-					this.OnDonViChanging(value);
-					this.SendPropertyChanging();
-					this._DonVi = value;
-					this.SendPropertyChanged("DonVi");
-					this.OnDonViChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GiaNhap", DbType="Decimal(10,5) NOT NULL")]
-		public decimal GiaNhap
-		{
-			get
-			{
-				return this._GiaNhap;
-			}
-			set
-			{
-				if ((this._GiaNhap != value))
-				{
-					this.OnGiaNhapChanging(value);
-					this.SendPropertyChanging();
-					this._GiaNhap = value;
-					this.SendPropertyChanged("GiaNhap");
-					this.OnGiaNhapChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoLuongNhap", DbType="Int NOT NULL")]
-		public int SoLuongNhap
-		{
-			get
-			{
-				return this._SoLuongNhap;
-			}
-			set
-			{
-				if ((this._SoLuongNhap != value))
-				{
-					this.OnSoLuongNhapChanging(value);
-					this.SendPropertyChanging();
-					this._SoLuongNhap = value;
-					this.SendPropertyChanged("SoLuongNhap");
-					this.OnSoLuongNhapChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NgayNhap", DbType="Date NOT NULL")]
-		public System.DateTime NgayNhap
-		{
-			get
-			{
-				return this._NgayNhap;
-			}
-			set
-			{
-				if ((this._NgayNhap != value))
-				{
-					this.OnNgayNhapChanging(value);
-					this.SendPropertyChanging();
-					this._NgayNhap = value;
-					this.SendPropertyChanged("NgayNhap");
-					this.OnNgayNhapChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GhiChu", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string GhiChu
-		{
-			get
-			{
-				return this._GhiChu;
-			}
-			set
-			{
-				if ((this._GhiChu != value))
-				{
-					this.OnGhiChuChanging(value);
-					this.SendPropertyChanging();
-					this._GhiChu = value;
-					this.SendPropertyChanged("GhiChu");
-					this.OnGhiChuChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ItemDB")]
 	public partial class ItemDB : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1495,7 +1265,6 @@ namespace OOP_Coffee
 		}
 	}
 	
-<<<<<<< HEAD
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OrderDB")]
 	public partial class OrderDB : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1867,7 +1636,22 @@ namespace OOP_Coffee
 		
 		public event PropertyChangedEventHandler PropertyChanged;
 		
-	
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SalesSummaryDB")]
 	public partial class SalesSummaryDB : INotifyPropertyChanging, INotifyPropertyChanged
@@ -2027,369 +1811,187 @@ namespace OOP_Coffee
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OrderItemDB")]
-	public partial class OrderItemDB : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.InventoryDB")]
+	public partial class InventoryDB : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _OrderItemID;
+		private int _ID;
 		
-		private int _OrderID;
+		private string _Ten;
 		
-		private int _ItemId;
+		private int _SoLuong;
 		
-		private int _BaristaID;
+		private string _DonVi;
 		
-		private decimal _Price;
+		private decimal _GiaNhap;
 		
-		private int _Quantity;
+		private System.DateTime _NgayNhap;
 		
-		private string _Note;
-		
-		private string _Status;
+		private string _GhiChu;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnOrderItemIDChanging(int value);
-    partial void OnOrderItemIDChanged();
-    partial void OnOrderIDChanging(int value);
-    partial void OnOrderIDChanged();
-    partial void OnItemIdChanging(int value);
-    partial void OnItemIdChanged();
-    partial void OnBaristaIDChanging(int value);
-    partial void OnBaristaIDChanged();
-    partial void OnPriceChanging(decimal value);
-    partial void OnPriceChanged();
-    partial void OnQuantityChanging(int value);
-    partial void OnQuantityChanged();
-    partial void OnNoteChanging(string value);
-    partial void OnNoteChanged();
-    partial void OnStatusChanging(string value);
-    partial void OnStatusChanged();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnTenChanging(string value);
+    partial void OnTenChanged();
+    partial void OnSoLuongChanging(int value);
+    partial void OnSoLuongChanged();
+    partial void OnDonViChanging(string value);
+    partial void OnDonViChanged();
+    partial void OnGiaNhapChanging(decimal value);
+    partial void OnGiaNhapChanged();
+    partial void OnNgayNhapChanging(System.DateTime value);
+    partial void OnNgayNhapChanged();
+    partial void OnGhiChuChanging(string value);
+    partial void OnGhiChuChanged();
     #endregion
 		
-		public OrderItemDB()
+		public InventoryDB()
 		{
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderItemID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int OrderItemID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
 		{
 			get
 			{
-				return this._OrderItemID;
+				return this._ID;
 			}
 			set
 			{
-				if ((this._OrderItemID != value))
+				if ((this._ID != value))
 				{
-					this.OnOrderItemIDChanging(value);
+					this.OnIDChanging(value);
 					this.SendPropertyChanging();
-					this._OrderItemID = value;
-					this.SendPropertyChanged("OrderItemID");
-					this.OnOrderItemIDChanged();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderID", DbType="Int NOT NULL")]
-		public int OrderID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ten", DbType="NVarChar(125) NOT NULL", CanBeNull=false)]
+		public string Ten
 		{
 			get
 			{
-				return this._OrderID;
+				return this._Ten;
 			}
 			set
 			{
-				if ((this._OrderID != value))
+				if ((this._Ten != value))
 				{
-					this.OnOrderIDChanging(value);
+					this.OnTenChanging(value);
 					this.SendPropertyChanging();
-					this._OrderID = value;
-					this.SendPropertyChanged("OrderID");
-					this.OnOrderIDChanged();
+					this._Ten = value;
+					this.SendPropertyChanged("Ten");
+					this.OnTenChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemId", DbType="Int NOT NULL")]
-		public int ItemId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoLuong", DbType="Int NOT NULL")]
+		public int SoLuong
 		{
 			get
 			{
-				return this._ItemId;
+				return this._SoLuong;
 			}
 			set
 			{
-				if ((this._ItemId != value))
+				if ((this._SoLuong != value))
 				{
-					this.OnItemIdChanging(value);
+					this.OnSoLuongChanging(value);
 					this.SendPropertyChanging();
-					this._ItemId = value;
-					this.SendPropertyChanged("ItemId");
-					this.OnItemIdChanged();
+					this._SoLuong = value;
+					this.SendPropertyChanged("SoLuong");
+					this.OnSoLuongChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BaristaID", DbType="Int NOT NULL")]
-		public int BaristaID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DonVi", DbType="NVarChar(10) NOT NULL", CanBeNull=false)]
+		public string DonVi
 		{
 			get
 			{
-				return this._BaristaID;
+				return this._DonVi;
 			}
 			set
 			{
-				if ((this._BaristaID != value))
+				if ((this._DonVi != value))
 				{
-					this.OnBaristaIDChanging(value);
+					this.OnDonViChanging(value);
 					this.SendPropertyChanging();
-					this._BaristaID = value;
-					this.SendPropertyChanged("BaristaID");
-					this.OnBaristaIDChanged();
+					this._DonVi = value;
+					this.SendPropertyChanged("DonVi");
+					this.OnDonViChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Price", DbType="Decimal(10,2) NOT NULL")]
-		public decimal Price
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GiaNhap", DbType="Decimal(10,5) NOT NULL")]
+		public decimal GiaNhap
 		{
 			get
 			{
-				return this._Price;
+				return this._GiaNhap;
 			}
 			set
 			{
-				if ((this._Price != value))
+				if ((this._GiaNhap != value))
 				{
-					this.OnPriceChanging(value);
+					this.OnGiaNhapChanging(value);
 					this.SendPropertyChanging();
-					this._Price = value;
-					this.SendPropertyChanged("Price");
-					this.OnPriceChanged();
+					this._GiaNhap = value;
+					this.SendPropertyChanged("GiaNhap");
+					this.OnGiaNhapChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantity", DbType="Int NOT NULL")]
-		public int Quantity
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NgayNhap", DbType="Date NOT NULL")]
+		public System.DateTime NgayNhap
 		{
 			get
 			{
-				return this._Quantity;
+				return this._NgayNhap;
 			}
 			set
 			{
-				if ((this._Quantity != value))
+				if ((this._NgayNhap != value))
 				{
-					this.OnQuantityChanging(value);
+					this.OnNgayNhapChanging(value);
 					this.SendPropertyChanging();
-					this._Quantity = value;
-					this.SendPropertyChanged("Quantity");
-					this.OnQuantityChanged();
+					this._NgayNhap = value;
+					this.SendPropertyChanged("NgayNhap");
+					this.OnNgayNhapChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Note", DbType="NVarChar(255)")]
-		public string Note
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GhiChu", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string GhiChu
 		{
 			get
 			{
-				return this._Note;
+				return this._GhiChu;
 			}
 			set
 			{
-				if ((this._Note != value))
+				if ((this._GhiChu != value))
 				{
-					this.OnNoteChanging(value);
+					this.OnGhiChuChanging(value);
 					this.SendPropertyChanging();
-					this._Note = value;
-					this.SendPropertyChanged("Note");
-					this.OnNoteChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
-		public string Status
-		{
-			get
-			{
-				return this._Status;
-			}
-			set
-			{
-				if ((this._Status != value))
-				{
-					this.OnStatusChanging(value);
-					this.SendPropertyChanging();
-					this._Status = value;
-					this.SendPropertyChanged("Status");
-					this.OnStatusChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OrderDB")]
-	public partial class OrderDB : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _OrderID;
-		
-		private int _CustomerID;
-		
-		private System.DateTime _OrderDate;
-		
-		private System.Nullable<int> _RatingStar;
-		
-		private string _Comment;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnOrderIDChanging(int value);
-    partial void OnOrderIDChanged();
-    partial void OnCustomerIDChanging(int value);
-    partial void OnCustomerIDChanged();
-    partial void OnOrderDateChanging(System.DateTime value);
-    partial void OnOrderDateChanged();
-    partial void OnRatingStarChanging(System.Nullable<int> value);
-    partial void OnRatingStarChanged();
-    partial void OnCommentChanging(string value);
-    partial void OnCommentChanged();
-    #endregion
-		
-		public OrderDB()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int OrderID
-		{
-			get
-			{
-				return this._OrderID;
-			}
-			set
-			{
-				if ((this._OrderID != value))
-				{
-					this.OnOrderIDChanging(value);
-					this.SendPropertyChanging();
-					this._OrderID = value;
-					this.SendPropertyChanged("OrderID");
-					this.OnOrderIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerID", DbType="Int NOT NULL")]
-		public int CustomerID
-		{
-			get
-			{
-				return this._CustomerID;
-			}
-			set
-			{
-				if ((this._CustomerID != value))
-				{
-					this.OnCustomerIDChanging(value);
-					this.SendPropertyChanging();
-					this._CustomerID = value;
-					this.SendPropertyChanged("CustomerID");
-					this.OnCustomerIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderDate", DbType="Date NOT NULL")]
-		public System.DateTime OrderDate
-		{
-			get
-			{
-				return this._OrderDate;
-			}
-			set
-			{
-				if ((this._OrderDate != value))
-				{
-					this.OnOrderDateChanging(value);
-					this.SendPropertyChanging();
-					this._OrderDate = value;
-					this.SendPropertyChanged("OrderDate");
-					this.OnOrderDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RatingStar", DbType="Int")]
-		public System.Nullable<int> RatingStar
-		{
-			get
-			{
-				return this._RatingStar;
-			}
-			set
-			{
-				if ((this._RatingStar != value))
-				{
-					this.OnRatingStarChanging(value);
-					this.SendPropertyChanging();
-					this._RatingStar = value;
-					this.SendPropertyChanged("RatingStar");
-					this.OnRatingStarChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Comment", DbType="NVarChar(255)")]
-		public string Comment
-		{
-			get
-			{
-				return this._Comment;
-			}
-			set
-			{
-				if ((this._Comment != value))
-				{
-					this.OnCommentChanging(value);
-					this.SendPropertyChanging();
-					this._Comment = value;
-					this.SendPropertyChanged("Comment");
-					this.OnCommentChanged();
+					this._GhiChu = value;
+					this.SendPropertyChanged("GhiChu");
+					this.OnGhiChuChanged();
 				}
 			}
 		}

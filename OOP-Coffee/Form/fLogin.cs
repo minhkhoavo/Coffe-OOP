@@ -81,5 +81,10 @@ namespace OOP_CoffeeApp
             }
             
         }
+
+        private void fLogin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

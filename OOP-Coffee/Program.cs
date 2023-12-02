@@ -20,21 +20,21 @@ namespace OOP_CoffeeApp
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new AddItem());
+            Application.Run(new ParistaFrm());
             //Application.Run(new fAdmin());
             //Application.Run(new Form1(1));
             //Application.Run(new fFeedback());
             //Application.Run(new fLogin());
-            fLogin fLogin = new fLogin();
+            //fLogin fLogin = new fLogin();
 
-            if (fLogin.ShowDialog() == DialogResult.OK)
-            {
-                Application.Run(new ParistaFrm());
-            }
-            else
-            {
-                Application.Exit();
-            }
+            //if (fLogin.ShowDialog() == DialogResult.OK)
+            //{
+            //    Application.Run(new ParistaFrm());
+            //}
+            //else
+            //{
+            //    Application.Exit();
+            //}
         }
     }
 }

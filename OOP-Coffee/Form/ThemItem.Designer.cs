@@ -1,6 +1,6 @@
 ﻿namespace OOP_Coffee.Form
 {
-    partial class AddItem
+    partial class ThemItem
     {
         /// <summary>
         /// Required designer variable.
@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddItem));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnThanhPhan = new System.Windows.Forms.Button();
             this.txtImage = new System.Windows.Forms.TextBox();
-            this.btnAnh = new System.Windows.Forms.Button();
+            this.btnChonAnh = new System.Windows.Forms.Button();
             this.txtCost = new System.Windows.Forms.TextBox();
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -44,27 +43,24 @@
             this.daf = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.itemDBBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this._Coffee_DBDataSet = new OOP_Coffee._Coffee_DBDataSet();
-            this.itemDBTableAdapter = new OOP_Coffee._Coffee_DBDataSetTableAdapters.ItemDBTableAdapter();
             this.btnThem = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnSua = new System.Windows.Forms.Button();
+            this.btnXoa = new System.Windows.Forms.Button();
             this.cboSort = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnNguyenLieu = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnReset = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.itemDBBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._Coffee_DBDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnNguyenLieu);
+            this.groupBox1.Controls.Add(this.btnReset);
+            this.groupBox1.Controls.Add(this.btnThanhPhan);
             this.groupBox1.Controls.Add(this.txtImage);
-            this.groupBox1.Controls.Add(this.btnAnh);
+            this.groupBox1.Controls.Add(this.btnChonAnh);
             this.groupBox1.Controls.Add(this.txtCost);
             this.groupBox1.Controls.Add(this.txtPrice);
             this.groupBox1.Controls.Add(this.label5);
@@ -82,28 +78,38 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Item";
             // 
+            // btnThanhPhan
+            // 
+            this.btnThanhPhan.Location = new System.Drawing.Point(150, 153);
+            this.btnThanhPhan.Name = "btnThanhPhan";
+            this.btnThanhPhan.Size = new System.Drawing.Size(96, 23);
+            this.btnThanhPhan.TabIndex = 6;
+            this.btnThanhPhan.Text = "Công thức";
+            this.btnThanhPhan.UseVisualStyleBackColor = true;
+            this.btnThanhPhan.Click += new System.EventHandler(this.btnThanhPhan_Click);
+            // 
             // txtImage
             // 
-            this.txtImage.Location = new System.Drawing.Point(308, 127);
+            this.txtImage.Location = new System.Drawing.Point(294, 127);
             this.txtImage.Name = "txtImage";
-            this.txtImage.Size = new System.Drawing.Size(131, 20);
+            this.txtImage.Size = new System.Drawing.Size(193, 20);
             this.txtImage.TabIndex = 5;
-            this.txtImage.TextChanged += new System.EventHandler(this.txtImage_TextChanged);
             // 
-            // btnAnh
+            // btnChonAnh
             // 
-            this.btnAnh.Location = new System.Drawing.Point(333, 153);
-            this.btnAnh.Name = "btnAnh";
-            this.btnAnh.Size = new System.Drawing.Size(75, 23);
-            this.btnAnh.TabIndex = 4;
-            this.btnAnh.Text = "Chọn ảnh";
-            this.btnAnh.UseVisualStyleBackColor = true;
-            this.btnAnh.Click += new System.EventHandler(this.btnAnh_Click);
+            this.btnChonAnh.Location = new System.Drawing.Point(333, 153);
+            this.btnChonAnh.Name = "btnChonAnh";
+            this.btnChonAnh.Size = new System.Drawing.Size(75, 23);
+            this.btnChonAnh.TabIndex = 4;
+            this.btnChonAnh.Text = "Chọn ảnh";
+            this.btnChonAnh.UseVisualStyleBackColor = true;
+            this.btnChonAnh.Click += new System.EventHandler(this.btnChonAnh_Click);
             // 
             // txtCost
             // 
             this.txtCost.Location = new System.Drawing.Point(111, 116);
             this.txtCost.Name = "txtCost";
+            this.txtCost.ReadOnly = true;
             this.txtCost.Size = new System.Drawing.Size(100, 20);
             this.txtCost.TabIndex = 3;
             // 
@@ -153,9 +159,9 @@
             this.lblID.AutoSize = true;
             this.lblID.Location = new System.Drawing.Point(108, 23);
             this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(15, 13);
+            this.lblID.Size = new System.Drawing.Size(13, 13);
             this.lblID.TabIndex = 2;
-            this.lblID.Text = "id";
+            this.lblID.Text = "0";
             // 
             // label3
             // 
@@ -177,7 +183,6 @@
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(308, 16);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(162, 104);
@@ -192,26 +197,11 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(549, 159);
             this.dataGridView1.TabIndex = 1;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
-            // 
-            // itemDBBindingSource
-            // 
-            this.itemDBBindingSource.DataMember = "ItemDB";
-            this.itemDBBindingSource.DataSource = this._Coffee_DBDataSet;
-            // 
-            // _Coffee_DBDataSet
-            // 
-            this._Coffee_DBDataSet.DataSetName = "_Coffee_DBDataSet";
-            this._Coffee_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // itemDBTableAdapter
-            // 
-            this.itemDBTableAdapter.ClearBeforeFill = true;
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(280, 211);
+            this.btnThem.Location = new System.Drawing.Point(208, 211);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(75, 23);
             this.btnThem.TabIndex = 2;
@@ -219,25 +209,25 @@
             this.btnThem.UseVisualStyleBackColor = true;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
-            // button2
+            // btnSua
             // 
-            this.button2.Location = new System.Drawing.Point(385, 211);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Sửa";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnSua.Location = new System.Drawing.Point(301, 211);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(75, 23);
+            this.btnSua.TabIndex = 2;
+            this.btnSua.Text = "Sửa";
+            this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
-            // button3
+            // btnXoa
             // 
-            this.button3.Location = new System.Drawing.Point(481, 211);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Xóa";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnXoa.Location = new System.Drawing.Point(398, 211);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(75, 23);
+            this.btnXoa.TabIndex = 2;
+            this.btnXoa.Text = "Xóa";
+            this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // cboSort
             // 
@@ -251,7 +241,7 @@
             this.cboSort.Name = "cboSort";
             this.cboSort.Size = new System.Drawing.Size(121, 21);
             this.cboSort.TabIndex = 3;
-            this.cboSort.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.cboSort.SelectedIndexChanged += new System.EventHandler(this.cboSort_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -262,37 +252,46 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Sort";
             // 
-            // btnNguyenLieu
+            // button1
             // 
-            this.btnNguyenLieu.Location = new System.Drawing.Point(132, 153);
-            this.btnNguyenLieu.Name = "btnNguyenLieu";
-            this.btnNguyenLieu.Size = new System.Drawing.Size(96, 23);
-            this.btnNguyenLieu.TabIndex = 6;
-            this.btnNguyenLieu.Text = "Thành phần";
-            this.btnNguyenLieu.UseVisualStyleBackColor = true;
-            this.btnNguyenLieu.Click += new System.EventHandler(this.btnNguyenLieu_Click);
+            this.button1.Location = new System.Drawing.Point(495, 210);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Thoát";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // AddItem
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(13, 153);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(75, 23);
+            this.btnReset.TabIndex = 7;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // ThemItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(599, 426);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.cboSort);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnXoa);
+            this.Controls.Add(this.btnSua);
             this.Controls.Add(this.btnThem);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
-            this.Name = "AddItem";
+            this.Name = "ThemItem";
             this.Text = "AddItem";
-            this.Load += new System.EventHandler(this.AddItem_Load);
+            this.Load += new System.EventHandler(this.ThemItem_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.itemDBBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._Coffee_DBDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -302,11 +301,8 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private _Coffee_DBDataSet _Coffee_DBDataSet;
-        private System.Windows.Forms.BindingSource itemDBBindingSource;
-        private _Coffee_DBDataSetTableAdapters.ItemDBTableAdapter itemDBTableAdapter;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btnAnh;
+        private System.Windows.Forms.Button btnChonAnh;
         private System.Windows.Forms.TextBox txtCost;
         private System.Windows.Forms.TextBox txtPrice;
         private System.Windows.Forms.Label label5;
@@ -318,10 +314,12 @@
         private System.Windows.Forms.Label daf;
         private System.Windows.Forms.TextBox txtImage;
         private System.Windows.Forms.Button btnThem;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnSua;
+        private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.ComboBox cboSort;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnNguyenLieu;
+        private System.Windows.Forms.Button btnThanhPhan;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnReset;
     }
 }
