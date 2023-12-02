@@ -32,9 +32,9 @@ namespace OOP_CoffeeApp
                     {
                         MessageBox.Show("Success login");
                         Form1 customerForm = new Form1(int.Parse(username));
-                        customerForm.ShowDialog();  
+                        customerForm.Show();  
                         this.DialogResult = DialogResult.OK;
-                        this.Close();
+                        //this.Close();
                     }
                     else
                     {
@@ -50,8 +50,7 @@ namespace OOP_CoffeeApp
                         ParistaFrm baristaForm = new ParistaFrm();
                         baristaForm.Show();
                         this.DialogResult = DialogResult.OK;
-                        this.Close();
-
+                        //this.Close();
                     }
                     else
                     {
@@ -67,7 +66,7 @@ namespace OOP_CoffeeApp
                         fAdmin fAminForm = new fAdmin();
                         fAminForm.Show();
                         this.DialogResult = DialogResult.OK;
-                        this.Close();
+                        //this.Close();
                     }
                     else
                     {

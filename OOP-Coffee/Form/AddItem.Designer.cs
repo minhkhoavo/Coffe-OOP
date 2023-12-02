@@ -45,8 +45,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.itemDBBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this._Coffee_DBDataSet = new OOP_Coffee._Coffee_DBDataSet();
-            this.itemDBTableAdapter = new OOP_Coffee._Coffee_DBDataSetTableAdapters.ItemDBTableAdapter();
             this.btnThem = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -57,7 +55,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemDBBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._Coffee_DBDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -198,17 +195,7 @@
             // itemDBBindingSource
             // 
             this.itemDBBindingSource.DataMember = "ItemDB";
-            this.itemDBBindingSource.DataSource = this._Coffee_DBDataSet;
-            // 
-            // _Coffee_DBDataSet
-            // 
-            this._Coffee_DBDataSet.DataSetName = "_Coffee_DBDataSet";
-            this._Coffee_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // itemDBTableAdapter
-            // 
-            this.itemDBTableAdapter.ClearBeforeFill = true;
-            // 
+
             // btnThem
             // 
             this.btnThem.Location = new System.Drawing.Point(280, 211);
@@ -292,7 +279,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemDBBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._Coffee_DBDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -302,9 +288,7 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private _Coffee_DBDataSet _Coffee_DBDataSet;
         private System.Windows.Forms.BindingSource itemDBBindingSource;
-        private _Coffee_DBDataSetTableAdapters.ItemDBTableAdapter itemDBTableAdapter;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnAnh;
         private System.Windows.Forms.TextBox txtCost;

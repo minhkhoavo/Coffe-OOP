@@ -73,7 +73,7 @@ namespace OOP_Coffee
             lblPhone.Text = phone;
             lblBaristaID.Text = baristaID.ToString();
 
-            //chua gan image
+            
         }
 
         //button NO

@@ -30,7 +30,7 @@ namespace OOP_Coffee
                         join oitem in db.OrderItemDBs on order.OrderID equals oitem.OrderID
                         join item in db.ItemDBs on oitem.ItemId equals item.ItemId
                         join cus in db.CustomerDBs on order.CustomerID equals cus.CustomerID
-                        where oitem.Status == "0"
+                        where oitem.Status == "Pending"
                         select new
                         {
                             orderID = order.OrderID,
@@ -66,7 +66,7 @@ namespace OOP_Coffee
         private void ButtonYes_ItemPaUC(object sender, DataItemPaUC e)
         {
             OrderItemDB orderItem = db.OrderItemDBs.Where(s => s.OrderItemID == e.OrderItemID).Single();
-            orderItem.Status = "1";
+            orderItem.Status = "Completed";
 
             //trừ số lượng có trong iventory
             var thanhphan = from a in db.CongThucDBs
@@ -88,7 +88,7 @@ namespace OOP_Coffee
         private void ButtonNo_ItemPaUC(object sender, DataItemPaUC e)
         {
             OrderItemDB orderItem = db.OrderItemDBs.Where(s => s.OrderItemID == e.OrderItemID).Single();
-            orderItem.Status = "-1";
+            orderItem.Status = "Rejected";
 
             db.SubmitChanges();
             MessageBox.Show("Đã hủy", "Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Information);

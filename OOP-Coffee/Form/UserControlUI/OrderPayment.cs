@@ -31,7 +31,6 @@ namespace OOP_Coffee.Form.UserControlUI
         {
             InitializeComponent();
         }
-        public event EventHandler<int> StatusRejected;
         public OrderPayment(Image image, int idProduct, int orderItemID, string nameProduct, int quantity, decimal total, string note, string status)
         {
             InitializeComponent();
@@ -82,7 +81,6 @@ namespace OOP_Coffee.Form.UserControlUI
                 {
                     status_lbl.Text = "Đã hủy";
                     status_lbl.ForeColor = Color.Red; 
-                    OnStatusRejected(orderItem.ItemId);
                     statusUpdateTimer.Stop();
                 }
                 else if (Status == "Completed")
@@ -96,10 +94,6 @@ namespace OOP_Coffee.Form.UserControlUI
                     status_lbl.ForeColor = Color.Yellow;
                 }
             }
-        }
-        protected virtual void OnStatusRejected(int refundOrderItemId)
-        {
-            StatusRejected?.Invoke(this, refundOrderItemId);
         }
     }
 }

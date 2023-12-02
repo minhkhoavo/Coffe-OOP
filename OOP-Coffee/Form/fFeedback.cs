@@ -16,18 +16,20 @@ namespace OOP_CoffeeApp
     {
         private List<Order> orders = new List<Order>();
         decimal refundMoney = decimal.Zero;
+        int OrderID;
         int lastRefundOrderItemId;
-        public fFeedback(List<Order> orders)
+        public fFeedback(List<Order> orders, int OrderID)
         {
-            //this.ControlBox = false;
+            this.ControlBox = false;
             InitializeComponent();
+            InitializeTimer();
+            this.OrderID = OrderID;
             total_lbl.Text = Form1.total.ToString("0.00") + "$";
             try
             {
                 foreach (var order in orders)
                 {
                     OrderPayment orderPayment = new OrderPayment(order.Img, order.Id, order.OrderItemID ,order.NameOrder, order.Quantity, order.Price * order.Quantity, order.Note, "Chờ xử lý");
-                    orderPayment.StatusRejected += HandleRejectedStatus;
                     flowLayoutPanel1.Controls.Add(orderPayment);
                 }
             }
@@ -36,30 +38,49 @@ namespace OOP_CoffeeApp
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
-        // Handler Rejected order
-        private void HandleRejectedStatus(object sender, int refundOrderItemId)
+        private System.Windows.Forms.Timer statusUpdateTimer;
+        private void InitializeTimer()
         {
-            if(refundOrderItemId != lastRefundOrderItemId)
-            {
-                CoffeeDataModelDataContext db = new CoffeeDataModelDataContext();
-                var orderItem = db.OrderItemDBs.FirstOrDefault(item => item.OrderItemID == refundOrderItemId);
+            statusUpdateTimer = new Timer();
+            statusUpdateTimer.Interval = 5000;
+            statusUpdateTimer.Tick += StatusUpdateTimer_Tick;
+            statusUpdateTimer.Start();
+        }
+        private void StatusUpdateTimer_Tick(object sender, EventArgs e)
+        {
+            CheckOrderItemStatus(OrderID);
+        }
+        private void CheckOrderItemStatus(int OrderID)
+        {
+            CoffeeDataModelDataContext db = new CoffeeDataModelDataContext();
+            bool allOrdersHaveStatus = db.OrderItemDBs
+                .Where(item => item.OrderID == OrderID)
+                .All(item => item.Status == "Completed" || item.Status == "Rejected");
 
-                if (orderItem != null)
-                {
-                    MessageBox.Show(orderItem.Quantity.ToString());
-                    decimal refundAmount = orderItem.Price * orderItem.Quantity; 
-                    refundMoney += refundAmount;
-                }
-                lastRefundOrderItemId = refundOrderItemId;
-            }
+            panel1.Enabled = allOrdersHaveStatus; 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(refundMoney !=  0)
+            CoffeeDataModelDataContext db = new CoffeeDataModelDataContext();
+            var orderItems = db.OrderItemDBs.Where(item => item.OrderID == OrderID).ToList();
+
+            foreach (var orderItem in orderItems)
+            {
+                if (orderItem.Status == "Rejected")
+                {
+                    refundMoney += orderItem.Price * orderItem.Quantity; 
+                }
+            }
+
+            if (refundMoney !=  0)
             {
                 MessageBox.Show($"Số tiền {refundMoney}$ do các đơn hàng bị hủy sẽ được hoàn lại vào tài khoản của bạn sau 1 ngày");
             }
+            Repositories.updateSaleSummaryDB(OrderID);
+            Repositories.updateRevenueAndProfit(OrderID);
+            MessageBox.Show("Cảm ơn bạn đã mua hàng!");
+            this.Close();
         }
     }
 }
