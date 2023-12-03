@@ -1,4 +1,5 @@
 ﻿using OOP_Coffee;
+using OOP_Coffee.Form;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,6 +11,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using OOP_Coffee.Utils;
 
 namespace OOP_CoffeeApp
 {
@@ -91,6 +93,17 @@ namespace OOP_CoffeeApp
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+        public static bool VerifyPassword(string inputPassword, string hashedPassword)
+        {
+            string hashedInputPassword = Password.HashPassword(inputPassword);
+            return hashedInputPassword.Equals(hashedPassword, StringComparison.OrdinalIgnoreCase);
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            fRegister fRegister = new fRegister();
+            fRegister.ShowDialog();
         }
     }
 }

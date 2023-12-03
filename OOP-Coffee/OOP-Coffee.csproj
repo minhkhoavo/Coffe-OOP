@@ -188,7 +188,8 @@
     <Compile Include="Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="repositories.cs" />
+    <Compile Include="Utils\Password.cs" />
+    <Compile Include="Utils\repositories.cs" />
     <EmbeddedResource Include="Form\CongThuc.resx">
       <DependentUpon>CongThuc.cs</DependentUpon>
     </EmbeddedResource>
@@ -268,10 +269,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Input.png" />
+    <None Include="Resources\PassRegis.png" />
+    <None Include="Resources\Phone.png" />
+    <None Include="Resources\Name and Gender.png" />
+    <None Include="Resources\Title.png" />
     <None Include="Resources\Button.png" />
+    <None Include="Resources\Address.png" />
+    <None Include="Resources\Birth.png" />
+    <None Include="Resources\Button1.png" />
     <Content Include="Resources\coffee.jpg" />
     <None Include="Resources\Group 3.png" />
     <None Include="Resources\Email.png" />
+    <None Include="Resources\ConfirmPass.png" />
     <Content Include="Resources\image 4.png" />
     <Content Include="Resources\image41.png" />
     <None Include="Resources\Password1.png" />

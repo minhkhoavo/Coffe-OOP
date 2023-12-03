@@ -25,8 +25,10 @@ namespace OOP_CoffeeApp
             //Application.Run(new fAdmin());
             //Application.Run(new Form1(1));
             //Application.Run(new ThemItem());
-            Application.Run(new fLogin());
+            //Application.Run(new fRegister());
+
             //fLogin fLogin = new fLogin();
+            Application.Run(new fLogin());
 
             /*if (fLogin.ShowDialog() == DialogResult.OK)
             {
