@@ -31,11 +31,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.managerRadio = new System.Windows.Forms.RadioButton();
             this.baristaRadio = new System.Windows.Forms.RadioButton();
-            this.managerRadio = new System.Windows.Forms.RadioButton();
-            this.baristaRadio = new System.Windows.Forms.RadioButton();
             this.customerRadio = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -208,7 +205,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "fLogin";
             this.Text = "fLogin";
-            this.Load += new System.EventHandler(this.fLogin_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);

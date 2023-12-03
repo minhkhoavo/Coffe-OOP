@@ -86,6 +86,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CoffeeDataModel.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CoffeeDataModel.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Customer.cs" />
     <Compile Include="Form\CongThuc.cs">
       <SubType>Form</SubType>
@@ -123,6 +128,12 @@
     </Compile>
     <Compile Include="Form\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\fRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\fRegister.Designer.cs">
+      <DependentUpon>fRegister.cs</DependentUpon>
     </Compile>
     <Compile Include="Form\ThemItem.cs">
       <SubType>Form</SubType>
@@ -196,6 +207,9 @@
     <EmbeddedResource Include="Form\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form\fRegister.resx">
+      <DependentUpon>fRegister.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\ThemItem.resx">
       <DependentUpon>ThemItem.cs</DependentUpon>
     </EmbeddedResource>
@@ -230,6 +244,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="CoffeeDataModel.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>CoffeeDataModel.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CoffeeDataModel.dbml.layout">
+      <DependentUpon>CoffeeDataModel.dbml</DependentUpon>
+    </None>
     <None Include="CoffeeShopManagement.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

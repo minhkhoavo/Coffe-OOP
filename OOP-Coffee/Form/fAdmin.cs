@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using OOP_Coffee;
+using OOP_Coffee.Form;
 
 namespace OOP_CoffeeApp
 {
@@ -158,6 +159,12 @@ namespace OOP_CoffeeApp
         {
             Iventory inventoryForm = new Iventory();
             inventoryForm.ShowDialog();
+        }
+
+        private void quảnLýSảnPhẩmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ThemItem themItemForm = new ThemItem();
+            themItemForm.ShowDialog();
         }
     }
 }
