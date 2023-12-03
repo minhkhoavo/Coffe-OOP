@@ -85,6 +85,7 @@ namespace OOP_Coffee
             db.SubmitChanges();
             MessageBox.Show("Đã hoàn thành xong", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
         private void ButtonNo_ItemPaUC(object sender, DataItemPaUC e)
         {
             OrderItemDB orderItem = db.OrderItemDBs.Where(s => s.OrderItemID == e.OrderItemID).Single();
@@ -93,6 +94,7 @@ namespace OOP_Coffee
             db.SubmitChanges();
             MessageBox.Show("Đã hủy", "Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Information);
         }
+
         private void DeleteUserControl_ItemPaUC(object sender, EventArgs e)
         {
             if( sender is ItemPaUC item)
@@ -101,5 +103,35 @@ namespace OOP_Coffee
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ItemPaUC[] controlList = flpParista.Controls.Cast<ItemPaUC>().ToArray();
+            switch (comboBox1.SelectedIndex)
+            {
+                case 0:
+                    Array.Sort(controlList, (x,y) => x.Time.CompareTo(y.Time));
+                    MessageBox.Show("Đã so sánh");
+                    break;
+                case 1:
+                    Array.Sort(controlList, (x, y) => -x.SoLuong.CompareTo(y.SoLuong));
+                    break;
+                case 2:
+                    Array.Sort(controlList, (x, y) => x.NameCus.CompareTo(y.NameCus));
+                    break;
+                case 3:
+                    Array.Sort(controlList, (x, y) => x.BaristaID.CompareTo(y.BaristaID));
+                    break;
+                default:
+                    break;
+
+            }
+            flpParista.Controls.Clear();
+            flpParista.Controls.AddRange(controlList);
+        }
     }
 }

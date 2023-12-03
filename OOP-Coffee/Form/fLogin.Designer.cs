@@ -31,8 +31,11 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.managerRadio = new System.Windows.Forms.RadioButton();
             this.baristaRadio = new System.Windows.Forms.RadioButton();
+            this.managerRadio = new System.Windows.Forms.RadioButton();
+            this.baristaRadio = new System.Windows.Forms.RadioButton();
             this.customerRadio = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -66,6 +69,7 @@
             this.groupBox1.Text = "Login as";
             // 
             // managerRadio
+            // managerRadio
             // 
             this.managerRadio.AutoSize = true;
             this.managerRadio.Location = new System.Drawing.Point(325, 38);
@@ -88,6 +92,7 @@
             this.baristaRadio.UseVisualStyleBackColor = true;
             // 
             // customerRadio
+            // customerRadio
             // 
             this.customerRadio.AutoSize = true;
             this.customerRadio.Location = new System.Drawing.Point(50, 38);
@@ -108,6 +113,7 @@
             this.panel1.TabIndex = 1;
             // 
             // textBox2
+            // textBox2
             // 
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
@@ -118,7 +124,7 @@
             this.textBox2.TabIndex = 1;
             this.textBox2.UseWaitCursor = true;
             // 
-            // textBox1
+            // label1
             // 
             this.textBox1.BackColor = System.Drawing.Color.White;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -202,6 +208,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "fLogin";
             this.Text = "fLogin";
+            this.Load += new System.EventHandler(this.fLogin_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);
