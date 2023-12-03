@@ -129,6 +129,12 @@
     <Compile Include="Form\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form\fPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\fPayment.Designer.cs">
+      <DependentUpon>fPayment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form\fRegister.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +146,12 @@
     </Compile>
     <Compile Include="Form\ThemItem.Designer.cs">
       <DependentUpon>ThemItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\UserControlUI\CardPayment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Form\UserControlUI\CardPayment.Designer.cs">
+      <DependentUpon>CardPayment.cs</DependentUpon>
     </Compile>
     <Compile Include="Form\UserControlUI\Ingredient.cs">
       <SubType>UserControl</SubType>
@@ -208,11 +220,17 @@
     <EmbeddedResource Include="Form\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form\fPayment.resx">
+      <DependentUpon>fPayment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\fRegister.resx">
       <DependentUpon>fRegister.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\ThemItem.resx">
       <DependentUpon>ThemItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\UserControlUI\CardPayment.resx">
+      <DependentUpon>CardPayment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\UserControlUI\Ingredient.resx">
       <DependentUpon>Ingredient.cs</DependentUpon>
@@ -269,6 +287,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\OK.png" />
+    <None Include="Resources\promptpay - scan.png" />
+    <None Include="Resources\QR1.jpg" />
+    <None Include="Resources\inputs.png" />
+    <None Include="Resources\Yandex2.png" />
+    <None Include="Resources\Yandex1.png" />
+    <None Include="Resources\Yandex.png" />
+    <None Include="Resources\QR.jpg" />
     <None Include="Resources\Input.png" />
     <None Include="Resources\PassRegis.png" />
     <None Include="Resources\Phone.png" />
@@ -278,10 +304,13 @@
     <None Include="Resources\Address.png" />
     <None Include="Resources\Birth.png" />
     <None Include="Resources\Button1.png" />
+    <None Include="Resources\Card.png" />
     <Content Include="Resources\coffee.jpg" />
     <None Include="Resources\Group 3.png" />
     <None Include="Resources\Email.png" />
     <None Include="Resources\ConfirmPass.png" />
+    <None Include="Resources\exprie.png" />
+    <None Include="Resources\CVC.png" />
     <Content Include="Resources\image 4.png" />
     <Content Include="Resources\image41.png" />
     <None Include="Resources\Password1.png" />

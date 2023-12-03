@@ -18,13 +18,6 @@ namespace OOP_Coffee.Form
         {
             InitializeComponent();
         }
-
-        private void dateTimePicker1_MouseDown(object sender, MouseEventArgs e)
-        {
-            label1.Visible = true;
-            label1.Text = dateTimePicker1.Value.ToString("dd/ MM/ yyyy");
-
-        }
         private void dateTimePicker1_DateChanged(object sender, EventArgs e)
         {
             label1.Visible = true;

@@ -13,6 +13,7 @@ using WinFormsApp1;
 using OOP_Coffee.Form.UserControlUI;
 using System.Diagnostics;
 using System.IO;
+using OOP_Coffee.Form;
 
 namespace OOP_CoffeeApp
 {
@@ -162,10 +163,8 @@ namespace OOP_CoffeeApp
                 item.OrderItemID = newOrderItem.OrderItemID;
             }
             this.Close();
-            ParistaFrm paristaFrm = new ParistaFrm();
-            paristaFrm.Show();
-            fFeedback fFeedbackForm = new fFeedback(orders, newOrderID);
-            fFeedbackForm.Show();
+            fPayment fPayment = new fPayment(orders, newOrderID);
+            fPayment.ShowDialog();
         }
     }
 }
