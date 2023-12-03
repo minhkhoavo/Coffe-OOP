@@ -18,6 +18,7 @@ namespace OOP_CoffeeApp
         decimal refundMoney = decimal.Zero;
         int OrderID;
         int lastRefundOrderItemId;
+        int rating = -1;
         public fFeedback(List<Order> orders, int OrderID)
         {
             this.ControlBox = false;
@@ -59,7 +60,16 @@ namespace OOP_CoffeeApp
 
             panel1.Enabled = allOrdersHaveStatus; 
         }
-
+        private void Radio_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioButton checkedRadio = sender as RadioButton;
+            if (checkedRadio != null && checkedRadio.Checked)
+            {
+                int textBoxNumber = int.Parse(checkedRadio.Name.Substring(5));
+                rating = textBoxNumber;
+            }
+        }
+        // Submit Btn
         private void button1_Click(object sender, EventArgs e)
         {
             CoffeeDataModelDataContext db = new CoffeeDataModelDataContext();
@@ -79,8 +89,28 @@ namespace OOP_CoffeeApp
             }
             Repositories.updateSaleSummaryDB(OrderID);
             Repositories.updateRevenueAndProfit(OrderID);
+            UpdateOrderRatingAndComment(OrderID, rating, textBox1.Text);
             MessageBox.Show("Cảm ơn bạn đã mua hàng!");
             this.Close();
         }
+        public void UpdateOrderRatingAndComment(int orderID, int rating, string comment)
+        {
+            CoffeeDataModelDataContext db = new CoffeeDataModelDataContext();
+            OrderDB orderToUpdate = db.OrderDBs.FirstOrDefault(order => order.OrderID == orderID);
+
+            if (orderToUpdate != null)
+            {
+                if(rating != -1)
+                {
+                    orderToUpdate.RatingStar = rating;
+                }
+                if(!string.IsNullOrEmpty(comment))
+                {
+                    orderToUpdate.Comment = comment;
+                }
+            }
+            db.SubmitChanges();
+        }
+
     }
 }

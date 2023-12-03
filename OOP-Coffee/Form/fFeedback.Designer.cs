@@ -35,11 +35,11 @@
             this.label5 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.star1_rad = new System.Windows.Forms.RadioButton();
-            this.star2_rad = new System.Windows.Forms.RadioButton();
-            this.star3_rad = new System.Windows.Forms.RadioButton();
-            this.star4_rad = new System.Windows.Forms.RadioButton();
-            this.star5_rad = new System.Windows.Forms.RadioButton();
+            this.radio1 = new System.Windows.Forms.RadioButton();
+            this.radio2 = new System.Windows.Forms.RadioButton();
+            this.radio3 = new System.Windows.Forms.RadioButton();
+            this.radio4 = new System.Windows.Forms.RadioButton();
+            this.radio5 = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.total_lbl = new System.Windows.Forms.Label();
@@ -116,75 +116,80 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.star1_rad);
-            this.panel2.Controls.Add(this.star2_rad);
-            this.panel2.Controls.Add(this.star3_rad);
-            this.panel2.Controls.Add(this.star4_rad);
-            this.panel2.Controls.Add(this.star5_rad);
+            this.panel2.Controls.Add(this.radio1);
+            this.panel2.Controls.Add(this.radio2);
+            this.panel2.Controls.Add(this.radio3);
+            this.panel2.Controls.Add(this.radio4);
+            this.panel2.Controls.Add(this.radio5);
             this.panel2.Location = new System.Drawing.Point(11, 57);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(478, 52);
             this.panel2.TabIndex = 0;
             // 
-            // star1_rad
+            // radio1
             // 
-            this.star1_rad.AutoSize = true;
-            this.star1_rad.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.star1_rad.Location = new System.Drawing.Point(409, 16);
-            this.star1_rad.Name = "star1_rad";
-            this.star1_rad.Size = new System.Drawing.Size(49, 29);
-            this.star1_rad.TabIndex = 0;
-            this.star1_rad.TabStop = true;
-            this.star1_rad.Text = "1";
-            this.star1_rad.UseVisualStyleBackColor = true;
+            this.radio1.AutoSize = true;
+            this.radio1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.radio1.Location = new System.Drawing.Point(409, 16);
+            this.radio1.Name = "radio1";
+            this.radio1.Size = new System.Drawing.Size(49, 29);
+            this.radio1.TabIndex = 0;
+            this.radio1.TabStop = true;
+            this.radio1.Text = "1";
+            this.radio1.UseVisualStyleBackColor = true;
+            this.radio1.Click += new System.EventHandler(this.Radio_CheckedChanged);
             // 
-            // star2_rad
+            // radio2
             // 
-            this.star2_rad.AutoSize = true;
-            this.star2_rad.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.star2_rad.Location = new System.Drawing.Point(318, 16);
-            this.star2_rad.Name = "star2_rad";
-            this.star2_rad.Size = new System.Drawing.Size(49, 29);
-            this.star2_rad.TabIndex = 0;
-            this.star2_rad.TabStop = true;
-            this.star2_rad.Text = "2";
-            this.star2_rad.UseVisualStyleBackColor = true;
+            this.radio2.AutoSize = true;
+            this.radio2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.radio2.Location = new System.Drawing.Point(318, 16);
+            this.radio2.Name = "radio2";
+            this.radio2.Size = new System.Drawing.Size(49, 29);
+            this.radio2.TabIndex = 0;
+            this.radio2.TabStop = true;
+            this.radio2.Text = "2";
+            this.radio2.UseVisualStyleBackColor = true;
+            this.radio2.Click += new System.EventHandler(this.Radio_CheckedChanged);
             // 
-            // star3_rad
+            // radio3
             // 
-            this.star3_rad.AutoSize = true;
-            this.star3_rad.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.star3_rad.Location = new System.Drawing.Point(204, 16);
-            this.star3_rad.Name = "star3_rad";
-            this.star3_rad.Size = new System.Drawing.Size(49, 29);
-            this.star3_rad.TabIndex = 0;
-            this.star3_rad.TabStop = true;
-            this.star3_rad.Text = "3";
-            this.star3_rad.UseVisualStyleBackColor = true;
+            this.radio3.AutoSize = true;
+            this.radio3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.radio3.Location = new System.Drawing.Point(204, 16);
+            this.radio3.Name = "radio3";
+            this.radio3.Size = new System.Drawing.Size(49, 29);
+            this.radio3.TabIndex = 0;
+            this.radio3.TabStop = true;
+            this.radio3.Text = "3";
+            this.radio3.UseVisualStyleBackColor = true;
+            this.radio3.Click += new System.EventHandler(this.Radio_CheckedChanged);
             // 
-            // star4_rad
+            // radio4
             // 
-            this.star4_rad.AutoSize = true;
-            this.star4_rad.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.star4_rad.Location = new System.Drawing.Point(107, 16);
-            this.star4_rad.Name = "star4_rad";
-            this.star4_rad.Size = new System.Drawing.Size(49, 29);
-            this.star4_rad.TabIndex = 0;
-            this.star4_rad.TabStop = true;
-            this.star4_rad.Text = "4";
-            this.star4_rad.UseVisualStyleBackColor = true;
+            this.radio4.AutoSize = true;
+            this.radio4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.radio4.Location = new System.Drawing.Point(107, 16);
+            this.radio4.Name = "radio4";
+            this.radio4.Size = new System.Drawing.Size(49, 29);
+            this.radio4.TabIndex = 0;
+            this.radio4.TabStop = true;
+            this.radio4.Text = "4";
+            this.radio4.UseVisualStyleBackColor = true;
+            this.radio4.Click += new System.EventHandler(this.Radio_CheckedChanged);
             // 
-            // star5_rad
+            // radio5
             // 
-            this.star5_rad.AutoSize = true;
-            this.star5_rad.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.star5_rad.Location = new System.Drawing.Point(11, 16);
-            this.star5_rad.Name = "star5_rad";
-            this.star5_rad.Size = new System.Drawing.Size(49, 29);
-            this.star5_rad.TabIndex = 0;
-            this.star5_rad.TabStop = true;
-            this.star5_rad.Text = "5";
-            this.star5_rad.UseVisualStyleBackColor = true;
+            this.radio5.AutoSize = true;
+            this.radio5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.radio5.Location = new System.Drawing.Point(11, 16);
+            this.radio5.Name = "radio5";
+            this.radio5.Size = new System.Drawing.Size(49, 29);
+            this.radio5.TabIndex = 0;
+            this.radio5.TabStop = true;
+            this.radio5.Text = "5";
+            this.radio5.UseVisualStyleBackColor = true;
+            this.radio5.Click += new System.EventHandler(this.Radio_CheckedChanged);
             // 
             // label1
             // 
@@ -297,12 +302,12 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.RadioButton star5_rad;
+        private System.Windows.Forms.RadioButton radio5;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RadioButton star1_rad;
-        private System.Windows.Forms.RadioButton star2_rad;
-        private System.Windows.Forms.RadioButton star3_rad;
-        private System.Windows.Forms.RadioButton star4_rad;
+        private System.Windows.Forms.RadioButton radio1;
+        private System.Windows.Forms.RadioButton radio2;
+        private System.Windows.Forms.RadioButton radio3;
+        private System.Windows.Forms.RadioButton radio4;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label4;
