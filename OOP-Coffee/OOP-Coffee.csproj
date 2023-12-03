@@ -222,6 +222,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="CoffeeDataModel.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
@@ -247,9 +248,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Button.png" />
     <Content Include="Resources\coffee.jpg" />
+    <None Include="Resources\Group 3.png" />
+    <None Include="Resources\Email.png" />
     <Content Include="Resources\image 4.png" />
     <Content Include="Resources\image41.png" />
+    <None Include="Resources\Password1.png" />
+    <None Include="Resources\Password.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
