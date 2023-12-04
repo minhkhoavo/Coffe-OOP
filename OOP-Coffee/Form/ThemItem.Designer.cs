@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnReset = new System.Windows.Forms.Button();
             this.btnThanhPhan = new System.Windows.Forms.Button();
             this.txtImage = new System.Windows.Forms.TextBox();
             this.btnChonAnh = new System.Windows.Forms.Button();
@@ -43,20 +44,15 @@
             this.daf = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-
-
             this.btnThem = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.cboSort = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.btnReset = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-
-     //       ((System.ComponentModel.ISupportInitialize)(this.itemDBBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -81,6 +77,16 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Item";
+            // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(13, 153);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(75, 23);
+            this.btnReset.TabIndex = 7;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // btnThanhPhan
             // 
@@ -163,9 +169,8 @@
             this.lblID.AutoSize = true;
             this.lblID.Location = new System.Drawing.Point(108, 23);
             this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(13, 13);
+            this.lblID.Size = new System.Drawing.Size(0, 13);
             this.lblID.TabIndex = 2;
-            this.lblID.Text = "0";
             // 
             // label3
             // 
@@ -266,16 +271,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // btnReset
-            // 
-            this.btnReset.Location = new System.Drawing.Point(13, 153);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(75, 23);
-            this.btnReset.TabIndex = 7;
-            this.btnReset.Text = "Reset";
-            this.btnReset.UseVisualStyleBackColor = true;
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
-            // 
             // ThemItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -296,7 +291,6 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-
             this.ResumeLayout(false);
             this.PerformLayout();
 

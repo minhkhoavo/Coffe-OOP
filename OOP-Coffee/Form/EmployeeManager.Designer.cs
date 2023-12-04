@@ -60,6 +60,7 @@
             this.radManager = new System.Windows.Forms.RadioButton();
             this.radBarista = new System.Windows.Forms.RadioButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnReset = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvManager)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -89,6 +90,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnReset);
             this.groupBox1.Controls.Add(this.dtpBirth);
             this.groupBox1.Controls.Add(this.cboManager);
             this.groupBox1.Controls.Add(this.radNu);
@@ -387,6 +389,16 @@
             this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
             // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(329, 18);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(75, 23);
+            this.btnReset.TabIndex = 9;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
             // EmployeeManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -450,5 +462,6 @@
         private System.Windows.Forms.RadioButton radBarista;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DateTimePicker dtpBirth;
+        private System.Windows.Forms.Button btnReset;
     }
 }

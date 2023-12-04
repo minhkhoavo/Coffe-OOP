@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -22,10 +24,26 @@ namespace OOP_Coffee
         private void Iventory_Load(object sender, EventArgs e)
         {
             dgv.DataSource = db.InventoryDBs.ToList();
+            dgv.Columns["NgayNhap"].DefaultCellStyle.Format = "dd/MM/yyyy";
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            if(txtID.Text != "")
+            {
+                MessageBox.Show("ID đã có nhấn reset sau đó tạo mới", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if(txtTen.Text == "" || txtSoLuong.Text == "" || txtDV.Text == "" || txtGia.Text == "" || txtGhiChu.Text  == "")
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if(!(int.TryParse(txtSoLuong.Text, out _) && decimal.TryParse(txtGia.Text, out _)))
+            {
+                MessageBox.Show("Nhập sai kiểu dữ liệu", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             InventoryDB inventory = new InventoryDB();
             inventory.Ten = txtTen.Text;
             inventory.SoLuong = int.Parse(txtSoLuong.Text);
@@ -37,6 +55,7 @@ namespace OOP_Coffee
             db.InventoryDBs.InsertOnSubmit(inventory);
             db.SubmitChanges();
             Iventory_Load(this, e);
+            MessageBox.Show("Thêm thành công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -45,6 +64,7 @@ namespace OOP_Coffee
             db.InventoryDBs.DeleteOnSubmit(item);
             db.SubmitChanges();
             Iventory_Load(sender, e);
+            MessageBox.Show("Xóa thành công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -71,6 +91,16 @@ namespace OOP_Coffee
 
         private void btnSua_Click(object sender, EventArgs e)
         {
+            if (txtTen.Text == "" || txtSoLuong.Text == "" || txtDV.Text == "" || txtGia.Text == "" || txtGhiChu.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (!(int.TryParse(txtSoLuong.Text, out _) && decimal.TryParse(txtGia.Text, out _)))
+            {
+                MessageBox.Show("Nhập sai kiểu dữ liệu", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             InventoryDB inventory = db.InventoryDBs.Where(s=> s.ID.ToString() ==txtID.Text).Single();
             inventory.Ten = txtTen.Text;
             inventory.SoLuong = int.Parse(txtSoLuong.Text);
@@ -81,6 +111,8 @@ namespace OOP_Coffee
 
             db.SubmitChanges();
             Iventory_Load(sender, e);
+            MessageBox.Show("Sửa thành công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
         }
 
         private void txtTim_TextChanged(object sender, EventArgs e)
@@ -110,6 +142,73 @@ namespace OOP_Coffee
                 case 4:
                     dgv.DataSource = db.InventoryDBs.OrderBy(s => s.NgayNhap).ToList();
                     break;
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            txtID.Clear();
+            txtTen.Clear();
+            txtSoLuong.Clear();
+            txtDV.Clear();
+            txtGia.Clear();
+            dtpNgayNhap.Value = DateTime.Now;
+            txtGhiChu.Clear();
+        }
+
+        public string pathPro()
+        {
+            // Lấy đối tượng Assembly của assembly hiện tại
+            Assembly assembly = Assembly.GetExecutingAssembly();
+
+            // Lấy đường dẫn đầy đủ của file thực thi (bao gồm cả tên file)
+            string assemblyLocation = assembly.Location;
+            string proj = assemblyLocation;
+            for (int i = 0; i<3; i++)
+            {
+                proj = Path.GetDirectoryName(proj);
+            }
+            return proj;
+        }
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+            string path = Path.GetDirectoryName(pathPro());
+            path = Path.Combine(path, "iventory.txt");
+
+            using (StreamWriter sw = new StreamWriter(path))
+            {
+                for (int i = 0; i < dgv.Columns.Count; i++)
+                {
+                    sw.Write(dgv.Columns[i].HeaderText.PadRight(25));
+
+                }
+                sw.WriteLine();
+
+                foreach (DataGridViewRow row in dgv.Rows)
+                {
+                    for (int i = 0; i < dgv.Columns.Count; i++)
+                    {
+                        if (row.Cells[i].Value != null)
+                        {
+                            sw.Write(row.Cells[i].Value.ToString().PadRight(25));
+                        }
+                    }
+                    //sw.Write(row.Cells[0].Value.ToString().PadRight(7));
+                    //sw.Write(row.Cells[1].Value.ToString().PadRight(15));
+                    //sw.Write(row.Cells[2].Value.ToString().PadRight(15));
+
+                    //sw.Write(row.Cells[3].Value.ToString().PadRight(15));
+                    //sw.Write(row.Cells[4].Value.ToString().PadRight(15));
+                    //sw.Write(((DateTime)row.Cells[5].Value).Date.ToString().PadRight(15));
+                    //sw.Write(row.Cells[6].Value.ToString().PadRight(55));
+
+                    sw.WriteLine();
+                }
             }
         }
     }

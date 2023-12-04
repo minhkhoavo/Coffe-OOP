@@ -38,14 +38,20 @@ namespace OOP_Coffee.Form
 
         private void btnThem_Click(object sender, EventArgs e)
         {   
-            if(lblID.Text != "0")
+            if(lblID.Text != "")
             {
-                MessageBox.Show("ID đã có nhấn reset để tạo mới","Thông Báo",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("ID đã có nhấn reset sau đó tạo mới","Thông Báo",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
-            if(txtName.Text == "" || txtPrice.Text == "" || txtImage.Text == "" || !dsCT.Any())
+            else if(txtName.Text == "" || txtPrice.Text == "" || txtImage.Text == "" || !dsCT.Any())
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ!", "Thông Báo",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (!decimal.TryParse(txtPrice.Text, out _))
+            {
+                MessageBox.Show("Nhập sai kiểu dữ liệu", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
             else
             {
@@ -190,9 +196,14 @@ namespace OOP_Coffee.Form
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            if(lblID.Text == "0")
+            if(txtName.Text == "" || txtImage.Text == "" || txtPrice.Text == "")
             {
-                MessageBox.Show("Chưa có không thể sửa", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Vui lòng nhập đầy đủ", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return ;
+            }
+            else if(!decimal.TryParse(txtPrice.Text, out _))
+            {
+                MessageBox.Show("Nhập sai kiểu dữ liệu", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             ItemDB item = db.ItemDBs.Where(s => s.ItemId.ToString() == lblID.Text).Single();
@@ -268,7 +279,7 @@ namespace OOP_Coffee.Form
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            lblID.Text = "0";
+            lblID.Text = "";
             txtName.Clear();
             txtPrice.Clear();
             txtCost.Clear();

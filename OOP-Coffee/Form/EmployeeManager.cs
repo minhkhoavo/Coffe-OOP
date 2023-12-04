@@ -31,6 +31,16 @@ namespace OOP_Coffee
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            if(txtID.Text != "")
+            {
+                MessageBox.Show("ID đã có nhấn Reset để tạo mới","Thông Báo ",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                return;
+            }
+            else if(txtName.Text == "" || txtPass.Text == "" || txtPhone.Text == "" || txtAddress.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ", "Thông Báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             //lay thong tin
             if (radBarista.Checked)
             {
@@ -134,6 +144,11 @@ namespace OOP_Coffee
 
         private void btnSua_Click(object sender, EventArgs e)
         {
+            if (txtName.Text == "" || txtPass.Text == "" || txtPhone.Text == "" || txtAddress.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ", "Thông Báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             if (radBarista.Checked)
             {
                 BaristaDB barista = db.BaristaDBs.Where(b => b.BaristaID.ToString() == txtID.Text).Single();
@@ -171,13 +186,11 @@ namespace OOP_Coffee
             cboSort.SelectedIndex = -1;
             if (radBarista.Checked)
             {
-                var list = db.BaristaDBs.Where(b => b.Name.Contains(txtTim.Text)).ToList();
-                dgvManager.DataSource = list;
+                dgvManager.DataSource =  db.BaristaDBs.Where(b => b.Name.Contains(txtTim.Text)).ToList();
             }
             else
             {
-                var list = db.ManagerDBs.Where(m => m.Name.Contains(txtTim.Text)).ToList();
-                dgvManager.DataSource = list;
+                dgvManager.DataSource = db.ManagerDBs.Where(m => m.Name.Contains(txtTim.Text)).ToList();
             }
 
         }
@@ -217,6 +230,18 @@ namespace OOP_Coffee
                     break;
             }
 
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            txtID.Clear();
+            txtName.Clear();
+            txtPass.Clear();
+            txtPhone.Clear();
+            dtpBirth.Value = DateTime.Now;
+            radNam.Checked = true;
+            txtAddress.Clear();
+            cboManager.SelectedIndex =0;
         }
     }
 }
