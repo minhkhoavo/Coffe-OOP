@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using OOP_Coffee.Utils;
 
 namespace OOP_CoffeeApp
 {
@@ -41,7 +42,7 @@ namespace OOP_CoffeeApp
 
             if (user != null)
             {
-                if (user.Password == password)
+                if (user.Password == password || Password.VerifyPassword(password, user.Password))
                 {
                     return true;
                 }

@@ -1,4 +1,5 @@
 ﻿using OOP_Coffee;
+using OOP_Coffee.Utils;
 using Sprache;
 using System;
 using System.Collections.Generic;
@@ -27,7 +28,7 @@ namespace OOP_CoffeeApp
 
             if (user != null)
             {
-                if (user.Password == password)
+                if (user.Password == password || Password.VerifyPassword(password, user.Password))
                 {
                     return true; 
                 }
