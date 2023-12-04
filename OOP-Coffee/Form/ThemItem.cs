@@ -197,6 +197,7 @@ namespace OOP_Coffee.Form
 
             db.SubmitChanges();
             ThemItem_Load(sender, e);
+            btnReset_Click(sender, e);
             MessageBox.Show("Xóa thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }

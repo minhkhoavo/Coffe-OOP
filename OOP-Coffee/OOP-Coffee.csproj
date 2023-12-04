@@ -111,6 +111,12 @@
     <Compile Include="Form\fAdmin.Designer.cs">
       <DependentUpon>fAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form\fCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\fCustomer.Designer.cs">
+      <DependentUpon>fCustomer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form\fFeedback.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +128,12 @@
     </Compile>
     <Compile Include="Form\fLogin.Designer.cs">
       <DependentUpon>fLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\fManagerLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\fManagerLogin.Designer.cs">
+      <DependentUpon>fManagerLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Form\Form1.cs">
       <SubType>Form</SubType>
@@ -211,11 +223,17 @@
     <EmbeddedResource Include="Form\fAdmin.resx">
       <DependentUpon>fAdmin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form\fCustomer.resx">
+      <DependentUpon>fCustomer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\fFeedback.resx">
       <DependentUpon>fFeedback.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\fLogin.resx">
       <DependentUpon>fLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\fManagerLogin.resx">
+      <DependentUpon>fManagerLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

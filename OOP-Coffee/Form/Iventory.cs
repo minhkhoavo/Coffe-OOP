@@ -69,6 +69,7 @@ namespace OOP_Coffee
             db.InventoryDBs.DeleteOnSubmit(item);
             db.SubmitChanges();
             Iventory_Load(sender, e);
+            button1_Click(sender, e);
             MessageBox.Show("Xóa thành công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 

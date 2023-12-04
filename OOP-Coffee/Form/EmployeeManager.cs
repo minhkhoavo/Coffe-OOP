@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 //using CoffeeShop;
 using System.Data.Linq;
+using OOP_Coffee.Form;
 
 namespace OOP_Coffee
 {
@@ -24,9 +25,6 @@ namespace OOP_Coffee
         private void btnThoat_Click(object sender, EventArgs e)
         {
             Close();
-            //DialogResult kq = MessageBox.Show("Bạn có chắn muốn thoát ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            //if (kq == DialogResult.Yes)
-            //    Close();
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -50,8 +48,8 @@ namespace OOP_Coffee
                 barista.Phone = txtPhone.Text;
                 barista.Birthdate = dtpBirth.Value.Date;
                 if (radNam.Checked == true)
-                    barista.Gender = "Nam";
-                else barista.Gender = "Nu";
+                    barista.Gender = "Male";
+                else barista.Gender = "Female";
                 barista.Address = txtAddress.Text;
                 barista.ManagerID = (int)cboManager.SelectedValue;
 
@@ -65,8 +63,8 @@ namespace OOP_Coffee
                 manager.Phone = txtPhone.Text;
                 manager.Birthdate = dtpBirth.Value.Date;
                 if (radNam.Checked == true)
-                    manager.Gender = "Nam";
-                else manager.Gender = "Nu";
+                    manager.Gender = "Male";
+                else manager.Gender = "Female";
                 manager.Address = txtAddress.Text;
 
                 db.ManagerDBs.InsertOnSubmit(manager);
@@ -82,6 +80,7 @@ namespace OOP_Coffee
 
         private void EmployeeManager_Load(object sender, EventArgs e)
         {
+            dgvManager.DataSource = null;
             if (radManager.Checked)
             {
                 dgvManager.DataSource = db.ManagerDBs.ToList();
@@ -97,11 +96,31 @@ namespace OOP_Coffee
                 cboManager.ValueMember = "ManagerID";
                 cboManager.Enabled = true;
             }
+            dgvManager.Columns["Birthdate"].DefaultCellStyle.Format = "dd/MM/yyyy";
         }
 
         private void radBarista_CheckedChanged(object sender, EventArgs e)
         {
-            EmployeeManager_Load(this, e);
+            if(radBarista.Checked == false)
+            {
+                fManagerLogin fLogin = new fManagerLogin();
+                fLogin.ShowDialog();
+                ManagerDB manager = db.ManagerDBs.ToList().First();
+                if (manager != null)
+                {
+                    if (manager.Name != fLogin.name || manager.Password != fLogin.password)
+                    {
+                        MessageBox.Show("Mật khẩu sai!", "Thông Báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        radBarista.Checked = true;
+                        return;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Đăng nhập thành công!", "Thông Báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            EmployeeManager_Load(sender, e);
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -118,11 +137,17 @@ namespace OOP_Coffee
             }
             else
             {
+                if(txtID.Text == db.ManagerDBs.First().ManagerID.ToString())
+                {
+                   MessageBox.Show("Không thể xóa!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                   return;
+                }
                 ManagerDB manager = db.ManagerDBs.Where(s => s.ManagerID.ToString() == txtID.Text).Single();
                 db.ManagerDBs.DeleteOnSubmit(manager);
             }
             db.SubmitChanges();
             EmployeeManager_Load(sender, e);
+            btnReset_Click(sender, e);
             MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -134,7 +159,11 @@ namespace OOP_Coffee
                 txtName.Text = dgvManager.SelectedRows[0].Cells["Name"].Value?.ToString();
                 txtPass.Text = dgvManager.SelectedRows[0].Cells["Password"].Value?.ToString();
                 txtPhone.Text = dgvManager.SelectedRows[0].Cells["Phone"].Value?.ToString();
-                radNu.Checked = (dgvManager.SelectedRows[0].Cells["Gender"].Value?.ToString() ?? "Nam") == "Nu";
+                if ((dgvManager.SelectedRows[0].Cells["Gender"].Value?.ToString() ?? "Female") == "Female")
+                {
+                    radNu.Checked = true;
+                }
+                else radNam.Checked = true;
                 dtpBirth.Value = Convert.ToDateTime(dgvManager.SelectedRows[0].Cells["Birthdate"].Value);
                 txtAddress.Text = dgvManager.SelectedRows[0].Cells["Address"].Value?.ToString() ?? "";
 
@@ -166,8 +195,8 @@ namespace OOP_Coffee
                 barista.Phone = txtPhone.Text;
                 barista.Birthdate = dtpBirth.Value.Date;
                 if (radNam.Checked == true)
-                    barista.Gender = "Nam";
-                else barista.Gender = "Nu";
+                    barista.Gender = "Male";
+                else barista.Gender = "Female";
                 barista.Address = txtAddress.Text;
                 barista.ManagerID = (int)cboManager.SelectedValue;
             }
@@ -179,8 +208,8 @@ namespace OOP_Coffee
                 manager.Phone = txtPhone.Text;
                 manager.Birthdate = dtpBirth.Value.Date;
                 if (radNam.Checked)
-                    manager.Gender = "Nam";
-                else manager.Gender = "Nu";
+                    manager.Gender = "Male";
+                else manager.Gender = "Female";
                 manager.Address = txtAddress.Text;
             }
             db.SubmitChanges();
@@ -212,14 +241,7 @@ namespace OOP_Coffee
             switch (cboSort.SelectedIndex)
             {
                 case 0:
-                    if (radBarista.Checked)
-                    {
-                        dgvManager.DataSource = db.BaristaDBs.OrderBy(item => item.BaristaID).ToList();
-                    }
-                    else
-                    {
-                        dgvManager.DataSource = db.BaristaDBs.OrderBy(item => item.ManagerID).ToList();
-                    }
+                    EmployeeManager_Load(sender, e);
                     break;
                 case 1:
                     if (radBarista.Checked)
@@ -250,7 +272,7 @@ namespace OOP_Coffee
             dtpBirth.Value = DateTime.Now;
             radNam.Checked = true;
             txtAddress.Clear();
-            cboManager.SelectedIndex =0;
+            cboManager.SelectedIndex = 0;
         }
     }
 }
