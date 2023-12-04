@@ -123,6 +123,12 @@
     <Compile Include="Form\fLogin.Designer.cs">
       <DependentUpon>fLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form\fOrderManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\fOrderManagement.Designer.cs">
+      <DependentUpon>fOrderManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -216,6 +222,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\fLogin.resx">
       <DependentUpon>fLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\fOrderManagement.resx">
+      <DependentUpon>fOrderManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

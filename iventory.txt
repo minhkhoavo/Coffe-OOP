@@ -1,7 +1,9 @@
-ID                       Ten                      SoLuong                  DonVi                    GiaNhap                  NgayNhap                 GhiChu                   
-1                        Coffee Beans             49910                    g                        0.04000                  11/1/2023 12:00:00 AM    Regular restock          
-2                        Milk                     9930                     ml                       0.05000                  10/25/2023 12:00:00 AM   Fresh batch              
-3                        Sugar                    19930                    g                        0.07000                  11/5/2023 12:00:00 AM    Bulk purchase            
-4                        Cups                     29960                    pcs                      0.05000                  11/10/2023 12:00:00 AM   New shipment             
-5                        Chocolate Syrup          39960                    ml                       0.06000                  10/30/2023 12:00:00 AM   Limited stock            
-6                        Whipped Cream            100000                   bottles                  0.07000                  11/3/2023 12:00:00 AM    Refill                   
+ID                       Ten                      SoLuong                  DonVi                    GiaNhap                  SoLuongNhap              NgayNhap                 GhiChu                   
+1                        Coffee Beans             50000                    g                        10.50000                 10                       01/11/2023 12:00:00 SA   Regular restock          
+2                        Milk                     10000                    ml                       3.25000                  20                       25/10/2023 12:00:00 SA   Fresh batch              
+3                        Sugar                    20000                    g                        5.75000                  15                       05/11/2023 12:00:00 SA   Bulk purchase            
+4                        Cups                     300                      pcs                      0.15000                  100                      10/11/2023 12:00:00 SA   New shipment             
+5                        Chocolate Syrup          25                       ml                       8.00000                  5                        30/10/2023 12:00:00 SA   Limited stock            
+7                        55                       3                        hhhh                     36.00000                 0                        04/12/2023 12:00:00 SA   666                      
+10                       6                        6                        6                        8.90000                  0                        04/12/2023 12:00:00 SA   7                        
+11                       6                        6                        6                        89.00000                 0                        04/12/2023 12:00:00 SA   7                        

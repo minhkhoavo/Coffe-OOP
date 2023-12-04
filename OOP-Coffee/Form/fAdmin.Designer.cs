@@ -57,8 +57,9 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.quảnLýNhânViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quảnLýKhoHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.quảnLýSảnPhẩmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.quảnLýĐơnHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -287,7 +288,7 @@
             // 
             // Date
             // 
-            this.Date.DataPropertyName = "order_date";
+            this.Date.DataPropertyName = "OrderDate";
             this.Date.HeaderText = "Date";
             this.Date.MinimumWidth = 8;
             this.Date.Name = "Date";
@@ -296,7 +297,7 @@
             // 
             // revenue
             // 
-            this.revenue.DataPropertyName = "total_price";
+            this.revenue.DataPropertyName = "totalRevenue";
             this.revenue.HeaderText = "Doanh thu";
             this.revenue.MinimumWidth = 8;
             this.revenue.Name = "revenue";
@@ -305,7 +306,7 @@
             // 
             // profit
             // 
-            this.profit.DataPropertyName = "total_profit";
+            this.profit.DataPropertyName = "totalProfit";
             this.profit.HeaderText = "Lợi nhuận";
             this.profit.MinimumWidth = 8;
             this.profit.Name = "profit";
@@ -319,7 +320,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.quảnLýNhânViênToolStripMenuItem,
             this.quảnLýKhoHàngToolStripMenuItem,
-            this.quảnLýSảnPhẩmToolStripMenuItem});
+            this.quảnLýSảnPhẩmToolStripMenuItem,
+            this.quảnLýĐơnHàngToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1258, 33);
@@ -340,6 +342,13 @@
             this.quảnLýKhoHàngToolStripMenuItem.Text = "Quản lý kho hàng";
             this.quảnLýKhoHàngToolStripMenuItem.Click += new System.EventHandler(this.quảnLýKhoHàngToolStripMenuItem_Click);
             // 
+            // quảnLýSảnPhẩmToolStripMenuItem
+            // 
+            this.quảnLýSảnPhẩmToolStripMenuItem.Name = "quảnLýSảnPhẩmToolStripMenuItem";
+            this.quảnLýSảnPhẩmToolStripMenuItem.Size = new System.Drawing.Size(172, 29);
+            this.quảnLýSảnPhẩmToolStripMenuItem.Text = "Quản lý sản phẩm";
+            this.quảnLýSảnPhẩmToolStripMenuItem.Click += new System.EventHandler(this.quảnLýSảnPhẩmToolStripMenuItem_Click);
+            // 
             // chart1
             // 
             chartArea1.Name = "ChartArea1";
@@ -357,12 +366,12 @@
             this.chart1.TabIndex = 7;
             this.chart1.Text = "chart1";
             // 
-            // quảnLýSảnPhẩmToolStripMenuItem
+            // quảnLýĐơnHàngToolStripMenuItem
             // 
-            this.quảnLýSảnPhẩmToolStripMenuItem.Name = "quảnLýSảnPhẩmToolStripMenuItem";
-            this.quảnLýSảnPhẩmToolStripMenuItem.Size = new System.Drawing.Size(172, 29);
-            this.quảnLýSảnPhẩmToolStripMenuItem.Text = "Quản lý sản phẩm";
-            this.quảnLýSảnPhẩmToolStripMenuItem.Click += new System.EventHandler(this.quảnLýSảnPhẩmToolStripMenuItem_Click);
+            this.quảnLýĐơnHàngToolStripMenuItem.Name = "quảnLýĐơnHàngToolStripMenuItem";
+            this.quảnLýĐơnHàngToolStripMenuItem.Size = new System.Drawing.Size(171, 29);
+            this.quảnLýĐơnHàngToolStripMenuItem.Text = "Quản lý đơn hàng";
+            this.quảnLýĐơnHàngToolStripMenuItem.Click += new System.EventHandler(this.quảnLýĐơnHàngToolStripMenuItem_Click);
             // 
             // fAdmin
             // 
@@ -422,9 +431,10 @@
         private System.Windows.Forms.ToolStripMenuItem quảnLýNhânViênToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quảnLýKhoHàngToolStripMenuItem;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.ToolStripMenuItem quảnLýSảnPhẩmToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
         private System.Windows.Forms.DataGridViewTextBoxColumn revenue;
         private System.Windows.Forms.DataGridViewTextBoxColumn profit;
-        private System.Windows.Forms.ToolStripMenuItem quảnLýSảnPhẩmToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem quảnLýĐơnHàngToolStripMenuItem;
     }
 }

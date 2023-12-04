@@ -94,12 +94,6 @@ namespace OOP_CoffeeApp
                 MessageBox.Show(ex.Message);
             }
         }
-        public static bool VerifyPassword(string inputPassword, string hashedPassword)
-        {
-            string hashedInputPassword = Password.HashPassword(inputPassword);
-            return hashedInputPassword.Equals(hashedPassword, StringComparison.OrdinalIgnoreCase);
-        }
-
         private void label2_Click(object sender, EventArgs e)
         {
             fRegister fRegister = new fRegister();
