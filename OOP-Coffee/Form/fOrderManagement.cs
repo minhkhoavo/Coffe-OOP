@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using OOP_Coffee.Model;
 
 namespace OOP_Coffee.Form
 {
@@ -74,9 +75,9 @@ namespace OOP_Coffee.Form
         {
             CoffeeDataModelDataContext db = new CoffeeDataModelDataContext();
 
-            totalOrder_lbl.Text = (GetCompletedOrderCount(startDate, endDate) + GetRejectedOrderCount(startDate, endDate)).ToString();
-            totalReject_lbl.Text = GetRejectedOrderCount(startDate, endDate).ToString();
-            rating_lbl.Text = GetAverageRating(startDate, endDate).ToString();
+            totalOrder_lbl.Text = (Dashboard.GetCompletedOrderCount(startDate, endDate) + Dashboard.GetRejectedOrderCount(startDate, endDate)).ToString();
+            totalReject_lbl.Text = Dashboard.GetRejectedOrderCount(startDate, endDate).ToString();
+            rating_lbl.Text = Dashboard.GetAverageRating(startDate, endDate).ToString();
             var orderData = db.OrderDBs
                 .Where(o => o.OrderDate >= startDate && o.OrderDate <= endDate)
                 .Join(
@@ -125,7 +126,7 @@ namespace OOP_Coffee.Form
                 .GroupBy(status => status)
                 .Select(g => new { Status = g.Key, Count = g.Count() })
                 .Where(x => x.Status == "Completed" || x.Status == "Rejected")
-                .ToList();
+            .ToList();
 
             chart2.Series.Clear();
             chart2.Series.Add("OrderStatus");
@@ -136,83 +137,12 @@ namespace OOP_Coffee.Form
                 chart2.Series["OrderStatus"].Points.AddXY(statusCount.Status, statusCount.Count);
             }
         }
-        private List<ChartData> getSuccessOrderByDay(DateTime startDate, DateTime endDate)
-        {
-            CoffeeDataModelDataContext db = new CoffeeDataModelDataContext();
-            var successfulOrders = db.OrderItemDBs
-                .Join(db.OrderDBs, oi => oi.OrderID, o => o.OrderID, (oi, o) => new { oi, o })
-                .Where(x => x.oi.Status == "Completed" && x.o.OrderDate.Date >= startDate && x.o.OrderDate.Date <= endDate)
-                .GroupBy(x => x.o.OrderDate.Date)
-                .Select(g => new ChartData { OrderDate = g.Key, OrdersCount = g.Count() })
-                .OrderBy(x => x.OrderDate)
-                .ToList();
-            return successfulOrders;
-        }
-        private List<ChartData> getRejectedOrderByDay(DateTime startDate, DateTime endDate)
-        {
-            CoffeeDataModelDataContext db = new CoffeeDataModelDataContext();
-            var rejectedOrders = db.OrderItemDBs
-                .Join(db.OrderDBs, oi => oi.OrderID, o => o.OrderID, (oi, o) => new { oi, o })
-                .Where(x => x.oi.Status == "Rejected")
-                .GroupBy(x => x.o.OrderDate.Date) // Instead of EntityFunctions.TruncateTime()
-                .Select(g => new ChartData { OrderDate = g.Key, OrdersCount = g.Count() })
-                .OrderBy(x => x.OrderDate)
-                .ToList();
-            return rejectedOrders;
-        }
-        private List<ChartData> getAverageRatingByDay(DateTime startDate, DateTime endDate)
-        {
-            CoffeeDataModelDataContext db = new CoffeeDataModelDataContext();
-            var ratings = db.OrderDBs
-                .Where(order => order.RatingStar != null && order.OrderDate.Date >= startDate && order.OrderDate.Date <= endDate)
-                .GroupBy(order => order.OrderDate)
-                .Select(group => new ChartData
-                {
-                    OrderDate = group.Key,
-                    OrdersCount = group.Average(order => (decimal)order.RatingStar)
-                })
-                .OrderBy(result => result.OrderDate)
-                .ToList();
-            return ratings;
-        }
-        private decimal GetAverageRating(DateTime startDate, DateTime endDate)
-        {
-            CoffeeDataModelDataContext db = new CoffeeDataModelDataContext();
-
-            var averageRating = db.OrderDBs
-                .Where(order => order.RatingStar != null && order.OrderDate.Date >= startDate && order.OrderDate.Date <= endDate)
-                .Average(order => (decimal)order.RatingStar);
-
-            return Math.Round(averageRating, 1);  // Làm tròn về một chữ số sau dấu phẩy
-        }
-        private int GetCompletedOrderCount(DateTime startDate, DateTime endDate)
-        {
-            CoffeeDataModelDataContext db = new CoffeeDataModelDataContext();
-            return db.OrderDBs
-            .Where(order => order.OrderDate.Date >= startDate && order.OrderDate.Date <= endDate)
-            .Join(db.OrderItemDBs,
-                order => order.OrderID,
-                orderItem => orderItem.OrderID,
-                (order, orderItem) => new { order, orderItem })
-            .Count(joinResult => joinResult.orderItem.Status == "Completed");
-        }
-        private int GetRejectedOrderCount(DateTime startDate, DateTime endDate)
-        {
-            CoffeeDataModelDataContext db = new CoffeeDataModelDataContext();
-            return db.OrderDBs
-            .Where(order => order.OrderDate.Date >= startDate && order.OrderDate.Date <= endDate)
-            .Join(db.OrderItemDBs,
-                order => order.OrderID,
-                orderItem => orderItem.OrderID,
-                (order, orderItem) => new { order, orderItem })
-            .Count(joinResult => joinResult.orderItem.Status == "Rejected");
-        }
         private void DrawChart(DateTime startDate, DateTime endDate)
         {
             chart1.Titles.Clear();
 
             CoffeeDataModelDataContext db = new CoffeeDataModelDataContext();
-            var rejectedOrders = getRejectedOrderByDay(startDate, endDate);
+            var rejectedOrders = Dashboard.getRejectedOrderByDay(startDate, endDate);
             Series orderRejectSeries = chart1.Series["orderReject"];
             orderRejectSeries.Points.Clear();
             foreach (var order in rejectedOrders)
@@ -220,7 +150,7 @@ namespace OOP_Coffee.Form
                 orderRejectSeries.Points.AddXY(order.OrderDate.ToShortDateString(), order.OrdersCount);
             }
 
-            var successfulOrders = getSuccessOrderByDay(startDate, endDate);
+            var successfulOrders = Dashboard.getSuccessOrderByDay(startDate, endDate);
             Series orderSuccessSeries = chart1.Series["orderSuccess"];
             orderSuccessSeries.Points.Clear();
             foreach (var order in successfulOrders)
@@ -228,7 +158,7 @@ namespace OOP_Coffee.Form
                 orderSuccessSeries.Points.AddXY(order.OrderDate.ToShortDateString(), order.OrdersCount);
             }
 
-            var ratings = getAverageRatingByDay(startDate, endDate);
+            var ratings = Dashboard.getAverageRatingByDay(startDate, endDate);
             Series ratingSeries = chart1.Series["Rating"];
             ratingSeries.Points.Clear();
             foreach (var rating in ratings)
@@ -288,11 +218,7 @@ namespace OOP_Coffee.Form
             }
         }
     }
-    public class ChartData
-    {
-        public DateTime OrderDate { get; set; }
-        public decimal OrdersCount { get; set; }
-    }
+
 
 }
 

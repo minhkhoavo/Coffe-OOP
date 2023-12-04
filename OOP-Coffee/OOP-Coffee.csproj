@@ -195,6 +195,7 @@
     <Compile Include="Form\Iventory.Designer.cs">
       <DependentUpon>Iventory.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Dashboard.cs" />
     <Compile Include="Model\Manager.cs" />
     <Compile Include="Model\Parista.cs" />
     <Compile Include="Form\ParistaFrm.cs">
