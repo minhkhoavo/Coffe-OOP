@@ -11,6 +11,9 @@ namespace OOP_CoffeeApp
 {
     public class Barista : Person
     {
+        private int baristaID;
+        private int managerID;
+
         public void PreparesCoffee()
         {
             throw new System.NotImplementedException();

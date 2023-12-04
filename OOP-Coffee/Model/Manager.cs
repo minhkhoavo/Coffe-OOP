@@ -9,6 +9,8 @@ namespace OOP_CoffeeApp
 {
     public class Manager : Person
     {
+        private int managerID;
+
         public void StaffManagement()
         {
             throw new System.NotImplementedException();

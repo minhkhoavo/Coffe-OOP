@@ -9,6 +9,8 @@ namespace OOP_CoffeeApp
 {
     public class Customer : Person
     {
+        private int customerID;
+
         public Customer(string name, string phone):base(name,phone)
         {
         }

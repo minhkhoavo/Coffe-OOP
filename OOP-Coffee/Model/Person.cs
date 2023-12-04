@@ -20,7 +20,15 @@ namespace OOP_CoffeeApp
         public string Phone { get => phone; set => phone = value; }
         public string Gender { get => gender; set => gender = value; }
         public string Address { get => address; set => address = value; }
-        public DateTime BirthDate { get => birthDate; set => birthDate = value; }
+        public DateTime Birthdate { get => birthDate; set => birthDate = value; }
+
+        public int Password
+        {
+            get => default;
+            set
+            {
+            }
+        }
 
         public Person()
         {
@@ -28,7 +36,7 @@ namespace OOP_CoffeeApp
             Phone = "not yet defined";
             Gender = "not yet defined";
             Address = "not yet defined";
-            BirthDate = new DateTime(1900, 1, 1);
+            Birthdate = new DateTime(1900, 1, 1);
         }
         public Person(string name):this()
         {
@@ -48,12 +56,12 @@ namespace OOP_CoffeeApp
         }
         public Person(string name, string gender, string phone, string address, string email, DateTime birthDate):this(name, gender, phone, address)
         {
-            BirthDate = birthDate;
+            Birthdate = birthDate;
         }
 
         public void PrintDetails()
         {
-            string day = string.Format("{0:dd/MM/yyyy}", BirthDate);
+            string day = string.Format("{0:dd/MM/yyyy}", Birthdate);
             string kq = ($" Name: {Name},\n Phone: {Phone},\n" +
                 $" Gender: {Gender},\n Address: {Address},\n" +
                 $"\n BirthDate: {day}");
