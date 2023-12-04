@@ -92,8 +92,8 @@ namespace OOP_CoffeeApp
             }
 
             totalOrder_lbl.Text = result.Count.ToString();
-            totalRevenue_lbl.Text = totalRevenue.ToString();
-            totalProfit_lbl.Text = totalProfit.ToString();
+            totalRevenue_lbl.Text = totalRevenue.ToString() + "$";
+            totalProfit_lbl.Text = totalProfit.ToString() + "$";
             dataGridView1.DataSource = result;
             dataGridView1.Columns["id"].Visible = false;
             //dataGridView1.Columns["order_id"].Visible = false;
@@ -165,6 +165,12 @@ namespace OOP_CoffeeApp
         {
             ThemItem themItemForm = new ThemItem();
             themItemForm.ShowDialog();
+        }
+
+        private void quảnLýĐơnHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fOrderManagement fOrderManagementForm = new fOrderManagement();
+            fOrderManagementForm.Show();
         }
     }
 }

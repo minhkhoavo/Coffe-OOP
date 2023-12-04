@@ -6,11 +6,15 @@ using System.Collections.Generic;
 using System.Data.Linq;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace OOP_CoffeeApp
 {
     public class Barista : Person
     {
+        private int baristaID;
+        private int managerID;
+
         public void PreparesCoffee()
         {
             throw new System.NotImplementedException();
@@ -28,7 +32,7 @@ namespace OOP_CoffeeApp
 
             if (user != null)
             {
-                if (user.Password == password || Password.VerifyPassword(password, user.Password))
+                if (user.Password == password || PasswordHash.VerifyPassword(password, user.Password))
                 {
                     return true; 
                 }
@@ -41,6 +45,14 @@ namespace OOP_CoffeeApp
             {
                 return false; 
             }
+        }
+        public override void PrintDetails()
+        {
+            string day = string.Format("{0:dd/MM/yyyy}", Birthdate);
+            string kq = ($" Barista\nName: {Name},\n Phone: {Phone},\n" +
+                $" Gender: {Gender},\n Address: {Address},\n" +
+                $"\n BirthDate: {day}");
+            MessageBox.Show(kq, "Thong bao");
         }
     }
 }

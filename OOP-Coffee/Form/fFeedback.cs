@@ -15,16 +15,18 @@ namespace OOP_CoffeeApp
     public partial class fFeedback : System.Windows.Forms.Form
     {
         private List<Order> orders = new List<Order>();
+        Customer customer = null;
         decimal refundMoney = decimal.Zero;
         int OrderID;
         int lastRefundOrderItemId;
         int rating = -1;
-        public fFeedback(List<Order> orders, int OrderID)
+        public fFeedback(List<Order> orders, int OrderID, Customer customer)
         {
             this.ControlBox = false;
             InitializeComponent();
             InitializeTimer();
             this.OrderID = OrderID;
+            this.customer = customer;
             total_lbl.Text = Form1.total.ToString("0.00") + "$";
             try
             {
@@ -89,28 +91,10 @@ namespace OOP_CoffeeApp
             }
             Repositories.updateSaleSummaryDB(OrderID);
             Repositories.updateRevenueAndProfit(OrderID);
-            UpdateOrderRatingAndComment(OrderID, rating, textBox1.Text);
+            customer.Feedback(OrderID, rating, textBox1.Text);
             MessageBox.Show("Cảm ơn bạn đã mua hàng!");
             this.Close();
         }
-        public void UpdateOrderRatingAndComment(int orderID, int rating, string comment)
-        {
-            CoffeeDataModelDataContext db = new CoffeeDataModelDataContext();
-            OrderDB orderToUpdate = db.OrderDBs.FirstOrDefault(order => order.OrderID == orderID);
-
-            if (orderToUpdate != null)
-            {
-                if(rating != -1)
-                {
-                    orderToUpdate.RatingStar = rating;
-                }
-                if(!string.IsNullOrEmpty(comment))
-                {
-                    orderToUpdate.Comment = comment;
-                }
-            }
-            db.SubmitChanges();
-        }
-
+        
     }
 }

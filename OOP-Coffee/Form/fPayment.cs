@@ -16,11 +16,13 @@ namespace OOP_Coffee.Form
     {
         private List<Order> orders = new List<Order>();
         int OrderID;
-        public fPayment(List<Order> orders, int OrderID)
+        Customer customer = null;
+        public fPayment(List<Order> orders, int OrderID, Customer customer)
         {
             InitializeComponent();
             this.orders = orders;
             this.OrderID = OrderID;
+            this.customer = customer;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -47,7 +49,8 @@ namespace OOP_Coffee.Form
                     CardPayment cardPayment = (CardPayment)control;
                     if(cardPayment.checkValid())
                     {
-                        fFeedback fFeedbackForm = new fFeedback(orders, OrderID);
+                        customer.Pays("Cards");
+                        fFeedback fFeedbackForm = new fFeedback(orders, OrderID, customer);
                         fFeedbackForm.Show();
                         this.Close();
                     } else
@@ -76,12 +79,19 @@ namespace OOP_Coffee.Form
             pictureBox4.Location = new System.Drawing.Point(100, 250);
             pictureBox4.Size = new System.Drawing.Size(107, 63);
             pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            pictureBox4.Click += pictureBox3_Click;
+            pictureBox4.Click += QR_Click;
         }
-
+        private void QR_Click(object sender, EventArgs e)
+        {
+            customer.Pays("QR");
+            fFeedback fFeedbackForm = new fFeedback(orders, OrderID, customer);
+            fFeedbackForm.Show();
+            this.Close();
+        }
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            fFeedback fFeedbackForm = new fFeedback(orders, OrderID);
+            customer.Pays("Tiền mặt");
+            fFeedback fFeedbackForm = new fFeedback(orders, OrderID, customer);
             fFeedbackForm.Show();
             this.Close();
         }

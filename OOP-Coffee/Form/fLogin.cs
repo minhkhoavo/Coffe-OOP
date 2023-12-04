@@ -46,9 +46,17 @@ namespace OOP_CoffeeApp
                     if (Customer.checkLogin(username, password))
                     {
                         MessageBox.Show("Success login");
-                        Form1 customerForm = new Form1(int.Parse(username));
-                        customerForm.Show();
-                        this.DialogResult = DialogResult.OK;
+                        Customer newCustomer = Customer.FindCustomerByUsername(int.Parse(username));
+                        if(newCustomer != null)
+                        {
+                            Form1 customerForm = new Form1(newCustomer);
+                            customerForm.Show();
+                            this.DialogResult = DialogResult.OK;
+                        } else
+                        {
+                            MessageBox.Show("Đã có lỗi xảy ra!");
+                        }
+                        
                         //this.Close();
                     }
                     else
@@ -94,12 +102,6 @@ namespace OOP_CoffeeApp
                 MessageBox.Show(ex.Message);
             }
         }
-        public static bool VerifyPassword(string inputPassword, string hashedPassword)
-        {
-            string hashedInputPassword = Password.HashPassword(inputPassword);
-            return hashedInputPassword.Equals(hashedPassword, StringComparison.OrdinalIgnoreCase);
-        }
-
         private void label2_Click(object sender, EventArgs e)
         {
             fRegister fRegister = new fRegister();

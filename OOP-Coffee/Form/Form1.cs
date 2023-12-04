@@ -21,12 +21,14 @@ namespace OOP_CoffeeApp
     {
         private List<Order> orders = new List<Order>();
         public static decimal total = 0;
+        Customer customer = null;
         private int customerId;
-        public Form1(int customerId)
+        public Form1(Customer customer)
         {
             InitializeComponent();
             //this.products = products;
-            this.customerId = customerId;
+            this.customer = customer;
+            this.customerId = customer.CustomerID;
         }
         private void Form1_Load(object sender, System.EventArgs e)
         {
@@ -135,16 +137,9 @@ namespace OOP_CoffeeApp
                 return;
             }
 
-            OrderDB newOrder = new OrderDB {
-                CustomerID = customerId,
-                OrderDate = DateTime.Now, 
-                RatingStar = null, 
-                Comment = null 
-            };
+
+            int newOrderID = customer.Orders();
             CoffeeDataModelDataContext db = new CoffeeDataModelDataContext();
-            db.OrderDBs.InsertOnSubmit(newOrder);
-            db.SubmitChanges();
-            int newOrderID = newOrder.OrderID;
 
             foreach (var item in orders)
             {
@@ -163,7 +158,7 @@ namespace OOP_CoffeeApp
                 item.OrderItemID = newOrderItem.OrderItemID;
             }
             this.Close();
-            fPayment fPayment = new fPayment(orders, newOrderID);
+            fPayment fPayment = new fPayment(orders, newOrderID, customer);
             fPayment.ShowDialog();
         }
     }
