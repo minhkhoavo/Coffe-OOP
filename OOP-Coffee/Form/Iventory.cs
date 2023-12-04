@@ -60,6 +60,11 @@ namespace OOP_Coffee
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
+            if(txtID.Text == "")
+            {
+                MessageBox.Show("Chưa lựa chọn", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             var item = db.InventoryDBs.Where(s => s.ID.ToString() == txtID.Text).Single();
             db.InventoryDBs.DeleteOnSubmit(item);
             db.SubmitChanges();
@@ -91,7 +96,12 @@ namespace OOP_Coffee
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            if (txtTen.Text == "" || txtSoLuong.Text == "" || txtDV.Text == "" || txtGia.Text == "" || txtGhiChu.Text == "")
+            if(txtID.Text == "")
+            {
+                MessageBox.Show("Chưa lựa chọn!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else if (txtTen.Text == "" || txtSoLuong.Text == "" || txtDV.Text == "" || txtGia.Text == "" || txtGhiChu.Text == "")
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -198,18 +208,10 @@ namespace OOP_Coffee
                             sw.Write(row.Cells[i].Value.ToString().PadRight(25));
                         }
                     }
-                    //sw.Write(row.Cells[0].Value.ToString().PadRight(7));
-                    //sw.Write(row.Cells[1].Value.ToString().PadRight(15));
-                    //sw.Write(row.Cells[2].Value.ToString().PadRight(15));
-
-                    //sw.Write(row.Cells[3].Value.ToString().PadRight(15));
-                    //sw.Write(row.Cells[4].Value.ToString().PadRight(15));
-                    //sw.Write(((DateTime)row.Cells[5].Value).Date.ToString().PadRight(15));
-                    //sw.Write(row.Cells[6].Value.ToString().PadRight(55));
-
                     sw.WriteLine();
                 }
             }
+            MessageBox.Show("Tạo file thành công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

@@ -106,7 +106,12 @@ namespace OOP_Coffee
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if (radBarista.Checked)
+            if(txtID.Text == "")
+            {
+               MessageBox.Show("Chưa lựa chọn!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else if (radBarista.Checked)
             {
                 BaristaDB barista = db.BaristaDBs.Where(s => s.BaristaID.ToString() == txtID.Text).Single();
                 db.BaristaDBs.DeleteOnSubmit(barista);
@@ -119,7 +124,6 @@ namespace OOP_Coffee
             db.SubmitChanges();
             EmployeeManager_Load(sender, e);
             MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
         }
 
         private void dgvManager_SelectionChanged(object sender, EventArgs e)
@@ -144,7 +148,12 @@ namespace OOP_Coffee
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            if (txtName.Text == "" || txtPass.Text == "" || txtPhone.Text == "" || txtAddress.Text == "")
+            if(txtID.Text == "")
+            {
+                MessageBox.Show("Chưa lựa chọn!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else if (txtName.Text == "" || txtPass.Text == "" || txtPhone.Text == "" || txtAddress.Text == "")
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ", "Thông Báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
