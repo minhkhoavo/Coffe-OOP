@@ -178,6 +178,11 @@ namespace OOP_Coffee.Form
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
+            if(lblID.Text == "")
+            {
+                MessageBox.Show("Chưa lựa chọn!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             DialogResult kt = MessageBox.Show("Bạn có chắn chắn muốn xóa", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
             if(kt == DialogResult.Cancel)
             {
@@ -192,11 +197,18 @@ namespace OOP_Coffee.Form
 
             db.SubmitChanges();
             ThemItem_Load(sender, e);
+            MessageBox.Show("Xóa thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            if(txtName.Text == "" || txtImage.Text == "" || txtPrice.Text == "")
+            if (lblID.Text == "")
+            {
+                MessageBox.Show("Chưa lựa chọn!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else if (txtName.Text == "" || txtImage.Text == "" || txtPrice.Text == "")
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return ;
@@ -231,7 +243,6 @@ namespace OOP_Coffee.Form
             db.SubmitChanges();
             ThemItem_Load(sender, e);
             MessageBox.Show("Đã sửa thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
         }
 
         private void cboSort_SelectedIndexChanged(object sender, EventArgs e)

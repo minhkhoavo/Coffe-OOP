@@ -5,3 +5,4 @@ ID                       Ten                      SoLuong                  DonVi
 4                        Cups                     29960                    pcs                      0.05000                  11/10/2023 12:00:00 AM   New shipment             
 5                        Chocolate Syrup          39960                    ml                       0.06000                  10/30/2023 12:00:00 AM   Limited stock            
 6                        Whipped Cream            100000                   bottles                  0.07000                  11/3/2023 12:00:00 AM    Refill                   
+13                       adf                      53000                    adf                      85665.20000              12/4/2023 12:00:00 AM    adf                      
