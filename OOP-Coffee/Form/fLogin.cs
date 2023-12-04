@@ -46,9 +46,17 @@ namespace OOP_CoffeeApp
                     if (Customer.checkLogin(username, password))
                     {
                         MessageBox.Show("Success login");
-                        Form1 customerForm = new Form1(int.Parse(username));
-                        customerForm.Show();
-                        this.DialogResult = DialogResult.OK;
+                        Customer newCustomer = Customer.FindCustomerByUsername(int.Parse(username));
+                        if(newCustomer != null)
+                        {
+                            Form1 customerForm = new Form1(newCustomer);
+                            customerForm.Show();
+                            this.DialogResult = DialogResult.OK;
+                        } else
+                        {
+                            MessageBox.Show("Đã có lỗi xảy ra!");
+                        }
+                        
                         //this.Close();
                     }
                     else

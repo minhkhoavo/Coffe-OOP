@@ -38,34 +38,16 @@ namespace OOP_CoffeeApp
             Address = "not yet defined";
             Birthdate = new DateTime(1900, 1, 1);
         }
-        public Person(string name):this()
+
+        protected Person(string name, string gender, string phone, string address, DateTime birthDate)
         {
-            Name = name;
-        }
-        public Person(string name, string phoneNumber) : this(name)
-        {
-            Phone = phoneNumber;
-        }
-        public Person(string name, string phoneNumber, string gender) : this(name, phoneNumber)
-        {
-            Gender = gender;
-        }
-        public Person(string name, string phone, string gender,string address): this(name, phone, gender)
-        {
-            Address = address;
-        }
-        public Person(string name, string gender, string phone, string address, string email, DateTime birthDate):this(name, gender, phone, address)
-        {
-            Birthdate = birthDate;
+            this.name = name;
+            this.gender = gender;
+            this.phone = phone;
+            this.address = address;
+            this.birthDate = birthDate;
         }
 
-        public void PrintDetails()
-        {
-            string day = string.Format("{0:dd/MM/yyyy}", Birthdate);
-            string kq = ($" Name: {Name},\n Phone: {Phone},\n" +
-                $" Gender: {Gender},\n Address: {Address},\n" +
-                $"\n BirthDate: {day}");
-            MessageBox.Show(kq , "Thong bao");
-        }
+        public abstract void PrintDetails();
     }
 }

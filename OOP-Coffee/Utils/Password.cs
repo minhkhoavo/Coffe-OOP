@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OOP_Coffee.Utils
 {
-    internal class Password
+    internal class PasswordHash
     {
         public static string HashPassword(string password)
         {

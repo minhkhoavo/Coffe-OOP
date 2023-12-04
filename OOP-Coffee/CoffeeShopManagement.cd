@@ -1,38 +1,38 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="OOP_CoffeeApp.Barista">
+    <Position X="6.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQAAACQAAAAAAAAIAAAAAAAk=</HashCode>
+      <FileName>Model\Parista.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OOP_CoffeeApp.Customer">
+    <Position X="1.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAQAAAAAAAACQAAAAAAAAAAAAAIAAAAAEAA=</HashCode>
+      <FileName>Model\Customer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OOP_CoffeeApp.Manager">
+    <Position X="6.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAggAAAAAAAAAAAQAAACAAAAAgAAAIAAAAAAAA=</HashCode>
+      <FileName>Model\Manager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OOP_CoffeeApp.SalesResult" Collapsed="true">
+    <Position X="14" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Manager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Class Name="OOP_CoffeeApp.Person">
     <Position X="4.25" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAACABAAAwAQAAAIEAAAiAAAAIAAAAAA=</HashCode>
       <FileName>Model\Person.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="OOP_CoffeeApp.Barista">
-    <Position X="8.25" Y="2.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAACQAAAAAAAAIAAAAAAAk=</HashCode>
-      <FileName>Model\Parista.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="OOP_CoffeeApp.Customer">
-    <Position X="2" Y="2.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAEAAAAAAAQAAAAAAAACAAAAAAAAAAAAAAIAAAAAEAA=</HashCode>
-      <FileName>Model\Customer.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="OOP_CoffeeApp.Manager">
-    <Position X="6.5" Y="1.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>IAAAAAAggAAAAAAAAAAAAAAACAAAAAgAAAIAAAAAAAA=</HashCode>
-      <FileName>Model\Manager.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="OOP_CoffeeApp.SalesResult" Collapsed="true">
-    <Position X="12" Y="1" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAA=</HashCode>
-      <FileName>Model\Manager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

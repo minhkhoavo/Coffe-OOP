@@ -102,7 +102,7 @@ namespace OOP_Coffee.Form
                         Gender = gender,
                         Phone = phone,
                         Address = address,
-                        Password = Password.HashPassword(password),
+                        Password = PasswordHash.HashPassword(password),
                     };
                     db.CustomerDBs.InsertOnSubmit(newCustomer);
                     db.SubmitChanges();
