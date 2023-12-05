@@ -48,7 +48,12 @@ namespace OOP_CoffeeApp
             DateTime endDate = startDate.AddMonths(1).AddDays(-1);
             viewData(startDate, endDate);
         }
-
+        private void yearBtn_Click(object sender, EventArgs e)
+        {
+            DateTime startDate = new DateTime(DateTime.Today.Year, 1, 1);
+            DateTime endDate = DateTime.Today;
+            viewData(startDate, endDate);
+        }
         private void okBtn_Click(object sender, EventArgs e)
         {
             DateTime startDate = dateTimePicker1.Value.Date;
@@ -149,12 +154,6 @@ namespace OOP_CoffeeApp
             }
         }
 
-        private void quảnLýNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            EmployeeManager employeeManagementForm = new EmployeeManager();
-            employeeManagementForm.ShowDialog();
-        }
-
         private void quảnLýKhoHàngToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Iventory inventoryForm = new Iventory();
@@ -171,6 +170,18 @@ namespace OOP_CoffeeApp
         {
             fOrderManagement fOrderManagementForm = new fOrderManagement();
             fOrderManagementForm.Show();
+        }
+
+        private void nToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EmployeeManager employeeManager = new EmployeeManager();
+            employeeManager.ShowDialog();
+        }
+
+        private void kháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fCustomer fCustomer = new fCustomer();  
+            fCustomer.ShowDialog();
         }
     }
 }

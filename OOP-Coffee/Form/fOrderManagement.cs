@@ -53,6 +53,12 @@ namespace OOP_Coffee.Form
             DateTime endDate = startDate.AddMonths(1).AddDays(-1);
             viewData(startDate, endDate);
         }
+        private void yearBtn_Click(object sender, EventArgs e)
+        {
+            DateTime startDate = new DateTime(DateTime.Today.Year, 1, 1);
+            DateTime endDate = DateTime.Today;
+            viewData(startDate, endDate);
+        }
 
         private void okBtn_Click(object sender, EventArgs e)
         {
@@ -128,14 +134,16 @@ namespace OOP_Coffee.Form
                 .Where(x => x.Status == "Completed" || x.Status == "Rejected")
             .ToList();
 
-            chart2.Series.Clear();
-            chart2.Series.Add("OrderStatus");
-            chart2.Series["OrderStatus"].ChartType = SeriesChartType.Pie;
+            chart2.Series["OrderStatus"].Points.Clear();
+            int sumStatusCount = orderStatusCount.Sum(statusCount => statusCount.Count);
 
             foreach (var statusCount in orderStatusCount)
             {
-                chart2.Series["OrderStatus"].Points.AddXY(statusCount.Status, statusCount.Count);
+                double percentage = (double)statusCount.Count * 100 / sumStatusCount;
+                string formattedPercentage = percentage.ToString("0.0");
+                chart2.Series["OrderStatus"].Points.AddXY(statusCount.Status, formattedPercentage);
             }
+
         }
         private void DrawChart(DateTime startDate, DateTime endDate)
         {
@@ -166,8 +174,6 @@ namespace OOP_Coffee.Form
                 ratingSeries.Points.AddXY(rating.OrderDate.ToShortDateString(), rating.OrdersCount);
                 ratingSeries.YAxisType = AxisType.Secondary;
             }
-            
-            chart1.Titles.Add("Biểu đồ số đơn hàng và rating theo ngày");
         }
 
         private void fileBtn_Click(object sender, EventArgs e)
@@ -217,6 +223,8 @@ namespace OOP_Coffee.Form
                 }
             }
         }
+
+
     }
 
 

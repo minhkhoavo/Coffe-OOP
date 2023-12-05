@@ -28,13 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.yearBtn = new System.Windows.Forms.Button();
             this.fileBtn = new System.Windows.Forms.Button();
             this.monthBtn = new System.Windows.Forms.Button();
             this.weekBtn = new System.Windows.Forms.Button();
@@ -56,10 +58,12 @@
             this.profit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.quảnLýNhânViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kháchHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quảnLýKhoHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quảnLýSảnPhẩmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.quảnLýĐơnHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -97,6 +101,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.yearBtn);
             this.panel1.Controls.Add(this.fileBtn);
             this.panel1.Controls.Add(this.monthBtn);
             this.panel1.Controls.Add(this.weekBtn);
@@ -109,6 +114,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1234, 50);
             this.panel1.TabIndex = 2;
+            // 
+            // yearBtn
+            // 
+            this.yearBtn.Location = new System.Drawing.Point(899, 6);
+            this.yearBtn.Name = "yearBtn";
+            this.yearBtn.Size = new System.Drawing.Size(117, 41);
+            this.yearBtn.TabIndex = 3;
+            this.yearBtn.Text = "This year";
+            this.yearBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.yearBtn.UseVisualStyleBackColor = true;
+            this.yearBtn.Click += new System.EventHandler(this.yearBtn_Click);
             // 
             // fileBtn
             // 
@@ -123,7 +139,7 @@
             // 
             // monthBtn
             // 
-            this.monthBtn.Location = new System.Drawing.Point(823, 6);
+            this.monthBtn.Location = new System.Drawing.Point(776, 6);
             this.monthBtn.Name = "monthBtn";
             this.monthBtn.Size = new System.Drawing.Size(117, 41);
             this.monthBtn.TabIndex = 2;
@@ -134,7 +150,7 @@
             // 
             // weekBtn
             // 
-            this.weekBtn.Location = new System.Drawing.Point(686, 7);
+            this.weekBtn.Location = new System.Drawing.Point(639, 7);
             this.weekBtn.Name = "weekBtn";
             this.weekBtn.Size = new System.Drawing.Size(117, 41);
             this.weekBtn.TabIndex = 2;
@@ -145,7 +161,7 @@
             // 
             // todayBtn
             // 
-            this.todayBtn.Location = new System.Drawing.Point(590, 7);
+            this.todayBtn.Location = new System.Drawing.Point(543, 7);
             this.todayBtn.Name = "todayBtn";
             this.todayBtn.Size = new System.Drawing.Size(75, 41);
             this.todayBtn.TabIndex = 2;
@@ -221,7 +237,7 @@
             this.totalRevenue_lbl.AutoSize = true;
             this.totalRevenue_lbl.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
             this.totalRevenue_lbl.ForeColor = System.Drawing.Color.Black;
-            this.totalRevenue_lbl.Location = new System.Drawing.Point(162, 51);
+            this.totalRevenue_lbl.Location = new System.Drawing.Point(167, 51);
             this.totalRevenue_lbl.Name = "totalRevenue_lbl";
             this.totalRevenue_lbl.Size = new System.Drawing.Size(120, 41);
             this.totalRevenue_lbl.TabIndex = 1;
@@ -252,7 +268,7 @@
             this.totalOrder_lbl.AutoSize = true;
             this.totalOrder_lbl.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
             this.totalOrder_lbl.ForeColor = System.Drawing.Color.Black;
-            this.totalOrder_lbl.Location = new System.Drawing.Point(76, 51);
+            this.totalOrder_lbl.Location = new System.Drawing.Point(77, 50);
             this.totalOrder_lbl.Name = "totalOrder_lbl";
             this.totalOrder_lbl.Size = new System.Drawing.Size(120, 41);
             this.totalOrder_lbl.TabIndex = 1;
@@ -281,6 +297,14 @@
             this.dataGridView1.Location = new System.Drawing.Point(15, 267);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.HotTrack;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
             this.dataGridView1.Size = new System.Drawing.Size(772, 413);
@@ -330,10 +354,26 @@
             // 
             // quảnLýNhânViênToolStripMenuItem
             // 
+            this.quảnLýNhânViênToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.nToolStripMenuItem,
+            this.kháchHàngToolStripMenuItem});
             this.quảnLýNhânViênToolStripMenuItem.Name = "quảnLýNhânViênToolStripMenuItem";
-            this.quảnLýNhânViênToolStripMenuItem.Size = new System.Drawing.Size(170, 29);
-            this.quảnLýNhânViênToolStripMenuItem.Text = "Quản lý nhân viên";
-            this.quảnLýNhânViênToolStripMenuItem.Click += new System.EventHandler(this.quảnLýNhânViênToolStripMenuItem_Click);
+            this.quảnLýNhânViênToolStripMenuItem.Size = new System.Drawing.Size(167, 29);
+            this.quảnLýNhânViênToolStripMenuItem.Text = "Quản lý tài khoản";
+            // 
+            // nToolStripMenuItem
+            // 
+            this.nToolStripMenuItem.Name = "nToolStripMenuItem";
+            this.nToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.nToolStripMenuItem.Text = "Nhân viên";
+            this.nToolStripMenuItem.Click += new System.EventHandler(this.nToolStripMenuItem_Click);
+            // 
+            // kháchHàngToolStripMenuItem
+            // 
+            this.kháchHàngToolStripMenuItem.Name = "kháchHàngToolStripMenuItem";
+            this.kháchHàngToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.kháchHàngToolStripMenuItem.Text = "Khách hàng";
+            this.kháchHàngToolStripMenuItem.Click += new System.EventHandler(this.kháchHàngToolStripMenuItem_Click);
             // 
             // quảnLýKhoHàngToolStripMenuItem
             // 
@@ -349,29 +389,43 @@
             this.quảnLýSảnPhẩmToolStripMenuItem.Text = "Quản lý sản phẩm";
             this.quảnLýSảnPhẩmToolStripMenuItem.Click += new System.EventHandler(this.quảnLýSảnPhẩmToolStripMenuItem_Click);
             // 
-            // chart1
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(814, 267);
-            this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series1.Legend = "Legend1";
-            series1.Name = "Sales";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(409, 413);
-            this.chart1.TabIndex = 7;
-            this.chart1.Text = "chart1";
-            // 
             // quảnLýĐơnHàngToolStripMenuItem
             // 
             this.quảnLýĐơnHàngToolStripMenuItem.Name = "quảnLýĐơnHàngToolStripMenuItem";
             this.quảnLýĐơnHàngToolStripMenuItem.Size = new System.Drawing.Size(171, 29);
             this.quảnLýĐơnHàngToolStripMenuItem.Text = "Quản lý đơn hàng";
             this.quảnLýĐơnHàngToolStripMenuItem.Click += new System.EventHandler(this.quảnLýĐơnHàngToolStripMenuItem_Click);
+            // 
+            // chart1
+            // 
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.IsTextAutoFit = false;
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
+            this.chart1.Location = new System.Drawing.Point(814, 267);
+            this.chart1.Name = "chart1";
+            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            this.chart1.PaletteCustomColors = new System.Drawing.Color[] {
+        System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(160)))), ((int)(((byte)(139))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(188)))), ((int)(((byte)(0))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(88)))), ((int)(((byte)(127))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(220)))), ((int)(((byte)(225))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(83)))), ((int)(((byte)(255))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(153)))), ((int)(((byte)(254))))),
+        System.Drawing.Color.Empty};
+            series2.BackSecondaryColor = System.Drawing.Color.White;
+            series2.BorderColor = System.Drawing.Color.Silver;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            series2.LabelForeColor = System.Drawing.Color.White;
+            series2.Legend = "Legend1";
+            series2.Name = "Sales";
+            this.chart1.Series.Add(series2);
+            this.chart1.Size = new System.Drawing.Size(409, 413);
+            this.chart1.TabIndex = 7;
+            this.chart1.Text = "chart1";
             // 
             // fAdmin
             // 
@@ -432,9 +486,12 @@
         private System.Windows.Forms.ToolStripMenuItem quảnLýKhoHàngToolStripMenuItem;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.ToolStripMenuItem quảnLýSảnPhẩmToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem quảnLýĐơnHàngToolStripMenuItem;
+        private System.Windows.Forms.Button yearBtn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
         private System.Windows.Forms.DataGridViewTextBoxColumn revenue;
         private System.Windows.Forms.DataGridViewTextBoxColumn profit;
-        private System.Windows.Forms.ToolStripMenuItem quảnLýĐơnHàngToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem nToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem kháchHàngToolStripMenuItem;
     }
 }

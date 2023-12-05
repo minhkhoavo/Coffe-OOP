@@ -63,6 +63,8 @@ namespace OOP_Coffee.Form
         }
         private void pictureBox5_Click(object sender, EventArgs e)
         {
+            dateTimePicker1.Select();
+            SendKeys.Send("%{DOWN}");
             //DateTimePicker newDateTimePicker = new DateTimePicker();
 
             //newDateTimePicker.CalendarTitleBackColor = System.Drawing.Color.Transparent;
